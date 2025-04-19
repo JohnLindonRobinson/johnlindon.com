@@ -6,6 +6,15 @@ on:
   push:
     branches: [main, development]
 
+# Add permissions block
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  statuses: write
+  checks: write
+  discussions: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
