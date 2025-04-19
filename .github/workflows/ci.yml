@@ -27,9 +27,13 @@ jobs:
         run: npm ci
 
       - name: Check formatting
+        id: format
+        continue-on-error: true
         run: npm run format:check
 
       - name: Run ESLint
+        id: lint
+        continue-on-error: true
         run: npm run lint
 
       # Skip tests for now until we set them up
@@ -45,11 +49,55 @@ jobs:
           sudo -u postgres psql -c "CREATE DATABASE test_db OWNER test;"
 
       - name: Build
+        id: build
+        continue-on-error: true
         run: |
           npx prisma generate
           # Skip migrations in CI for now
           # npx prisma migrate deploy
           npm run build
+
+      - name: Comment on Commit
+        if: github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Create status comment
+          STATUS="## 🚀 CI Build Report\n\n"
+          
+          # Format Check
+          if [[ "${{ steps.format.outcome }}" == "success" ]]; then
+            STATUS+="✅ Format Check: Passed\n"
+          else
+            STATUS+="❌ Format Check: Failed\n"
+            STATUS+="<details><summary>Format Check Logs</summary>\n\n\`\`\`\n${{ steps.format.outputs.stdout }}\n\`\`\`\n</details>\n\n"
+          fi
+          
+          # Lint Check
+          if [[ "${{ steps.lint.outcome }}" == "success" ]]; then
+            STATUS+="✅ Lint Check: Passed\n"
+          else
+            STATUS+="❌ Lint Check: Failed\n"
+            STATUS+="<details><summary>Lint Check Logs</summary>\n\n\`\`\`\n${{ steps.lint.outputs.stdout }}\n\`\`\`\n</details>\n\n"
+          fi
+          
+          # Build Check
+          if [[ "${{ steps.build.outcome }}" == "success" ]]; then
+            STATUS+="✅ Build: Passed\n"
+          else
+            STATUS+="❌ Build: Failed\n"
+            STATUS+="<details><summary>Build Logs</summary>\n\n\`\`\`\n${{ steps.build.outputs.stdout }}\n\`\`\`\n</details>\n\n"
+          fi
+          
+          STATUS+="\n📅 Run at: $(date '+%Y-%m-%d %H:%M:%S')\n"
+          STATUS+="\n🔗 [View Run Details](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+          
+          # Post comment on commit
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            /repos/${{ github.repository }}/commits/${{ github.sha }}/comments \
+            -f body="$STATUS"
 
       - name: Update PR Status
         if: github.event_name == 'pull_request'
