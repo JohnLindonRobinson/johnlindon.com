@@ -55,12 +55,8 @@ export default function Contact() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-primary mb-4">
-          Get in Touch
-        </h1>
-        <p className="text-xl text-text/80">
-          Let's discuss how I can help with your project
-        </p>
+        <h1 className="text-4xl font-bold text-primary mb-4">Get in Touch</h1>
+        <p className="text-xl text-text/80">Let's discuss how I can help with your project</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -106,8 +102,8 @@ export default function Contact() {
           <div className="bg-white p-6 rounded-lg border border-primary/10">
             <h2 className="text-2xl font-semibold text-primary mb-4">Schedule a Call</h2>
             <p className="text-text/80 mb-4">
-              Book a time that works for you using my Motion calendar. I'll automatically
-              adjust to your timezone and find the best available slot.
+              Book a time that works for you using my Motion calendar. I'll automatically adjust to
+              your timezone and find the best available slot.
             </p>
             <Button
               href="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
@@ -122,8 +118,8 @@ export default function Contact() {
           <div className="bg-white p-6 rounded-lg border border-primary/10">
             <h2 className="text-2xl font-semibold text-primary mb-4">Response Time</h2>
             <p className="text-text/80">
-              I typically respond to messages within 24 hours. For urgent matters,
-              please indicate in your message.
+              I typically respond to messages within 24 hours. For urgent matters, please indicate
+              in your message.
             </p>
           </div>
         </div>
@@ -193,9 +189,7 @@ export default function Contact() {
                 ></textarea>
               </div>
 
-              {status === 'error' && (
-                <div className="text-red-500 text-sm">{error}</div>
-              )}
+              {status === 'error' && <div className="text-red-500 text-sm">{error}</div>}
 
               {status === 'success' && (
                 <div className="text-green-500 text-sm">
@@ -219,8 +213,8 @@ export default function Contact() {
           <div className="bg-white p-6 rounded-lg border border-primary/10">
             <h2 className="text-2xl font-semibold text-primary mb-4">View Available Times</h2>
             <p className="text-text/80 mb-4">
-              Browse and select a time that works best for you. The calendar will
-              automatically adjust to your timezone.
+              Browse and select a time that works best for you. The calendar will automatically
+              adjust to your timezone.
             </p>
             <div className="w-full h-[600px] rounded-lg overflow-hidden">
               <iframe
@@ -236,5 +230,5 @@ export default function Contact() {
         </div>
       </div>
     </div>
-  )
-} 
+  );
+}

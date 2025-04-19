@@ -1,0 +1,107 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 🌐 Project: johnlindon.com
+# Freelance Portfolio & Lead-Gen Site
+
+git:
+  branch_naming:
+    format: "<type>/<description>"
+    types: ["feat", "fix", "chore", "docs", "style", "refactor", "test"]
+    example: "feat/portfolio-section"
+
+  commit_messages:
+    format: "<type>(<scope>): <description>"
+    types: ["feat", "fix", "chore", "docs", "style", "refactor", "test"]
+    example: "feat(contact): add working email form with toast feedback"
+
+  workflow:
+    - Feature branches from main
+    - Atomic commits with descriptive messages
+    - PRs tied to GitHub issues
+    - Staging via Vercel preview builds
+
+structure:
+  components:
+    location: "components/"
+    types:
+      - ui/       # Shared UI components (Button, Card, etc.)
+      - sections/ # Homepage / About / Services / Contact
+      - layout/   # Navbar, Footer, Shell
+      - forms/    # Form inputs, contact handling
+
+  lib:
+    location: "lib/"
+    contents:
+      - email/     # Email sending logic (custom or provider)
+      - utils/     # Formatters, helpers, etc.
+      - prisma/    # Prisma client & config
+
+  styles:
+    location: "styles/"
+    contents: "Global CSS + Tailwind directives"
+
+  types:
+    location: "types/"
+    contents: "TypeScript interfaces and schema types"
+
+practices:
+  typescript:
+    strict: true
+    types_first: true
+
+  styling:
+    framework: "Tailwind CSS"
+    components: "shadcn/ui"
+    dark_mode: "class-based (Tailwind recommended)"
+    theme_tokens:
+      source: "color-palette.md"
+      implementation: "tailwind.config.ts > extend.colors"
+
+  accessibility:
+    - Use semantic HTML
+    - Label inputs and buttons
+    - Test keyboard navigation
+    - WCAG 2.1 AA compliance minimum
+
+  responsiveness:
+    - Mobile-first layout
+    - Tailwind breakpoints: sm → 640px, md → 768px, lg → 1024px, xl → 1280px
+    - Navigation must work on touch + keyboard
+
+testing:
+  framework: "Jest + React Testing Library"
+  linting: "ESLint + Prettier"
+  coverage: "Target 80%+ for core utilities/components"
+
+deployment:
+  provider: "Vercel"
+  env:
+    source: ".env"
+    secrets:
+      - DATABASE_URL
+      - EMAIL_API_KEY
+  analytics:
+    preferred: "Plausible (privacy-first)"
+
+documentation:
+  required:
+    - README.md
+    - Color palette + typography
+    - Component usage examples
+    - ENV variable instructions
+    - Deployment steps
+
+performance:
+  lighthouse_targets:
+    - Performance: 90+
+    - Accessibility: 95+
+    - Best Practices: 90+
+    - SEO: 90+
+
+contact:
+  email: "john@johnlindon.com"
+  repo: "https://github.com/JohnLindonRobinson/johnlindon.com"
+  prod: "https://johnlindon.com (or vercel preview)"

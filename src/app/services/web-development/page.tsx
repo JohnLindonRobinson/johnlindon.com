@@ -1,12 +1,10 @@
-import Button from '@/components/Button'
+import Button from '@/components/Button';
 
 export default function WebDevelopmentService() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Full-Stack Web App Development
-        </h1>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">Full-Stack Web App Development</h1>
         <p className="text-xl text-gray-600">
           Modern, scalable applications built with cutting-edge technology
         </p>
@@ -15,9 +13,9 @@ export default function WebDevelopmentService() {
       <div className="prose prose-lg max-w-none">
         <h2>What I Offer</h2>
         <p>
-          I build robust, maintainable web applications using modern technologies
-          and best practices. Whether you need an MVP, internal dashboard, or
-          production-ready application, I can help bring your vision to life.
+          I build robust, maintainable web applications using modern technologies and best
+          practices. Whether you need an MVP, internal dashboard, or production-ready application, I
+          can help bring your vision to life.
         </p>
 
         <h2>Technical Stack</h2>
@@ -57,37 +55,29 @@ export default function WebDevelopmentService() {
         <h2>Development Process</h2>
         <ol>
           <li>
-            <strong>Planning:</strong> We define requirements, user stories, and
-            technical specifications
+            <strong>Planning:</strong> We define requirements, user stories, and technical
+            specifications
           </li>
           <li>
-            <strong>Design:</strong> I create wireframes and design the database
-            schema
+            <strong>Design:</strong> I create wireframes and design the database schema
           </li>
           <li>
-            <strong>Development:</strong> I build the application using agile
-            methodologies
+            <strong>Development:</strong> I build the application using agile methodologies
           </li>
           <li>
-            <strong>Testing:</strong> We ensure quality through automated tests
-            and manual review
+            <strong>Testing:</strong> We ensure quality through automated tests and manual review
           </li>
           <li>
-            <strong>Deployment:</strong> I help you deploy to production and
-            monitor performance
+            <strong>Deployment:</strong> I help you deploy to production and monitor performance
           </li>
         </ol>
       </div>
 
       <div className="mt-12 text-center">
-        <Button
-          href="/contact"
-          variant="primary"
-          size="lg"
-        >
+        <Button href="/contact" variant="primary" size="lg">
           Start Your Project
         </Button>
       </div>
     </div>
-  )
-} 
+  );
+}

@@ -1,17 +1,13 @@
-import Button from '@/components/Button'
-import Image from 'next/image'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import Button from '@/components/Button';
+import Image from 'next/image';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function About() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          About Me
-        </h1>
-        <p className="text-xl text-gray-600">
-          Freelance Developer & Systems Consultant
-        </p>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">About Me</h1>
+        <p className="text-xl text-gray-600">Freelance Developer & Systems Consultant</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -19,18 +15,16 @@ export default function About() {
           <div className="prose prose-lg max-w-none">
             <h2>Background</h2>
             <p>
-              I'm a freelance developer and systems consultant with a passion for
-              creating efficient, scalable solutions that solve real business problems.
-              With over 5 years of experience across multiple industries including e-commerce,
-              education, and financial technology, I bring a unique perspective to
-              every project.
+              I'm a freelance developer and systems consultant with a passion for creating
+              efficient, scalable solutions that solve real business problems. With over 5 years of
+              experience across multiple industries including e-commerce, education, and financial
+              technology, I bring a unique perspective to every project.
             </p>
             <p>
-              My journey in technology began with a fascination for automation and
-              efficiency. This led me to specialize in creating custom solutions that
-              streamline business operations, from automated trading systems to
-              educational platforms. I've worked with startups, small businesses,
-              and educational institutions, helping them leverage technology to
+              My journey in technology began with a fascination for automation and efficiency. This
+              led me to specialize in creating custom solutions that streamline business operations,
+              from automated trading systems to educational platforms. I've worked with startups,
+              small businesses, and educational institutions, helping them leverage technology to
               achieve their goals.
             </p>
           </div>
@@ -122,34 +116,33 @@ export default function About() {
 
         <h2>Approach</h2>
         <p>
-          I believe in a collaborative, iterative approach to development. Each
-          project starts with understanding your unique needs and challenges,
-          followed by careful planning and execution. I focus on creating
-          maintainable, scalable solutions that grow with your business.
+          I believe in a collaborative, iterative approach to development. Each project starts with
+          understanding your unique needs and challenges, followed by careful planning and
+          execution. I focus on creating maintainable, scalable solutions that grow with your
+          business.
         </p>
 
         <div className="bg-gray-50 p-6 rounded-lg mt-8">
           <h3 className="text-xl font-semibold mb-4">Why Work With Me?</h3>
           <ul className="list-disc pl-6">
             <li>
-              <strong>End-to-End Solutions:</strong> From initial concept to
-              deployment and maintenance
+              <strong>End-to-End Solutions:</strong> From initial concept to deployment and
+              maintenance
             </li>
             <li>
-              <strong>Clear Communication:</strong> Regular updates and
-              transparent progress tracking
+              <strong>Clear Communication:</strong> Regular updates and transparent progress
+              tracking
             </li>
             <li>
-              <strong>Quality Focus:</strong> Emphasis on clean, maintainable code
-              and best practices
+              <strong>Quality Focus:</strong> Emphasis on clean, maintainable code and best
+              practices
             </li>
             <li>
-              <strong>Scalable Architecture:</strong> Solutions designed to grow
-              with your business
+              <strong>Scalable Architecture:</strong> Solutions designed to grow with your business
             </li>
             <li>
-              <strong>Ongoing Support:</strong> Continued assistance and updates
-              after project completion
+              <strong>Ongoing Support:</strong> Continued assistance and updates after project
+              completion
             </li>
           </ul>
         </div>
@@ -166,14 +159,10 @@ export default function About() {
       </div>
 
       <div className="mt-12 text-center">
-        <Button
-          href="/contact"
-          variant="primary"
-          size="lg"
-        >
+        <Button href="/contact" variant="primary" size="lg">
           Let's Work Together
         </Button>
       </div>
     </div>
-  )
-} 
+  );
+}

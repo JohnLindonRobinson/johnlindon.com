@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline'
-  size?: 'sm' | 'md' | 'lg'
-  href?: string
-  children: ReactNode
-  isLoading?: boolean
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  children: ReactNode;
+  isLoading?: boolean;
 }
 
 export default function Button({
@@ -20,36 +20,33 @@ export default function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent disabled:opacity-50 disabled:cursor-not-allowed'
-  
+  const baseStyles =
+    'inline-flex items-center justify-center rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent disabled:opacity-50 disabled:cursor-not-allowed';
+
   const variantStyles = {
     primary: 'bg-accent text-white hover:bg-accent/90',
     secondary: 'bg-background text-accent border border-accent hover:bg-accent/10',
     outline: 'bg-transparent text-accent border border-accent hover:bg-accent/10',
-  }
-  
+  };
+
   const sizeStyles = {
     sm: 'px-3 py-1.5 text-sm',
     md: 'px-4 py-2 text-base',
-    lg: 'px-6 py-3 text-lg'
-  }
-  
-  const buttonClasses = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`
-  
+    lg: 'px-6 py-3 text-lg',
+  };
+
+  const buttonClasses = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+
   if (href) {
     return (
       <Link href={href} className={buttonClasses}>
         {children}
       </Link>
-    )
+    );
   }
-  
+
   return (
-    <button
-      className={buttonClasses}
-      disabled={isLoading}
-      {...props}
-    >
+    <button className={buttonClasses} disabled={isLoading} {...props}>
       {isLoading ? (
         <svg
           className="animate-spin -ml-1 mr-2 h-4 w-4"
@@ -74,5 +71,5 @@ export default function Button({
       ) : null}
       {children}
     </button>
-  )
-} 
+  );
+}

@@ -1,10 +1,6 @@
 import Link from 'next/link';
 
-export default function ProjectsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ProjectsLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
@@ -32,4 +28,4 @@ export default function ProjectsLayout({
       </div>
     </div>
   );
-} 
+}

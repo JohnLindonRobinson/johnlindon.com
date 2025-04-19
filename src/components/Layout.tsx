@@ -27,7 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {navItems.map((item) => (
+              {navItems.map(item => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -45,12 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="md:hidden text-text/80 hover:text-accent"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMenuOpen ? (
                   <path
                     strokeLinecap="round"
@@ -73,7 +68,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Mobile Navigation */}
           {isMenuOpen && (
             <div className="md:hidden mt-4 space-y-2">
-              {navItems.map((item) => (
+              {navItems.map(item => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -97,14 +92,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-lg font-semibold text-primary mb-4">John Robinson</h3>
-              <p className="text-text/60">
-                Freelance Developer & Systems Consultant
-              </p>
+              <p className="text-text/60">Freelance Developer & Systems Consultant</p>
             </div>
             <div>
               <h4 className="text-sm font-semibold text-primary mb-4">Navigation</h4>
               <ul className="space-y-2">
-                {navItems.map((item) => (
+                {navItems.map(item => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
@@ -162,4 +155,4 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </footer>
     </div>
   );
-} 
+}

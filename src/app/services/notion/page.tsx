@@ -1,4 +1,4 @@
-import Button from '@/components/Button'
+import Button from '@/components/Button';
 
 export default function NotionService() {
   return (
@@ -15,10 +15,9 @@ export default function NotionService() {
       <div className="prose prose-lg max-w-none">
         <h2>What I Offer</h2>
         <p>
-          I help teams and individuals optimize their workflows by creating
-          custom Notion systems that integrate with their existing tools and
-          processes. From CRMs to knowledge bases, I build solutions that
-          improve productivity and organization.
+          I help teams and individuals optimize their workflows by creating custom Notion systems
+          that integrate with their existing tools and processes. From CRMs to knowledge bases, I
+          build solutions that improve productivity and organization.
         </p>
 
         <h2>Key Solutions</h2>
@@ -58,36 +57,29 @@ export default function NotionService() {
         <h2>Implementation Process</h2>
         <ol>
           <li>
-            <strong>Discovery:</strong> We analyze your current workflows and
-            identify improvement opportunities
+            <strong>Discovery:</strong> We analyze your current workflows and identify improvement
+            opportunities
           </li>
           <li>
-            <strong>Design:</strong> I create a custom Notion system tailored to
-            your needs
+            <strong>Design:</strong> I create a custom Notion system tailored to your needs
           </li>
           <li>
-            <strong>Development:</strong> I build and configure your Notion
-            workspace
+            <strong>Development:</strong> I build and configure your Notion workspace
           </li>
           <li>
             <strong>Training:</strong> I provide guidance on using the new system
           </li>
           <li>
-            <strong>Support:</strong> Ongoing assistance and system updates as
-            needed
+            <strong>Support:</strong> Ongoing assistance and system updates as needed
           </li>
         </ol>
       </div>
 
       <div className="mt-12 text-center">
-        <Button
-          href="/contact"
-          variant="primary"
-          size="lg"
-        >
+        <Button href="/contact" variant="primary" size="lg">
           Transform Your Workflow
         </Button>
       </div>
     </div>
-  )
-} 
+  );
+}

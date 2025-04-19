@@ -47,9 +47,7 @@ export default function AdminPage() {
       if (!response.ok) throw new Error('Failed to update status');
 
       setSubmissions(prev =>
-        prev.map(sub =>
-          sub.id === id ? { ...sub, status: newStatus } : sub
-        )
+        prev.map(sub => (sub.id === id ? { ...sub, status: newStatus } : sub))
       );
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
@@ -81,18 +79,13 @@ export default function AdminPage() {
     <div className="min-h-screen bg-background p-8">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-2xl font-bold text-primary mb-8">Contact Form Submissions</h1>
-        
+
         <div className="space-y-6">
-          {submissions.map((submission) => (
-            <div
-              key={submission.id}
-              className="bg-white p-6 rounded-lg border border-primary/10"
-            >
+          {submissions.map(submission => (
+            <div key={submission.id} className="bg-white p-6 rounded-lg border border-primary/10">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h2 className="text-xl font-semibold text-primary">
-                    {submission.subject}
-                  </h2>
+                  <h2 className="text-xl font-semibold text-primary">{submission.subject}</h2>
                   <p className="text-text/80">
                     From: {submission.name} ({submission.email})
                   </p>
@@ -103,7 +96,7 @@ export default function AdminPage() {
                 <div className="flex gap-2">
                   <select
                     value={submission.status}
-                    onChange={(e) => updateStatus(submission.id, e.target.value)}
+                    onChange={e => updateStatus(submission.id, e.target.value)}
                     className="px-3 py-1 border border-primary/20 rounded-lg text-sm"
                   >
                     <option value="new">New</option>
@@ -121,4 +114,4 @@ export default function AdminPage() {
       </div>
     </div>
   );
-} 
+}

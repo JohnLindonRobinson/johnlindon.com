@@ -1,24 +1,19 @@
-import Button from '@/components/Button'
+import Button from '@/components/Button';
 
 export default function EdTechService() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Education Tech & Tutoring Systems
-        </h1>
-        <p className="text-xl text-gray-600">
-          Custom tools for educators and edtech startups
-        </p>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">Education Tech & Tutoring Systems</h1>
+        <p className="text-xl text-gray-600">Custom tools for educators and edtech startups</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
         <h2>What I Offer</h2>
         <p>
-          I create specialized educational technology solutions for tutors,
-          tuition centers, and edtech startups. My tools help streamline
-          teaching processes, track student progress, and enhance learning
-          outcomes.
+          I create specialized educational technology solutions for tutors, tuition centers, and
+          edtech startups. My tools help streamline teaching processes, track student progress, and
+          enhance learning outcomes.
         </p>
 
         <h2>Key Solutions</h2>
@@ -57,19 +52,17 @@ export default function EdTechService() {
         <h2>Implementation Process</h2>
         <ol>
           <li>
-            <strong>Needs Assessment:</strong> We identify your specific
-            educational challenges and requirements
+            <strong>Needs Assessment:</strong> We identify your specific educational challenges and
+            requirements
           </li>
           <li>
-            <strong>Solution Design:</strong> I create a tailored system that
-            addresses your needs
+            <strong>Solution Design:</strong> I create a tailored system that addresses your needs
           </li>
           <li>
             <strong>Development:</strong> I build and test the educational tools
           </li>
           <li>
-            <strong>Training:</strong> I provide guidance on using the new
-            system
+            <strong>Training:</strong> I provide guidance on using the new system
           </li>
           <li>
             <strong>Support:</strong> Ongoing assistance and system updates
@@ -78,14 +71,10 @@ export default function EdTechService() {
       </div>
 
       <div className="mt-12 text-center">
-        <Button
-          href="/contact"
-          variant="primary"
-          size="lg"
-        >
+        <Button href="/contact" variant="primary" size="lg">
           Enhance Your Teaching
         </Button>
       </div>
     </div>
-  )
-} 
+  );
+}

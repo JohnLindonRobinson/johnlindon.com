@@ -1,0 +1,63 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 🧠 Productivity Automation Rules — johnlindon.com
+
+feature_requests:
+  when_user_says: "I want to be able to..."
+  action:
+    - DO NOT generate code immediately
+    - Add the feature as a new task to the appropriate TODO list file:
+        - If it relates to UI: add to `design-todo.md`
+        - If it's dev-only: add to `dev-todo.md`
+        - If it's ambiguous: add to `general-todo.md`
+    - Format the new task with:
+        - [ ] Feature name
+        - 👤 Requested by: Johnny
+        - 📍 Context (page or user flow)
+        - 📅 Timestamp
+    - Create or update a related GitHub Issue:
+        - If issue doesn't exist: open one
+        - If it exists: link the TODO to that issue
+        - Add a comment to the issue: `"🆕 New related task added to TODO list"` + summary
+
+progress_tracking:
+  on_significant_progress:
+    - Update TODO checklist status (e.g., `[x]`)
+    - Add or edit progress note below the task
+    - Add a GitHub Issue comment:
+        - Include:
+            - ✅ Completed subtasks
+            - 🔄 Next steps
+            - 🔍 Any blockers
+            - 🔗 Link to commit / preview / staging result
+
+long_term_flags:
+  when_possible_issue_detected:
+    - If it's not critical or in scope:
+        - Add a note in the relevant TODO list using:
+            - ⚠️ Note: This could become a long-term issue...
+            - Include page/component/context and symptoms
+        - Optional: open a GitHub Issue labeled `discussion` or `icebox`
+    - Do not interrupt current dev unless it blocks critical flow
+
+checklist_maintenance:
+  on_todo_file_edit:
+    - Keep TODO lists organized by section: `Current`, `Blocked`, `Later`
+    - Use date markers for context (e.g., `# Updated: 2025-04-22`)
+    - Mark clearly when a task is deferred with a reason
+
+issue_linking:
+  on_commit_or_merge:
+    - Auto-comment on related issue with:
+        - Commit SHA
+        - Commit message
+        - Link to deployment if preview available
+
+weekly_review:
+  on_mondays:
+    - Check for open TODOs with no matching GitHub issues
+    - Sync mismatched statuses
+    - Identify old unresolved `icebox`/`discussion` issues to revisit

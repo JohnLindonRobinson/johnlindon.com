@@ -1,4 +1,4 @@
-import Button from '@/components/Button'
+import Button from '@/components/Button';
 
 export default function AutomationService() {
   return (
@@ -15,29 +15,25 @@ export default function AutomationService() {
       <div className="prose prose-lg max-w-none">
         <h2>What I Offer</h2>
         <p>
-          I create custom scripts and integrations that eliminate manual workflows,
-          improve accuracy, and free up valuable time. My solutions are tailored to
-          your specific business needs and integrate seamlessly with your existing
-          tools and processes.
+          I create custom scripts and integrations that eliminate manual workflows, improve
+          accuracy, and free up valuable time. My solutions are tailored to your specific business
+          needs and integrate seamlessly with your existing tools and processes.
         </p>
 
         <h2>Key Areas of Expertise</h2>
         <ul>
           <li>
-            <strong>Xero API Integration:</strong> Automate accounting processes,
-            sync inventory, and generate reports
+            <strong>Xero API Integration:</strong> Automate accounting processes, sync inventory,
+            and generate reports
           </li>
           <li>
-            <strong>Zapier Workflows:</strong> Connect your apps and automate
-            repetitive tasks
+            <strong>Zapier Workflows:</strong> Connect your apps and automate repetitive tasks
           </li>
           <li>
-            <strong>EmailJS Automation:</strong> Streamline communication and
-            notifications
+            <strong>EmailJS Automation:</strong> Streamline communication and notifications
           </li>
           <li>
-            <strong>Google Apps Script:</strong> Custom solutions for Google
-            Workspace
+            <strong>Google Apps Script:</strong> Custom solutions for Google Workspace
           </li>
         </ul>
 
@@ -56,20 +52,17 @@ export default function AutomationService() {
         <h2>How It Works</h2>
         <ol>
           <li>
-            <strong>Discovery:</strong> We discuss your current processes and
-            identify automation opportunities
+            <strong>Discovery:</strong> We discuss your current processes and identify automation
+            opportunities
           </li>
           <li>
-            <strong>Design:</strong> I create a detailed plan for the automation
-            solution
+            <strong>Design:</strong> I create a detailed plan for the automation solution
           </li>
           <li>
-            <strong>Development:</strong> I build and test the automation
-            solution
+            <strong>Development:</strong> I build and test the automation solution
           </li>
           <li>
-            <strong>Deployment:</strong> We implement the solution and ensure it
-            works seamlessly
+            <strong>Deployment:</strong> We implement the solution and ensure it works seamlessly
           </li>
           <li>
             <strong>Support:</strong> Ongoing maintenance and updates as needed
@@ -78,14 +71,10 @@ export default function AutomationService() {
       </div>
 
       <div className="mt-12 text-center">
-        <Button
-          href="/contact"
-          variant="primary"
-          size="lg"
-        >
+        <Button href="/contact" variant="primary" size="lg">
           Get Started with Automation
         </Button>
       </div>
     </div>
-  )
-} 
+  );
+}

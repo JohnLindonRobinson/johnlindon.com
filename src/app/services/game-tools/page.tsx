@@ -1,24 +1,19 @@
-import Button from '@/components/Button'
+import Button from '@/components/Button';
 
 export default function GameToolsService() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Game Logic & Strategy Tools
-        </h1>
-        <p className="text-xl text-gray-600">
-          Advanced tools for game analysis and strategy
-        </p>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">Game Logic & Strategy Tools</h1>
+        <p className="text-xl text-gray-600">Advanced tools for game analysis and strategy</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
         <h2>What I Offer</h2>
         <p>
-          I develop specialized tools for analyzing game states, evaluating
-          strategies, and supporting decision-making in complex games. My
-          solutions help game designers and players understand and optimize
-          their gameplay.
+          I develop specialized tools for analyzing game states, evaluating strategies, and
+          supporting decision-making in complex games. My solutions help game designers and players
+          understand and optimize their gameplay.
         </p>
 
         <h2>Key Features</h2>
@@ -58,19 +53,18 @@ export default function GameToolsService() {
         <h2>Development Process</h2>
         <ol>
           <li>
-            <strong>Game Analysis:</strong> We study the game mechanics and
-            identify key decision points
+            <strong>Game Analysis:</strong> We study the game mechanics and identify key decision
+            points
           </li>
           <li>
-            <strong>Tool Design:</strong> I create a system architecture for
-            analyzing and evaluating game states
+            <strong>Tool Design:</strong> I create a system architecture for analyzing and
+            evaluating game states
           </li>
           <li>
             <strong>Implementation:</strong> I build and test the analysis tools
           </li>
           <li>
-            <strong>Optimization:</strong> We refine the tools for accuracy and
-            performance
+            <strong>Optimization:</strong> We refine the tools for accuracy and performance
           </li>
           <li>
             <strong>Support:</strong> Ongoing updates and improvements
@@ -79,14 +73,10 @@ export default function GameToolsService() {
       </div>
 
       <div className="mt-12 text-center">
-        <Button
-          href="/contact"
-          variant="primary"
-          size="lg"
-        >
+        <Button href="/contact" variant="primary" size="lg">
           Build Your Game Tool
         </Button>
       </div>
     </div>
-  )
-} 
+  );
+}

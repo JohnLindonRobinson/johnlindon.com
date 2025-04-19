@@ -2,74 +2,74 @@ name: CI
 
 on:
   pull_request:
-    branches: [ main, development ]
+    branches: [main, development]
   push:
-    branches: [ main, development ]
+    branches: [main, development]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: npm ci
-    
-    - name: Check formatting
-      run: npm run format:check || npm run prettier -- --check .
-    
-    - name: Run ESLint
-      run: npm run lint
-    
-    - name: Run tests
-      run: npm test
-    
-    - name: Build
-      run: npm run build
-      
-    - name: Update PR Status
-      if: github.event_name == 'pull_request'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        # Get PR number from event
-        PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-        
-        # Create status comment
-        STATUS="✅ CI Checks Completed\n"
-        STATUS+="🔍 Checks Run:\n"
-        STATUS+="- ✓ Code formatting\n"
-        STATUS+="- ✓ Linting\n"
-        STATUS+="- ✓ Tests\n"
-        STATUS+="- ✓ Build\n\n"
-        STATUS+="📅 $(date '+%Y-%m-%d %H:%M:%S')\n"
-        
-        # Add any linked issues
-        BODY=$(gh pr view $PR_NUMBER --json body -q .body)
-        if echo "$BODY" | grep -q "Closes #"; then
-          ISSUES=$(echo "$BODY" | grep -o '#[0-9]\+' | tr -d '#')
-          for ISSUE in $ISSUES; do
-            STATUS+="\n🔗 Linked to #$ISSUE"
-            gh issue comment $ISSUE "✅ CI passed in PR #$PR_NUMBER"
-          done
-        fi
-        
-        # Post comment
-        gh pr comment $PR_NUMBER -b "$STATUS"
-    
-    - name: Check TODOs
-      if: github.event_name == 'pull_request'
-      run: |
-        # Look for new TODOs
-        TODOS=$(git diff origin/${{ github.base_ref }} | grep -B2 '^\+.*TODO')
-        if [ ! -z "$TODOS" ]; then
-          echo "::warning::New TODOs found in changes. Please ensure they are tracked in appropriate todo files:"
-          echo "$TODOS"
-        fi 
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format:check || npm run prettier -- --check .
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Update PR Status
+        if: github.event_name == 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get PR number from event
+          PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+
+          # Create status comment
+          STATUS="✅ CI Checks Completed\n"
+          STATUS+="🔍 Checks Run:\n"
+          STATUS+="- ✓ Code formatting\n"
+          STATUS+="- ✓ Linting\n"
+          STATUS+="- ✓ Tests\n"
+          STATUS+="- ✓ Build\n\n"
+          STATUS+="📅 $(date '+%Y-%m-%d %H:%M:%S')\n"
+
+          # Add any linked issues
+          BODY=$(gh pr view $PR_NUMBER --json body -q .body)
+          if echo "$BODY" | grep -q "Closes #"; then
+            ISSUES=$(echo "$BODY" | grep -o '#[0-9]\+' | tr -d '#')
+            for ISSUE in $ISSUES; do
+              STATUS+="\n🔗 Linked to #$ISSUE"
+              gh issue comment $ISSUE "✅ CI passed in PR #$PR_NUMBER"
+            done
+          fi
+
+          # Post comment
+          gh pr comment $PR_NUMBER -b "$STATUS"
+
+      - name: Check TODOs
+        if: github.event_name == 'pull_request'
+        run: |
+          # Look for new TODOs
+          TODOS=$(git diff origin/${{ github.base_ref }} | grep -B2 '^\+.*TODO')
+          if [ ! -z "$TODOS" ]; then
+            echo "::warning::New TODOs found in changes. Please ensure they are tracked in appropriate todo files:"
+            echo "$TODOS"
+          fi

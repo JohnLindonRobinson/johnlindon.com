@@ -1,0 +1,148 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 🧩 Git Workflow – johnlindon.com
+
+# Branch Naming
+branch_naming:
+  format: "<type>/<short-description>"
+  types:
+    - feat     # New feature
+    - fix      # Bug fix
+    - chore    # Maintenance tasks
+    - docs     # Documentation updates
+    - style    # Styling or class cleanup
+    - refactor # Code restructuring
+    - test     # Add or update tests
+  examples:
+    - feat/landing-form
+    - fix/email-validation
+    - chore/update-deps
+
+# Commit Messages
+commit_messages:
+  format: "<type>(<scope>): <description>"
+  types:
+    - feat
+    - fix
+    - chore
+    - docs
+    - style
+    - refactor
+    - test
+  examples:
+    - feat(contact): add email submission handler
+    - fix(portfolio): correct image break on mobile
+    - style(layout): tweak margins for section spacing
+
+# PR Workflow
+workflow:
+  - Always branch from `main`
+  - Use `git pull origin main` before branching
+  - Make atomic commits with clear commit messages
+  - Push to feature branch: `git push -u origin feat/my-feature`
+  - Open pull request titled with branch and feature summary
+  - Reference related issue IDs using `Closes #X`
+  - Use GitHub discussions or PR comments for review/approval
+
+# Merge Strategy
+merge:
+  preferred: "Squash and Merge"
+  notes:
+    - Always rebase before merge to keep history clean
+    - PR titles will become the squash commit message
+
+# Issue Updates
+issues:
+  - Update issue comment after meaningful progress
+  - Mark with:
+      - ✅ Completed tasks
+      - 🛠️ In progress items
+      - 🔄 Next steps
+  - Link to latest commit or preview deployment if applicable
+
+# Tagging & Releases
+release_tags:
+  strategy: "semantic versioning"
+  format: "v<major>.<minor>.<patch>"
+  example: "v0.2.0"
+  guidelines:
+    - Patch = bugfix only
+    - Minor = new feature
+    - Major = breaking change
+
+
+    # 🧩 Git Workflow – johnlindon.com
+
+# Branch Naming
+branch_naming:
+  format: "<type>/<short-description>"
+  types:
+    - feat     # New feature
+    - fix      # Bug fix
+    - chore    # Maintenance tasks
+    - docs     # Documentation updates
+    - style    # Styling or class cleanup
+    - refactor # Code restructuring
+    - test     # Add or update tests
+  examples:
+    - feat/landing-form
+    - fix/email-validation
+    - chore/update-deps
+
+# Commit Messages
+commit_messages:
+  format: "<type>(<scope>): <description>"
+  types:
+    - feat
+    - fix
+    - chore
+    - docs
+    - style
+    - refactor
+    - test
+  examples:
+    - feat(contact): add email submission handler
+    - fix(portfolio): correct image break on mobile
+    - style(layout): tweak margins for section spacing
+
+# PR Workflow
+workflow:
+  - Always branch from `development`  # Updated to reflect new structure
+  - Use `git pull origin development` before branching  # Updated to reflect new structure
+  - Make atomic commits with clear commit messages
+  - Push to feature branch: `git push -u origin feat/my-feature`
+  - Open pull request titled with branch and feature summary
+  - Reference related issue IDs using `Closes #X`
+  - Use GitHub discussions or PR comments for review/approval
+
+# Merge Strategy
+merge:
+  preferred: "Squash and Merge"
+  notes:
+    - Always rebase before merge to keep history clean
+    - PR titles will become the squash commit message
+    - Feature branches merge into `development`
+    - `development` merges into `main` for production releases
+
+# Issue Updates
+issues:
+  - Update issue comment after meaningful progress
+  - Mark with:
+      - ✅ Completed tasks
+      - 🛠️ In progress items
+      - 🔄 Next steps
+  - Link to latest commit or preview deployment if applicable
+
+# Tagging & Releases
+release_tags:
+  strategy: "semantic versioning"
+  format: "v<major>.<minor>.<patch>"
+  example: "v0.2.0"
+  guidelines:
+    - Patch = bugfix only
+    - Minor = new feature
+    - Major = breaking change
+    - Tags should only be created from `main` branch
