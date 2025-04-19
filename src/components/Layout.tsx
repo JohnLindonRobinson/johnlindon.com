@@ -121,7 +121,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="https://linkedin.com/in/johnrobinson"
+                    href="https://linkedin.com/in/johnlindonrobinson"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-text/60 hover:text-accent transition-colors"
@@ -131,7 +131,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </li>
                 <li>
                   <a
-                    href="https://github.com/johnrobinson"
+                    href="https://github.com/JohnLindonRobinson"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-text/60 hover:text-accent transition-colors"
@@ -146,10 +146,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="mailto:contact@johnrobinson.com"
+                    href="mailto:john@johnlindon.com"
                     className="text-text/60 hover:text-accent transition-colors"
                   >
-                    contact@johnrobinson.com
+                    john@johnlindon.com
                   </a>
                 </li>
               </ul>

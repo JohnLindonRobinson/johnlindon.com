@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: 'John Robinson - Freelance Developer & Systems Consultant',
     description: 'Professional portfolio and services for John Robinson, specializing in web development, automation, and system consulting.',
     images: ['https://johnlindon.com/og-image.jpg'],
-    creator: '@johnlindon',
+    creator: '@JohnLindonRobinson',
   },
   robots: {
     index: true,

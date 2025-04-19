@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:terminal": "./scripts/start-dev.sh",
+    "dev:stop": "./scripts/stop-dev.sh"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
