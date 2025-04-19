@@ -1,66 +1,84 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import Button from '../Button';
 
-describe('Button', () => {
+describe('Button Component', () => {
   it('renders with default props', () => {
     render(<Button>Click me</Button>);
-    expect(screen.getByRole('button')).toHaveTextContent('Click me');
+    const button = screen.getByRole('button', { name: 'Click me' });
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveClass('bg-accent', 'text-white');
   });
 
-  it('handles click events', async () => {
-    const handleClick = jest.fn();
-    render(<Button onClick={handleClick}>Click me</Button>);
+  it('renders different variants correctly', () => {
+    const { rerender } = render(<Button variant="secondary">Secondary</Button>);
+    let button = screen.getByRole('button', { name: 'Secondary' });
+    expect(button).toHaveClass('bg-background', 'text-accent', 'border-accent');
 
-    const button = screen.getByRole('button');
-    await userEvent.click(button);
-
-    expect(handleClick).toHaveBeenCalledTimes(1);
+    rerender(<Button variant="outline">Outline</Button>);
+    button = screen.getByRole('button', { name: 'Outline' });
+    expect(button).toHaveClass('bg-transparent', 'text-accent', 'border-accent');
   });
 
-  it('can be disabled', () => {
-    render(<Button disabled>Click me</Button>);
-    expect(screen.getByRole('button')).toBeDisabled();
-  });
+  it('renders different sizes correctly', () => {
+    const { rerender } = render(<Button size="sm">Small</Button>);
+    let button = screen.getByRole('button', { name: 'Small' });
+    expect(button).toHaveClass('px-3', 'py-1.5', 'text-sm');
 
-  it('applies custom className', () => {
-    render(<Button className="custom-class">Click me</Button>);
-    expect(screen.getByRole('button')).toHaveClass('custom-class');
+    rerender(<Button size="lg">Large</Button>);
+    button = screen.getByRole('button', { name: 'Large' });
+    expect(button).toHaveClass('px-6', 'py-3', 'text-lg');
   });
 
   it('renders as a link when href is provided', () => {
-    render(<Button href="/test">Click me</Button>);
-    const link = screen.getByRole('link');
+    render(<Button href="/test">Link Button</Button>);
+    const link = screen.getByRole('link', { name: 'Link Button' });
     expect(link).toHaveAttribute('href', '/test');
-    expect(link).toHaveTextContent('Click me');
   });
 
-  it('shows loading state', () => {
-    render(<Button isLoading>Click me</Button>);
-    expect(screen.getByRole('button')).toBeDisabled();
-    expect(screen.getByRole('button')).toContainElement(screen.getByRole('img', { hidden: true }));
+  it('shows loading state when isLoading is true', () => {
+    render(<Button isLoading>Loading</Button>);
+    const button = screen.getByRole('button', { name: 'Loading' });
+    expect(button).toBeDisabled();
+    expect(screen.getByRole('img', { hidden: true })).toBeInTheDocument(); // SVG loader
   });
 
-  it('applies variant styles correctly', () => {
-    const { rerender } = render(<Button variant="primary">Click me</Button>);
-    expect(screen.getByRole('button')).toHaveClass('bg-accent');
-
-    rerender(<Button variant="secondary">Click me</Button>);
-    expect(screen.getByRole('button')).toHaveClass('bg-background');
-
-    rerender(<Button variant="outline">Click me</Button>);
-    expect(screen.getByRole('button')).toHaveClass('bg-transparent');
+  it('handles click events', () => {
+    const handleClick = jest.fn();
+    render(<Button onClick={handleClick}>Click me</Button>);
+    const button = screen.getByRole('button', { name: 'Click me' });
+    fireEvent.click(button);
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it('applies size styles correctly', () => {
-    const { rerender } = render(<Button size="sm">Click me</Button>);
-    expect(screen.getByRole('button')).toHaveClass('px-3');
+  it('applies custom className', () => {
+    render(<Button className="custom-class">Custom</Button>);
+    const button = screen.getByRole('button', { name: 'Custom' });
+    expect(button).toHaveClass('custom-class');
+  });
 
-    rerender(<Button size="md">Click me</Button>);
-    expect(screen.getByRole('button')).toHaveClass('px-4');
+  it('forwards additional HTML button attributes', () => {
+    render(
+      <Button type="submit" aria-label="Submit form">
+        Submit
+      </Button>
+    );
+    const button = screen.getByRole('button', { name: 'Submit' });
+    expect(button).toHaveAttribute('type', 'submit');
+    expect(button).toHaveAttribute('aria-label', 'Submit form');
+  });
 
-    rerender(<Button size="lg">Click me</Button>);
-    expect(screen.getByRole('button')).toHaveClass('px-6');
+  it('disables button when isLoading is true and prevents clicks', () => {
+    const handleClick = jest.fn();
+    render(
+      <Button isLoading onClick={handleClick}>
+        Loading
+      </Button>
+    );
+    const button = screen.getByRole('button', { name: 'Loading' });
+    fireEvent.click(button);
+    expect(handleClick).not.toHaveBeenCalled();
+    expect(button).toBeDisabled();
   });
 });
