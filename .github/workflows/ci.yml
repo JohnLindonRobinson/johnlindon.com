@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DATABASE_URL: "postgresql://test:test@localhost:5432/test_db"
-      NEXT_PUBLIC_BASE_URL: "http://localhost:3000"
+      DATABASE_URL: 'postgresql://test:test@localhost:5432/test_db'
+      NEXT_PUBLIC_BASE_URL: 'http://localhost:3000'
 
     steps:
       - uses: actions/checkout@v4
@@ -58,7 +58,7 @@ jobs:
         run: |
           # Get PR number from event
           PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-          
+
           # Create status comment
           STATUS="✅ CI Checks Completed\n"
           STATUS+="🔍 Checks Run:\n"
@@ -66,7 +66,7 @@ jobs:
           STATUS+="- ✓ Linting\n"
           STATUS+="- ✓ Build\n\n"
           STATUS+="📅 $(date '+%Y-%m-%d %H:%M:%S')\n"
-          
+
           # Add any linked issues
           BODY=$(gh pr view $PR_NUMBER --json body -q .body)
           if echo "$BODY" | grep -q "Closes #"; then
@@ -76,7 +76,7 @@ jobs:
               gh issue comment $ISSUE "✅ CI passed in PR #$PR_NUMBER"
             done
           fi
-          
+
           # Post comment
           gh pr comment $PR_NUMBER -b "$STATUS"
 

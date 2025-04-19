@@ -28,7 +28,7 @@ jest.mock('next/router', () => ({
 // Mock next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props) => {
+  default: props => {
     // eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element
     return <img {...props} />;
   },
@@ -41,4 +41,4 @@ mockIntersectionObserver.mockReturnValue({
   unobserve: () => null,
   disconnect: () => null,
 });
-window.IntersectionObserver = mockIntersectionObserver; 
+window.IntersectionObserver = mockIntersectionObserver;

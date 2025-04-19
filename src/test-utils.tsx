@@ -49,4 +49,4 @@ function waitFor(callback: () => boolean | Promise<boolean>, timeout = 1000) {
 }
 
 export * from '@testing-library/react';
-export { render, setupUserEvent, waitFor }; 
+export { render, setupUserEvent, waitFor };
