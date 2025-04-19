@@ -22,6 +22,30 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
+      - name: Update Progress Tracking
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get all merged PRs since last release
+          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          merged_prs=$(gh pr list --search "merged:>$(git log -1 --format=%aI $latest_tag)" --json number,title,body --state merged)
+          
+          # Extract and update linked issues
+          echo "$merged_prs" | jq -r '.[] | select(.body | contains("Closes #")) | .body' | \
+          grep -o '#[0-9]\+' | while read -r issue; do
+            issue_num=${issue#"#"}
+            
+            # Add completion comment
+            comment="✅ Feature deployed to production\n"
+            comment+="📅 $(date '+%Y-%m-%d %H:%M:%S')\n"
+            comment+="🔗 Commit: ${GITHUB_SHA}\n"
+            
+            gh issue comment "$issue_num" -b "$comment"
+            
+            # Close issue if still open
+            gh issue close "$issue_num" -c "Completed and deployed to production"
+          done
+      
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,13 +62,45 @@ jobs:
           new_minor=$((minor + 1))
           new_tag="v$major.$new_minor.0"
           
+          # Prepare release notes
+          notes="# Release Notes for $new_tag\n\n"
+          notes+="## 🚀 New Features & Improvements\n"
+          
+          # Get all merged PRs since last release
+          merged_prs=$(gh pr list --search "merged:>$(git log -1 --format=%aI $latest_tag)" --json number,title,body,labels --state merged)
+          
+          # Categorize changes
+          features=$(echo "$merged_prs" | jq -r '.[] | select(.labels[].name == "feature") | "- #\(.number) \(.title)"')
+          fixes=$(echo "$merged_prs" | jq -r '.[] | select(.labels[].name == "bug") | "- #\(.number) \(.title)"')
+          chores=$(echo "$merged_prs" | jq -r '.[] | select(.labels[].name == "chore") | "- #\(.number) \(.title)"')
+          
+          # Add categorized changes to notes
+          if [ ! -z "$features" ]; then
+            notes+="\n### ✨ Features\n$features\n"
+          fi
+          
+          if [ ! -z "$fixes" ]; then
+            notes+="\n### 🐛 Bug Fixes\n$fixes\n"
+          fi
+          
+          if [ ! -z "$chores" ]; then
+            notes+="\n### 🔧 Maintenance\n$chores\n"
+          fi
+          
           # Create new tag
           git tag $new_tag
-          
-          # Push the tag
           git push origin $new_tag
           
           # Create GitHub release
           gh release create $new_tag \
             --title "Release $new_tag" \
-            --notes "$(git log $latest_tag..HEAD --pretty=format:'- %s')" 
+            --notes "$notes"
+      
+      - name: Update TODO Lists
+        run: |
+          # Check for completed TODOs in merged changes
+          completed_todos=$(git diff $latest_tag..HEAD | grep -B2 '^\+.*\[x\]')
+          if [ ! -z "$completed_todos" ]; then
+            echo "::notice::Completed TODOs found in this release. Please review and update todo files:"
+            echo "$completed_todos"
+          fi 
