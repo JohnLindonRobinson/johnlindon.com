@@ -7,28 +7,28 @@ const projects = [
     description: 'A comprehensive platform for order fulfillment, VAT compliance, and internal tooling. Reduced fulfillment time by 65% and enabled 3x business growth without additional hires.',
     tags: ['Automation', 'Xero API', 'E-commerce', 'VAT Compliance', 'Inventory Management'],
     href: '/portfolio/tcquick',
-    image: '/images/tcquick.jpg' // You'll need to add this image
+    imageUrl: '/images/tcquick.jpg' // Changed from image to imageUrl
   },
   {
     title: 'BullSheet – Stock Trading Simulator',
     description: 'A sophisticated stock trading simulator with paper trading, financial news aggregation, and market data charts. Built with Deno, React, TypeScript, and PostgreSQL.',
     tags: ['Deno', 'React', 'TypeScript', 'PostgreSQL', 'Financial Tech'],
     href: '/portfolio/bullsheet',
-    image: '/images/bullsheet.jpg' // You'll need to add this image
+    imageUrl: '/images/bullsheet.jpg' // Changed from image to imageUrl
   },
   {
     title: 'MTG Analyzer',
     description: 'An advanced tool for parsing JSON-based game states and suggesting optimal plays. Features deck analysis and heuristic evaluation for strategic decision-making.',
     tags: ['Game Development', 'JSON', 'Logic', 'Strategy', 'Analysis'],
     href: '/portfolio/mtg-analyzer',
-    image: '/images/mtg-analyzer.jpg' // You'll need to add this image
+    imageUrl: '/images/mtg-analyzer.jpg' // Changed from image to imageUrl
   },
   {
     title: 'Tutor Admin Suite',
     description: 'A comprehensive Notion and Google Workspace integration for managing tutoring businesses. Tracks lessons, student progress, invoices, and feedback.',
     tags: ['Notion', 'Google Workspace', 'Education', 'CRM', 'Automation'],
     href: '/portfolio/tutor-admin',
-    image: '/images/tutor-admin.jpg' // You'll need to add this image
+    imageUrl: '/images/tutor-admin.jpg' // Changed from image to imageUrl
   }
 ]
 
@@ -53,7 +53,7 @@ export default function Portfolio() {
             description={project.description}
             tags={project.tags}
             href={project.href}
-            image={project.image}
+            imageUrl={project.imageUrl}
           >
             <Button
               href={project.href}
