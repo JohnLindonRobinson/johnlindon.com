@@ -45,6 +45,7 @@
 - [x] Create individual project detail pages
 - [x] Set up form submission handling
 - [x] Add SEO metadata
+- [x] Implement core component tests (Card, Portfolio)
 - [ ] Test responsive design across devices
 - [ ] Optimize images and assets
 - [x] Set up deployment configuration
