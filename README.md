@@ -1,24 +1,26 @@
-# John Robinson - Freelance Developer & Systems Consultant
+# John Lindon's Personal Website
 
-Professional portfolio and services website for John Robinson, specializing in web development, automation, and system consulting.
+A modern, performant personal website built with Next.js, TypeScript, and Framer Motion.
 
-## 🚀 Features
+## Features
 
-- Modern, responsive design with dark mode support
-- Portfolio showcase with project details
-- Service offerings and booking system
-- Contact form with email notifications
-- SEO optimized for better visibility
+- 🚀 Built with Next.js 14 and TypeScript
+- 🎨 Smooth animations using Framer Motion
+- 📱 Fully responsive design
+- 🔒 Secure contact form with input validation
+- 📅 Motion calendar integration
+- ✅ Comprehensive test coverage
+- 🌐 Cross-browser compatibility
+- ♿ WCAG 2.1 AA compliant
 
-## 🛠 Tech Stack
+## Getting Started
 
-- **Framework**: Next.js 14 with App Router
-- **Styling**: Tailwind CSS
-- **Database**: Prisma with SQLite
-- **Deployment**: Vercel
-- **Email**: Custom email service
+### Prerequisites
 
-## 📦 Getting Started
+- Node.js 18.x or later
+- npm 9.x or later
+
+### Installation
 
 1. Clone the repository:
    ```bash
@@ -31,85 +33,84 @@ Professional portfolio and services website for John Robinson, specializing in w
    npm install
    ```
 
-3. Set up environment variables:
-   Create a `.env.local` file with:
-   ```
-   DATABASE_URL="file:./prisma/dev.db"
-   EMAIL_USER=your-email@example.com
-   EMAIL_PASSWORD=your-app-specific-password
-   ```
-
-4. Initialize the database:
+3. Copy the environment variables template:
    ```bash
-   npx prisma generate
-   npx prisma db push
+   cp .env.example .env.local
    ```
 
-5. Run the development server:
-   ```bash
-   npm run dev
-   ```
+4. Update the environment variables in `.env.local` with your values.
 
-## 🔧 Development
+### Development
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
-## 📝 License
-
-This project is private and confidential. All rights reserved.
-
-## 📞 Contact
-
-For inquiries, please use the contact form on the website or email john@johnlindon.com
-
-## Testing
-
-### Test Infrastructure
-- **Framework**: Vitest with React Testing Library
-- **Environment**: JSDOM for component testing
-- **Coverage**: V8 provider with HTML, JSON, and text reporting
-- **Types**: TypeScript for type-safe tests
-
-### Running Tests
+Start the development server:
 ```bash
-# Run all tests
-npm test
+npm run dev
+```
 
-# Run tests with coverage
+The site will be available at [http://localhost:3000](http://localhost:3000).
+
+### Testing
+
+Run the test suite:
+```bash
+npm run test
+```
+
+For specific test files:
+```bash
+npm run test src/app/api/__tests__/contact.security.test.ts -- --run
+```
+
+View test coverage:
+```bash
 npm run test:coverage
-
-# Run tests in watch mode
-npm run test:watch
 ```
 
-### Test Structure
-```
-src/
-├── components/
-│   ├── __tests__/          # Component tests
-│   ├── ui/__tests__/       # UI component tests
-│   ├── sections/__tests__/ # Section component tests
-│   └── forms/__tests__/    # Form component tests
-├── app/
-│   └── api/
-│       └── __tests__/      # API endpoint tests
-└── test/
-    └── setup.ts            # Test configuration
+### Building
+
+Create a production build:
+```bash
+npm run build
 ```
 
-### Test Categories
-- **Unit Tests**: Individual component testing
-- **Integration Tests**: Component interaction testing
-- **Security Tests**: Form and API security validation
-- **Accessibility Tests**: WCAG compliance checks
-- **E2E Tests**: Full user flow validation (coming soon)
+### Deployment
 
-### Coverage Goals
-- Components: 80%+ coverage
-- API Endpoints: 90%+ coverage
-- Critical Paths: 100% coverage
+The site is automatically deployed to Vercel on push to the main branch.
 
-For detailed testing documentation, see [Test Implementation Plan](docs/testing/test-implementation-plan.md) 
+## Project Structure
+
+```
+├── src/
+│   ├── app/           # Next.js app router pages
+│   ├── components/    # React components
+│   ├── lib/          # Utility functions
+│   ├── styles/       # Global styles
+│   └── types/        # TypeScript type definitions
+├── public/           # Static assets
+├── docs/            # Documentation
+└── tests/           # Test files
+```
+
+## Testing Strategy
+
+- Unit tests for components and utilities
+- Integration tests for API endpoints
+- E2E tests for critical user flows
+- Performance testing for animations
+- Accessibility testing
+- Cross-browser testing
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Run tests
+4. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+John Lindon Robinson - [Contact Form](https://johnlindon.com/contact) 

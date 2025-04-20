@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import Button from '@/components/ui/Button';
 
@@ -61,7 +63,7 @@ export default function ContactForm({ onSubmit, className = '' }: ContactFormPro
       });
     } catch (err) {
       setStatus('error');
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : 'An unexpected error occurred');
     }
   };
 

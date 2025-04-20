@@ -1,157 +1,60 @@
 import { prisma } from '@/lib/prisma';
-import { NextResponse } from 'next/server';
-import { rateLimit } from '../../../lib/rate-limit';
-import { validateEmail } from '@/lib/validation';
-import { sanitizeError } from '@/lib/error';
+import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
+import { rateLimit } from '@/lib/rate-limit';
+import { sanitizeInput } from '@/lib/validation';
 import { logger } from '@/lib/logger';
+import { headers } from 'next/headers';
+import type { ContactSubmission } from '@prisma/client';
 
-const MAX_MESSAGE_LENGTH = 5000;
-const limiter = rateLimit({
-  interval: 60 * 1000, // 1 minute
-  uniqueTokenPerInterval: 500,
-  maxRequests: 5,
+const contactSchema = z.object({
+  name: z.string().min(1).max(100),
+  email: z.string().email(),
+  subject: z.string().min(1).max(200),
+  message: z.string().min(1).max(5000),
 });
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
-    let body;
-    try {
-      body = await request.json();
-    } catch (error) {
-      return new Response(
-        JSON.stringify({ error: 'Invalid JSON payload' }),
-        {
-          status: 400,
-          headers: getSecurityHeaders(),
-        }
+    // Rate limiting
+    const ip = headers().get('x-forwarded-for') || 'unknown';
+    const limiter = rateLimit({
+      maxRequests: 5,
+      interval: 60 * 1000, // 1 minute
+      uniqueTokenPerInterval: 500,
+    });
+    await limiter.check(5, ip); // Pass maxRequests as first argument
+
+    const body = await request.json();
+    const validatedData = contactSchema.parse({
+      ...body,
+      name: sanitizeInput(body.name),
+      subject: sanitizeInput(body.subject),
+      message: sanitizeInput(body.message),
+    });
+
+    const submission = await prisma.contactSubmission.create({
+      data: validatedData,
+    });
+
+    return NextResponse.json(
+      { message: 'Message sent successfully', id: submission.id },
+      { status: 201 }
+    );
+  } catch (error: unknown) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json({ error: error.errors }, { status: 400 });
+    }
+    if (error instanceof Error && error.message === 'Rate limit exceeded') {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
       );
     }
-
-    const { name, email, message, subject } = body;
-
-    // Validate required fields
-    if (!name || !email || !message || !subject) {
-      return new Response(
-        JSON.stringify({ error: 'All fields are required' }),
-        {
-          status: 400,
-          headers: getSecurityHeaders(),
-        }
-      );
-    }
-
-    // Validate email format
-    if (!validateEmail(email)) {
-      return new Response(
-        JSON.stringify({ error: 'Invalid email format' }),
-        {
-          status: 400,
-          headers: getSecurityHeaders(),
-        }
-      );
-    }
-
-    // Check message length
-    if (message.length > MAX_MESSAGE_LENGTH) {
-      return new Response(
-        JSON.stringify({ error: 'Message is too large' }),
-        {
-          status: 413,
-          headers: getSecurityHeaders(),
-        }
-      );
-    }
-
-    // Check CSRF token
-    const csrfToken = request.headers.get('x-csrf-token');
-    if (!csrfToken) {
-      return new Response(
-        JSON.stringify({ error: 'CSRF token is required' }),
-        {
-          status: 403,
-          headers: getSecurityHeaders(),
-        }
-      );
-    }
-
-    if (!validateCsrfToken(csrfToken)) {
-      return new Response(
-        JSON.stringify({ error: 'invalid token' }),
-        {
-          status: 403,
-          headers: getSecurityHeaders(),
-        }
-      );
-    }
-
-    // Apply rate limiting
-    try {
-      const ip = request.headers.get('x-forwarded-for') || 'unknown';
-      await limiter.check(1, ip);
-    } catch (error) {
-      return new Response(
-        JSON.stringify({ error: 'too many requests' }),
-        {
-          status: 429,
-          headers: getSecurityHeaders(),
-        }
-      );
-    }
-
-    // Store the submission in the database
-    try {
-      const submission = await prisma.contactSubmission.create({
-        data: {
-          name,
-          email,
-          subject,
-          message,
-        },
-      });
-
-      return new Response(
-        JSON.stringify({ message: 'Submission received successfully', id: submission.id }),
-        {
-          status: 200,
-          headers: getSecurityHeaders(),
-        }
-      );
-    } catch (error) {
-      // Log error securely
-      logger.error('Contact submission error', sanitizeError(error));
-
-      return new Response(
-        JSON.stringify({ error: 'An internal error occurred' }),
-        {
-          status: 500,
-          headers: getSecurityHeaders(),
-        }
-      );
-    }
-  } catch (error) {
-    // Log error securely
-    logger.error('Contact submission error', sanitizeError(error));
-
-    return new Response(
-      JSON.stringify({ error: 'An internal error occurred' }),
-      {
-        status: 500,
-        headers: getSecurityHeaders(),
-      }
+    console.error('Contact form error:', error);
+    return NextResponse.json(
+      { error: 'Failed to send message' },
+      { status: 500 }
     );
   }
-}
-
-function getSecurityHeaders() {
-  return {
-    'Content-Type': 'application/json',
-    'X-Content-Type-Options': 'nosniff',
-    'X-Frame-Options': 'DENY',
-    'Content-Security-Policy': "default-src 'self'",
-  };
-}
-
-function validateCsrfToken(token: string): boolean {
-  // Validate token format: at least 32 characters of alphanumeric, dash, or underscore
-  return /^[a-zA-Z0-9-_]{32,}$/.test(token);
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useRef, useCallback } from 'react';
 import { useClickAway, useKey } from 'react-use';
 import { ChevronDownIcon, XMarkIcon, CheckIcon } from '@heroicons/react/24/solid';

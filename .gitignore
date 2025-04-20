@@ -5,17 +5,22 @@
 
 # testing
 /coverage
+.nyc_output
+test-report.xml
 
 # next.js
 /.next/
 /out/
+/build
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
 *.pem
+Thumbs.db
 
 # debug
 npm-debug.log*
@@ -23,8 +28,11 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
 .env
+.env*.local
+.env.development
+.env.test
+.env.production
 
 # vercel
 .vercel
@@ -32,6 +40,32 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# logs
+logs/
+*.log
+
+# cache
+.cache/
+.eslintcache
+.stylelintcache
+
+# test artifacts
+/cypress/videos/
+/cypress/screenshots/
+/playwright-report/
+/test-results/
+
+# temporary files
+*.tmp
+*.temp
+.DS_Store
 
 # Prisma
 /prisma/*.db

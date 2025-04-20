@@ -1,13 +1,28 @@
+import { describe, it, expect, beforeEach, vi, Mock } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ContactForm from '../ContactForm';
+import { sanitizeInput } from '@/lib/validation';
+
+// Mock sanitizeInput function
+vi.mock('@/lib/validation', () => ({
+  sanitizeInput: vi.fn((input: string) => input),
+}));
 
 // Mock fetch for default submission handler
-global.fetch = jest.fn();
+global.fetch = vi.fn() as Mock;
 
 describe('ContactForm Component', () => {
+  let mockOnSubmit: Mock;
+
   beforeEach(() => {
-    (global.fetch as jest.Mock).mockReset();
+    mockOnSubmit = vi.fn().mockResolvedValue(undefined);
+    (global.fetch as Mock).mockReset();
+    (global.fetch as Mock).mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ message: 'Success' })
+    });
+    (sanitizeInput as Mock).mockClear();
   });
 
   it('renders all form fields with labels', () => {
@@ -46,7 +61,7 @@ describe('ContactForm Component', () => {
   });
 
   it('handles successful form submission with default handler', async () => {
-    (global.fetch as jest.Mock).mockResolvedValueOnce({
+    (global.fetch as Mock).mockResolvedValueOnce({
       ok: true,
       json: () => Promise.resolve({ message: 'Success' }),
     });
@@ -92,7 +107,7 @@ describe('ContactForm Component', () => {
   });
 
   it('handles form submission with custom onSubmit handler', async () => {
-    const mockOnSubmit = jest.fn().mockResolvedValue(undefined);
+    const mockOnSubmit = vi.fn().mockResolvedValue(undefined);
     render(<ContactForm onSubmit={mockOnSubmit} />);
 
     // Fill out the form
@@ -120,7 +135,7 @@ describe('ContactForm Component', () => {
 
   it('handles submission errors', async () => {
     const errorMessage = 'Failed to send message';
-    (global.fetch as jest.Mock).mockRejectedValueOnce(new Error(errorMessage));
+    (global.fetch as Mock).mockRejectedValueOnce(new Error(errorMessage));
 
     render(<ContactForm />);
 
@@ -182,5 +197,98 @@ describe('ContactForm Component', () => {
     
     const form = screen.getByRole('form');
     expect(form).toHaveClass('custom-class');
+  });
+
+  it('sanitizes input before submission', async () => {
+    const mockOnSubmit = vi.fn().mockResolvedValue(undefined);
+    render(<ContactForm onSubmit={mockOnSubmit} />);
+
+    const unsafeInput = {
+      name: '<script>alert("xss")</script>John',
+      email: 'john@example.com',
+      subject: 'Test <img src=x onerror=alert(1)>',
+      message: 'SELECT * FROM users;',
+    };
+
+    // Fill out the form with unsafe input
+    fireEvent.change(screen.getByTestId('name-input'), { target: { value: unsafeInput.name } });
+    fireEvent.change(screen.getByTestId('email-input'), { target: { value: unsafeInput.email } });
+    fireEvent.change(screen.getByTestId('subject-input'), { target: { value: unsafeInput.subject } });
+    fireEvent.change(screen.getByTestId('message-input'), { target: { value: unsafeInput.message } });
+
+    // Submit the form
+    fireEvent.click(screen.getByTestId('submit-button'));
+
+    // Verify sanitizeInput was called for each field
+    expect(sanitizeInput).toHaveBeenCalledWith(unsafeInput.name);
+    expect(sanitizeInput).toHaveBeenCalledWith(unsafeInput.subject);
+    expect(sanitizeInput).toHaveBeenCalledWith(unsafeInput.message);
+    expect(sanitizeInput).toHaveBeenCalledTimes(3); // email is not sanitized
+  });
+
+  it('has correct form attributes and role', () => {
+    render(<ContactForm />);
+    const form = screen.getByRole('form');
+    
+    expect(form).toHaveAttribute('class', expect.stringContaining('space-y-4'));
+    expect(form).toHaveAttribute('novalidate', '');
+  });
+
+  describe('Error Handling', () => {
+    it('handles network errors', async () => {
+      (global.fetch as Mock).mockRejectedValueOnce(new Error('Network error'));
+      render(<ContactForm />);
+
+      // Fill and submit form
+      fireEvent.change(screen.getByTestId('name-input'), { target: { value: 'John' } });
+      fireEvent.change(screen.getByTestId('email-input'), { target: { value: 'john@example.com' } });
+      fireEvent.change(screen.getByTestId('subject-input'), { target: { value: 'Test' } });
+      fireEvent.change(screen.getByTestId('message-input'), { target: { value: 'Message' } });
+      fireEvent.click(screen.getByTestId('submit-button'));
+
+      await waitFor(() => {
+        expect(screen.getByTestId('error-message')).toHaveTextContent('Network error');
+      });
+    });
+
+    it('handles server validation errors', async () => {
+      (global.fetch as Mock).mockResolvedValueOnce({
+        ok: false,
+        json: () => Promise.resolve({ error: 'Invalid email format' }),
+      });
+
+      render(<ContactForm />);
+
+      // Fill and submit form
+      fireEvent.change(screen.getByTestId('name-input'), { target: { value: 'John' } });
+      fireEvent.change(screen.getByTestId('email-input'), { target: { value: 'invalid-email' } });
+      fireEvent.change(screen.getByTestId('subject-input'), { target: { value: 'Test' } });
+      fireEvent.change(screen.getByTestId('message-input'), { target: { value: 'Message' } });
+      fireEvent.click(screen.getByTestId('submit-button'));
+
+      await waitFor(() => {
+        expect(screen.getByTestId('error-message')).toHaveTextContent('Invalid email format');
+      });
+    });
+
+    it('handles unexpected server errors', async () => {
+      (global.fetch as Mock).mockResolvedValueOnce({
+        ok: false,
+        json: () => Promise.resolve({}), // No error message from server
+      });
+
+      render(<ContactForm />);
+
+      // Fill and submit form
+      fireEvent.change(screen.getByTestId('name-input'), { target: { value: 'John' } });
+      fireEvent.change(screen.getByTestId('email-input'), { target: { value: 'john@example.com' } });
+      fireEvent.change(screen.getByTestId('subject-input'), { target: { value: 'Test' } });
+      fireEvent.change(screen.getByTestId('message-input'), { target: { value: 'Message' } });
+      fireEvent.click(screen.getByTestId('submit-button'));
+
+      await waitFor(() => {
+        expect(screen.getByTestId('error-message')).toHaveTextContent('Failed to send message');
+      });
+    });
   });
 }); 
