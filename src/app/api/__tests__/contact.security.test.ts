@@ -1,13 +1,47 @@
-import { createMocks, RequestMethod } from 'node-mocks-http';
 import { POST } from '../contact/route';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { NextRequest } from 'next/server';
+import { Headers } from 'next/dist/compiled/@edge-runtime/primitives';
+import { prisma } from '@/lib/prisma';
+import { logger } from '@/lib/logger';
+
+// Mock dependencies
+vi.mock('@/lib/logger', () => ({
+  logger: {
+    error: vi.fn(),
+  },
+}));
+
+vi.mock('@/lib/prisma', () => ({
+  prisma: {
+    contactSubmission: {
+      create: vi.fn().mockResolvedValue({ id: 'mock-id' }),
+    },
+  },
+}));
+
+// Mock NextRequest creation helper
+const createMockRequest = (options: {
+  method?: string;
+  body?: any;
+  headers?: Record<string, string>;
+}) => {
+  const headers = new Headers(options.headers || {});
+  return new NextRequest('http://localhost:3000/api/contact', {
+    method: options.method || 'POST',
+    headers,
+    body: options.body ? JSON.stringify(options.body) : null,
+  });
+};
 
 describe('Contact API Security Tests', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   describe('Input Validation', () => {
     it('rejects requests with missing required fields', async () => {
-      const { req } = createMocks<NextRequest>({
-        method: 'POST' as RequestMethod,
+      const req = createMockRequest({
         body: {
           // Missing required fields
         },
@@ -21,11 +55,11 @@ describe('Contact API Security Tests', () => {
     });
 
     it('rejects requests with invalid email format', async () => {
-      const { req } = createMocks<NextRequest>({
-        method: 'POST' as RequestMethod,
+      const req = createMockRequest({
         body: {
           name: 'Test User',
           email: 'invalid-email',
+          subject: 'Test Subject',
           message: 'Test message',
         },
       });
@@ -38,11 +72,11 @@ describe('Contact API Security Tests', () => {
     });
 
     it('rejects requests with oversized payloads', async () => {
-      const { req } = createMocks<NextRequest>({
-        method: 'POST' as RequestMethod,
+      const req = createMockRequest({
         body: {
           name: 'Test User',
           email: 'test@example.com',
+          subject: 'Test Subject',
           message: 'a'.repeat(5001), // Exceeds limit
         },
       });
@@ -56,45 +90,42 @@ describe('Contact API Security Tests', () => {
   });
 
   describe('Rate Limiting', () => {
-    const mockRateLimit = vi.fn();
-    beforeEach(() => {
-      mockRateLimit.mockClear();
-    });
-
     it('enforces rate limits per IP', async () => {
       const requests = Array(6).fill(null).map(() => 
-        createMocks<NextRequest>({
-          method: 'POST' as RequestMethod,
+        createMockRequest({
           body: {
             name: 'Test User',
             email: 'test@example.com',
+            subject: 'Test Subject',
             message: 'Test message',
           },
           headers: {
             'x-forwarded-for': '192.168.1.1',
+            'x-csrf-token': 'valid-token-12345678901234567890123456789012',
           },
         })
       );
 
-      for (const { req } of requests) {
-        const response = await POST(req);
+      let lastResponse: Response | undefined;
+      for (const req of requests) {
+        lastResponse = await POST(req);
       }
 
       // Last request should be rate limited
-      const lastResponse = requests[5].res;
-      expect(lastResponse.status).toBe(429);
-      const data = await lastResponse.json();
+      expect(lastResponse).toBeDefined();
+      expect(lastResponse!.status).toBe(429);
+      const data = await lastResponse!.json();
       expect(data.error).toContain('too many requests');
     });
   });
 
   describe('CSRF Protection', () => {
     it('rejects requests without CSRF token', async () => {
-      const { req } = createMocks<NextRequest>({
-        method: 'POST' as RequestMethod,
+      const req = createMockRequest({
         body: {
           name: 'Test User',
           email: 'test@example.com',
+          subject: 'Test Subject',
           message: 'Test message',
         },
         // Missing CSRF token header
@@ -108,11 +139,11 @@ describe('Contact API Security Tests', () => {
     });
 
     it('validates CSRF token format', async () => {
-      const { req } = createMocks<NextRequest>({
-        method: 'POST' as RequestMethod,
+      const req = createMockRequest({
         body: {
           name: 'Test User',
           email: 'test@example.com',
+          subject: 'Test Subject',
           message: 'Test message',
         },
         headers: {
@@ -130,15 +161,15 @@ describe('Contact API Security Tests', () => {
 
   describe('Headers Security', () => {
     it('sets security headers in response', async () => {
-      const { req } = createMocks<NextRequest>({
-        method: 'POST' as RequestMethod,
+      const req = createMockRequest({
         body: {
           name: 'Test User',
           email: 'test@example.com',
+          subject: 'Test Subject',
           message: 'Test message',
         },
         headers: {
-          'x-csrf-token': 'valid-token',
+          'x-csrf-token': 'valid-token-12345678901234567890123456789012',
         },
       });
 
@@ -153,17 +184,20 @@ describe('Contact API Security Tests', () => {
 
   describe('Error Handling', () => {
     it('sanitizes error messages', async () => {
-      const { req } = createMocks<NextRequest>({
-        method: 'POST' as RequestMethod,
+      const req = createMockRequest({
         body: {
           name: 'Test User',
           email: 'test@example.com',
+          subject: 'Test Subject',
           message: 'Test message',
+        },
+        headers: {
+          'x-csrf-token': 'valid-token-12345678901234567890123456789012',
         },
       });
 
-      // Mock an internal error
-      vi.spyOn(global, 'fetch').mockRejectedValueOnce(
+      // Mock prisma to throw an error
+      vi.mocked(prisma.contactSubmission.create).mockRejectedValueOnce(
         new Error('INTERNAL_DB_CONNECTION_STRING_WITH_PASSWORD')
       );
 
@@ -176,24 +210,28 @@ describe('Contact API Security Tests', () => {
     });
 
     it('logs errors securely', async () => {
-      const mockLogger = vi.fn();
-      const error = new Error('Test error');
-      
-      const { req } = createMocks<NextRequest>({
-        method: 'POST' as RequestMethod,
+      const req = createMockRequest({
         body: {
           name: 'Test User',
           email: 'test@example.com',
+          subject: 'Test Subject',
           message: 'Test message',
+        },
+        headers: {
+          'x-csrf-token': 'valid-token-12345678901234567890123456789012',
         },
       });
 
-      vi.spyOn(global, 'fetch').mockRejectedValueOnce(error);
+      const error = new Error('Test error with sensitive@email.com');
+      vi.mocked(prisma.contactSubmission.create).mockRejectedValueOnce(error);
 
-      const response = await POST(req);
+      await POST(req);
 
-      expect(mockLogger).toHaveBeenCalledWith(
-        expect.not.stringContaining('test@example.com')
+      expect(vi.mocked(logger.error)).toHaveBeenCalledWith(
+        'Contact submission error',
+        expect.objectContaining({
+          message: expect.not.stringContaining('sensitive@email.com'),
+        })
       );
     });
   });

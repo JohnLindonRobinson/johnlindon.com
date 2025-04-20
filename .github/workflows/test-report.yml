@@ -1,0 +1,123 @@
+name: Test Report
+
+on:
+  pull_request:
+    branches: [ main, development ]
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  test:
+    name: Run Tests and Generate Report
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Run Tests
+        id: test-run
+        run: |
+          # Run tests and capture output
+          npm run test -- --run --reporter json --outputFile test-report.json || true
+          echo "TEST_EXIT_CODE=$?" >> $GITHUB_ENV
+          
+      - name: Generate Test Report Comment
+        id: report
+        run: |
+          # Read test report and format it
+          node -e '
+            const fs = require("fs");
+            const report = JSON.parse(fs.readFileSync("test-report.json", "utf8"));
+            
+            let comment = "## 🧪 Test Report\n\n";
+            
+            // Summary
+            const totalTests = report.numTotalTests;
+            const passedTests = report.numPassedTests;
+            const failedTests = report.numFailedTests;
+            const skippedTests = report.numPendingTests;
+            
+            comment += `### Summary\n`;
+            comment += `- Total Tests: ${totalTests}\n`;
+            comment += `- ✅ Passed: ${passedTests}\n`;
+            comment += `- ❌ Failed: ${failedTests}\n`;
+            comment += `- ⏭️ Skipped: ${skippedTests}\n\n`;
+            
+            if (failedTests > 0) {
+              comment += `### Failed Tests\n\n`;
+              report.testResults.forEach(file => {
+                const failedTests = file.assertionResults.filter(test => test.status === "failed");
+                if (failedTests.length > 0) {
+                  comment += `#### 📁 ${file.name}\n`;
+                  failedTests.forEach(test => {
+                    comment += `- ❌ ${test.fullName}\n`;
+                    comment += `  - Error: ${test.failureMessages.join("\n").split("\n")[0]}\n`;
+                  });
+                  comment += "\n";
+                }
+              });
+            }
+            
+            // Coverage if available
+            if (report.coverageMap) {
+              comment += `### Coverage\n\n`;
+              comment += `| Category | Percentage |\n`;
+              comment += `|----------|------------|\n`;
+              comment += `| Lines | ${report.coverageMap.lines.pct}% |\n`;
+              comment += `| Statements | ${report.coverageMap.statements.pct}% |\n`;
+              comment += `| Functions | ${report.coverageMap.functions.pct}% |\n`;
+              comment += `| Branches | ${report.coverageMap.branches.pct}% |\n\n`;
+            }
+            
+            // Duration
+            const duration = report.testResults.reduce((acc, result) => acc + result.endTime - result.startTime, 0);
+            comment += `\n⏱️ Total Duration: ${(duration / 1000).toFixed(2)}s\n`;
+            
+            fs.writeFileSync("comment.md", comment);
+          '
+          
+      - name: Post Comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const comment = fs.readFileSync('comment.md', 'utf8');
+            
+            // Add a header based on test status
+            const header = process.env.TEST_EXIT_CODE === '0' 
+              ? '✅ All tests passed!'
+              : '❌ Some tests failed';
+            
+            const fullComment = `# ${header}\n\n${comment}`;
+            
+            // Post comment
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: fullComment
+            });
+            
+            // Update check status
+            const conclusion = process.env.TEST_EXIT_CODE === '0' ? 'success' : 'failure';
+            await github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'Test Report',
+              head_sha: context.payload.pull_request.head.sha,
+              status: 'completed',
+              conclusion: conclusion,
+              output: {
+                title: header,
+                summary: comment
+              }
+            }); 

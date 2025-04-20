@@ -1,13 +1,14 @@
 import { renderHook, act } from '@testing-library/react';
 import { useError } from '@/hooks/useError';
+import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
 
 describe('useError Hook', () => {
   beforeEach(() => {
-    jest.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   it('should initialize with null error state', () => {
@@ -60,7 +61,7 @@ describe('useError Hook', () => {
   });
 
   it('should log errors when error logging is enabled', () => {
-    const consoleSpy = jest.spyOn(console, 'error');
+    const consoleSpy = vi.spyOn(console, 'error');
     const { result } = renderHook(() => useError());
     const testError = new Error('Test error');
 

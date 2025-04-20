@@ -3,26 +3,27 @@ import userEvent from '@testing-library/user-event';
 import { useRouter } from 'next/navigation';
 import Portfolio from '../portfolio/page';
 import Contact from '../contact/page';
+import { vi, Mock, describe, it, expect, beforeEach } from 'vitest';
 
 // Mock next/navigation
-jest.mock('next/navigation', () => ({
-  useRouter: jest.fn(),
+vi.mock('next/navigation', () => ({
+  useRouter: vi.fn(),
 }));
 
 // Mock the contact form submission API
-const mockSubmit = jest.fn();
-jest.mock('@/lib/api', () => ({
+const mockSubmit = vi.fn();
+vi.mock('@/lib/api', () => ({
   submitContactForm: (...args: any[]) => mockSubmit(...args),
 }));
 
 describe('Contact Journey Flow', () => {
   const mockRouter = {
-    push: jest.fn(),
-    prefetch: jest.fn(),
+    push: vi.fn(),
+    prefetch: vi.fn(),
   };
 
   beforeEach(() => {
-    (useRouter as jest.Mock).mockReturnValue(mockRouter);
+    (useRouter as Mock).mockReturnValue(mockRouter);
     mockRouter.push.mockClear();
     mockSubmit.mockClear();
     // Clear session/local storage
@@ -198,7 +199,7 @@ describe('Contact Journey Flow', () => {
     });
 
     it('restores form data from session storage on page load', async () => {
-      // Set up session storage
+      // Pre-populate session storage
       sessionStorage.setItem('contactForm', JSON.stringify({
         name: 'John Doe',
         email: 'john@example.com',

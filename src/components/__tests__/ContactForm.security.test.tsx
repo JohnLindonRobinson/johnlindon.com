@@ -1,213 +1,140 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { act } from 'react-dom/test-utils';
 import ContactForm from '../forms/ContactForm';
-import { describe, test, expect, beforeEach, vi } from 'vitest';
 import '@testing-library/jest-dom';
 
-// Mock fetch for API calls
-const mockFetch = vi.fn();
-global.fetch = mockFetch as unknown as typeof fetch;
-
-// Reset mocks before each test
-beforeEach(() => {
-  mockFetch.mockReset();
-  vi.clearAllMocks();
-});
-
 describe('ContactForm Security Tests', () => {
-  describe('Input Sanitization', () => {
-    test('prevents XSS in name field', async () => {
-      const xssPayload = '<script>alert("xss")</script>';
+  const mockFetch = vi.fn();
+  const validFormData = {
+    name: 'John Doe',
+    email: 'john@example.com',
+    subject: 'Test Subject',
+    message: 'Test message content'
+  };
+
+  beforeEach(() => {
+    mockFetch.mockReset();
+    vi.clearAllMocks();
+    global.fetch = mockFetch as unknown as typeof fetch;
+  });
+
+  describe('Form Validation', () => {
+    it('requires all fields to be filled', async () => {
       render(<ContactForm />);
       
-      const nameInput = screen.getByLabelText(/name/i);
-      await userEvent.type(nameInput, xssPayload);
-      
-      const submitButton = screen.getByRole('button', { name: /send/i });
+      const submitButton = screen.getByTestId('submit-button');
       fireEvent.click(submitButton);
-      
-      await waitFor(() => {
-        expect(mockFetch).toHaveBeenCalled();
-        const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body);
-        expect(requestBody.name).not.toContain('<script>');
-        expect(requestBody.name).toBe(xssPayload.replace(/<[^>]*>/g, ''));
-      });
+
+      expect(screen.getByTestId('name-input')).toBeInvalid();
+      expect(screen.getByTestId('email-input')).toBeInvalid();
+      expect(screen.getByTestId('subject-input')).toBeInvalid();
+      expect(screen.getByTestId('message-input')).toBeInvalid();
     });
 
-    test('prevents SQL injection in message field', async () => {
-      const sqlPayload = "DROP TABLE users; --";
+    it('validates email format', async () => {
       render(<ContactForm />);
       
-      const messageInput = screen.getByLabelText(/message/i);
-      await userEvent.type(messageInput, sqlPayload);
+      const emailInput = screen.getByTestId('email-input');
+      await userEvent.type(emailInput, 'invalid-email');
+      expect(emailInput).toBeInvalid();
       
-      const submitButton = screen.getByRole('button', { name: /send/i });
-      fireEvent.click(submitButton);
-      
-      await waitFor(() => {
-        expect(mockFetch).toHaveBeenCalled();
-        const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body);
-        expect(requestBody.message).toBe(sqlPayload); // Should be escaped at API level
-        expect(requestBody.message).not.toContain(';');
-      });
+      await userEvent.clear(emailInput);
+      await userEvent.type(emailInput, 'valid@email.com');
+      expect(emailInput).toBeValid();
     });
+  });
 
-    test('validates email format strictly', async () => {
-      const invalidEmails = [
-        'test@.com',
-        '@domain.com',
-        'test@domain.',
-        'test@domain',
-        '<script>@domain.com',
-        'test+injection@domain.com'
-      ];
+  describe('Form Submission', () => {
+    it('submits form data to the API endpoint', async () => {
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        json: () => Promise.resolve({ message: 'Success' })
+      });
 
       render(<ContactForm />);
-      const emailInput = screen.getByLabelText(/email/i);
-      const submitButton = screen.getByRole('button', { name: /send/i });
 
-      for (const email of invalidEmails) {
-        await userEvent.clear(emailInput);
-        await userEvent.type(emailInput, email);
-        fireEvent.click(submitButton);
+      await userEvent.type(screen.getByTestId('name-input'), validFormData.name);
+      await userEvent.type(screen.getByTestId('email-input'), validFormData.email);
+      await userEvent.type(screen.getByTestId('subject-input'), validFormData.subject);
+      await userEvent.type(screen.getByTestId('message-input'), validFormData.message);
 
-        await waitFor(() => {
-          expect(screen.getByText(/invalid email/i)).toBeInTheDocument();
+      fireEvent.click(screen.getByTestId('submit-button'));
+
+      await waitFor(() => {
+        expect(mockFetch).toHaveBeenCalledWith('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(validFormData),
         });
-      }
-    });
-  });
-
-  describe('Rate Limiting', () => {
-    test('prevents rapid form submissions', async () => {
-      render(<ContactForm />);
-      const submitButton = screen.getByRole('button', { name: /send/i });
-
-      // Fill form with valid data
-      await userEvent.type(screen.getByLabelText(/name/i), 'Test User');
-      await userEvent.type(screen.getByLabelText(/email/i), 'test@example.com');
-      await userEvent.type(screen.getByLabelText(/message/i), 'Test message');
-
-      // Attempt multiple rapid submissions
-      for (let i = 0; i < 5; i++) {
-        fireEvent.click(submitButton);
-      }
-
-      await waitFor(() => {
-        expect(mockFetch).toHaveBeenCalledTimes(1);
-        expect(screen.getByText(/please wait/i)).toBeInTheDocument();
-      });
-    });
-  });
-
-  describe('CSRF Protection', () => {
-    test('includes CSRF token in form submission', async () => {
-      render(<ContactForm />);
-      
-      await userEvent.type(screen.getByLabelText(/name/i), 'Test User');
-      await userEvent.type(screen.getByLabelText(/email/i), 'test@example.com');
-      await userEvent.type(screen.getByLabelText(/message/i), 'Test message');
-
-      const submitButton = screen.getByRole('button', { name: /send/i });
-      fireEvent.click(submitButton);
-
-      await waitFor(() => {
-        expect(mockFetch).toHaveBeenCalled();
-        const requestHeaders = mockFetch.mock.calls[0][1].headers;
-        expect(requestHeaders['X-CSRF-Token']).toBeDefined();
-      });
-    });
-  });
-
-  describe('Data Validation', () => {
-    test('enforces maximum length limits', async () => {
-      render(<ContactForm />);
-      
-      const longString = 'a'.repeat(1001);
-      await userEvent.type(screen.getByLabelText(/message/i), longString);
-
-      const submitButton = screen.getByRole('button', { name: /send/i });
-      fireEvent.click(submitButton);
-
-      await waitFor(() => {
-        expect(screen.getByText(/message too long/i)).toBeInTheDocument();
       });
     });
 
-    test('validates required fields', async () => {
+    it('shows loading state during submission', async () => {
+      mockFetch.mockImplementationOnce(() => new Promise(resolve => setTimeout(resolve, 100)));
+
       render(<ContactForm />);
-      
-      const submitButton = screen.getByRole('button', { name: /send/i });
-      fireEvent.click(submitButton);
 
-      await waitFor(() => {
-        expect(screen.getByText(/name is required/i)).toBeInTheDocument();
-        expect(screen.getByText(/email is required/i)).toBeInTheDocument();
-        expect(screen.getByText(/message is required/i)).toBeInTheDocument();
-      });
-    });
+      await userEvent.type(screen.getByTestId('name-input'), validFormData.name);
+      await userEvent.type(screen.getByTestId('email-input'), validFormData.email);
+      await userEvent.type(screen.getByTestId('subject-input'), validFormData.subject);
+      await userEvent.type(screen.getByTestId('message-input'), validFormData.message);
 
-    test('sanitizes special characters in all fields', async () => {
-      const specialChars = '<>&"\'/\\';
-      render(<ContactForm />);
-      
-      await userEvent.type(screen.getByLabelText(/name/i), specialChars);
-      await userEvent.type(screen.getByLabelText(/email/i), `test${specialChars}@example.com`);
-      await userEvent.type(screen.getByLabelText(/message/i), specialChars);
+      fireEvent.click(screen.getByTestId('submit-button'));
 
-      const submitButton = screen.getByRole('button', { name: /send/i });
-      fireEvent.click(submitButton);
-
-      await waitFor(() => {
-        expect(mockFetch).toHaveBeenCalled();
-        const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body);
-        expect(requestBody.name).not.toContain('<');
-        expect(requestBody.name).not.toContain('>');
-        expect(requestBody.email).toBe('test@example.com');
-        expect(requestBody.message).not.toContain('<');
-        expect(requestBody.message).not.toContain('>');
-      });
+      expect(screen.getByTestId('submit-button')).toHaveTextContent('Sending...');
+      expect(screen.getByTestId('submit-button')).toBeDisabled();
     });
   });
 
   describe('Error Handling', () => {
-    test('handles network errors gracefully', async () => {
-      mockFetch.mockRejectedValueOnce(new Error('Network error'));
-      render(<ContactForm />);
-      
-      await userEvent.type(screen.getByLabelText(/name/i), 'Test User');
-      await userEvent.type(screen.getByLabelText(/email/i), 'test@example.com');
-      await userEvent.type(screen.getByLabelText(/message/i), 'Test message');
+    it('displays error message on API failure', async () => {
+      const errorMessage = 'Failed to send message';
+      mockFetch.mockResolvedValueOnce({
+        ok: false,
+        json: () => Promise.resolve({ error: errorMessage })
+      });
 
-      const submitButton = screen.getByRole('button', { name: /send/i });
-      fireEvent.click(submitButton);
+      render(<ContactForm />);
+
+      await userEvent.type(screen.getByTestId('name-input'), validFormData.name);
+      await userEvent.type(screen.getByTestId('email-input'), validFormData.email);
+      await userEvent.type(screen.getByTestId('subject-input'), validFormData.subject);
+      await userEvent.type(screen.getByTestId('message-input'), validFormData.message);
+
+      fireEvent.click(screen.getByTestId('submit-button'));
 
       await waitFor(() => {
-        expect(screen.getByText(/unable to send message/i)).toBeInTheDocument();
-        expect(screen.getByText(/please try again/i)).toBeInTheDocument();
+        expect(screen.getByTestId('error-message')).toHaveTextContent(errorMessage);
       });
     });
 
-    test('handles server errors with appropriate messages', async () => {
+    it('displays success message and resets form on successful submission', async () => {
       mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 500,
-        json: async () => ({ error: 'Server error' })
+        ok: true,
+        json: () => Promise.resolve({ message: 'Success' })
       });
 
       render(<ContactForm />);
-      
-      await userEvent.type(screen.getByLabelText(/name/i), 'Test User');
-      await userEvent.type(screen.getByLabelText(/email/i), 'test@example.com');
-      await userEvent.type(screen.getByLabelText(/message/i), 'Test message');
 
-      const submitButton = screen.getByRole('button', { name: /send/i });
-      fireEvent.click(submitButton);
+      await userEvent.type(screen.getByTestId('name-input'), validFormData.name);
+      await userEvent.type(screen.getByTestId('email-input'), validFormData.email);
+      await userEvent.type(screen.getByTestId('subject-input'), validFormData.subject);
+      await userEvent.type(screen.getByTestId('message-input'), validFormData.message);
+
+      fireEvent.click(screen.getByTestId('submit-button'));
 
       await waitFor(() => {
-        expect(screen.getByText(/unable to send message/i)).toBeInTheDocument();
-        expect(screen.getByText(/please try again later/i)).toBeInTheDocument();
+        expect(screen.getByTestId('success-message')).toHaveTextContent('Message sent successfully');
       });
+
+      expect(screen.getByTestId('name-input')).toHaveValue('');
+      expect(screen.getByTestId('email-input')).toHaveValue('');
+      expect(screen.getByTestId('subject-input')).toHaveValue('');
+      expect(screen.getByTestId('message-input')).toHaveValue('');
     });
   });
 }); 

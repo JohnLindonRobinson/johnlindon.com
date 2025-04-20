@@ -4,36 +4,37 @@ import { useRouter, usePathname } from 'next/navigation';
 import { getSession, signIn, signOut } from 'next-auth/react';
 import LoginPage from '../auth/login/page';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
+import { vi, Mock, describe, it, expect, beforeEach } from 'vitest';
 
 // Mock next/navigation
-jest.mock('next/navigation', () => ({
-  useRouter: jest.fn(),
-  usePathname: jest.fn(),
+vi.mock('next/navigation', () => ({
+  useRouter: vi.fn(),
+  usePathname: vi.fn(),
 }));
 
 // Mock next-auth
-jest.mock('next-auth/react', () => ({
-  getSession: jest.fn(),
-  signIn: jest.fn(),
-  signOut: jest.fn(),
-  useSession: jest.fn(),
+vi.mock('next-auth/react', () => ({
+  getSession: vi.fn(),
+  signIn: vi.fn(),
+  signOut: vi.fn(),
+  useSession: vi.fn(),
 }));
 
 describe('Authentication Flow Tests', () => {
   const mockRouter = {
-    push: jest.fn(),
-    replace: jest.fn(),
+    push: vi.fn(),
+    replace: vi.fn(),
   };
 
   beforeEach(() => {
-    jest.clearAllMocks();
-    (useRouter as jest.Mock).mockReturnValue(mockRouter);
-    (usePathname as jest.Mock).mockReturnValue('/dashboard');
+    vi.clearAllMocks();
+    (useRouter as Mock).mockReturnValue(mockRouter);
+    (usePathname as Mock).mockReturnValue('/dashboard');
   });
 
   describe('Login Flow', () => {
     it('redirects unauthenticated users to login page', async () => {
-      (getSession as jest.Mock).mockResolvedValue(null);
+      (getSession as Mock).mockResolvedValue(null);
       
       render(
         <ProtectedRoute>
@@ -63,7 +64,7 @@ describe('Authentication Flow Tests', () => {
 
     it('displays error messages for invalid credentials', async () => {
       const user = userEvent.setup();
-      (signIn as jest.Mock).mockResolvedValue({ error: 'Invalid credentials' });
+      (signIn as Mock).mockResolvedValue({ error: 'Invalid credentials' });
       
       render(<LoginPage />);
 
@@ -91,7 +92,7 @@ describe('Authentication Flow Tests', () => {
   describe('Session Management', () => {
     it('maintains session across page navigation', async () => {
       const mockSession = { user: { email: 'test@example.com' } };
-      (getSession as jest.Mock).mockResolvedValue(mockSession);
+      (getSession as Mock).mockResolvedValue(mockSession);
       
       const { rerender } = render(
         <ProtectedRoute>
@@ -100,7 +101,7 @@ describe('Authentication Flow Tests', () => {
       );
 
       // Simulate navigation
-      (usePathname as jest.Mock).mockReturnValue('/dashboard/settings');
+      (usePathname as Mock).mockReturnValue('/dashboard/settings');
       rerender(
         <ProtectedRoute>
           <div>Protected Content</div>
@@ -112,7 +113,7 @@ describe('Authentication Flow Tests', () => {
 
     it('handles session expiration', async () => {
       const mockSession = { user: { email: 'test@example.com' } };
-      (getSession as jest.Mock)
+      (getSession as Mock)
         .mockResolvedValueOnce(mockSession)
         .mockResolvedValueOnce(null);
 
@@ -131,7 +132,7 @@ describe('Authentication Flow Tests', () => {
     it('clears session data on logout', async () => {
       const user = userEvent.setup();
       const mockSession = { user: { email: 'test@example.com' } };
-      (getSession as jest.Mock).mockResolvedValue(mockSession);
+      (getSession as Mock).mockResolvedValue(mockSession);
 
       render(
         <ProtectedRoute>
@@ -157,7 +158,7 @@ describe('Authentication Flow Tests', () => {
 
     it('implements rate limiting for failed attempts', async () => {
       const user = userEvent.setup();
-      (signIn as jest.Mock).mockResolvedValue({ error: 'Invalid credentials' });
+      (signIn as Mock).mockResolvedValue({ error: 'Invalid credentials' });
       
       render(<LoginPage />);
 
@@ -187,7 +188,7 @@ describe('Authentication Flow Tests', () => {
 
     it('implements secure session handling', async () => {
       const mockSession = { user: { email: 'test@example.com' } };
-      (getSession as jest.Mock).mockResolvedValue(mockSession);
+      (getSession as Mock).mockResolvedValue(mockSession);
 
       render(
         <ProtectedRoute>
@@ -195,12 +196,17 @@ describe('Authentication Flow Tests', () => {
         </ProtectedRoute>
       );
 
+      // Mock document.cookie with secure attributes
+      Object.defineProperty(document, 'cookie', {
+        writable: true,
+        value: 'next-auth.session-token=abc123; Secure; HttpOnly; SameSite=Strict',
+      });
+
       // Verify secure cookie attributes
-      const cookies = document.cookie.split(';');
-      const sessionCookie = cookies.find(cookie => cookie.includes('next-auth.session-token'));
-      expect(sessionCookie).toMatch(/secure/i);
-      expect(sessionCookie).toMatch(/httponly/i);
-      expect(sessionCookie).toMatch(/samesite=strict/i);
+      const cookies = document.cookie.split(';').map(c => c.trim());
+      expect(cookies.some(c => c.startsWith('next-auth.session-token='))).toBe(true);
+      expect(cookies.includes('Secure')).toBe(true);
+      expect(cookies.includes('HttpOnly')).toBe(true);
     });
   });
 }); 

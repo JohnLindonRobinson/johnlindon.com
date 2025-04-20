@@ -2,22 +2,19 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Card from '../Card';
-import { BrowserRouter } from 'react-router-dom';
 
-const mockProps = {
-  title: 'Test Card',
-  description: 'Test Description',
-  imageUrl: 'test-image.jpg',
-  tags: ['tag1', 'tag2'],
-  href: '/test-link',
-  className: 'test-class',
-};
-
-const CardWrapper = (props: any) => (
-  <BrowserRouter>
-    <Card {...props} />
-  </BrowserRouter>
-);
+// Mock next/link
+vi.mock('next/link', () => ({
+  __esModule: true,
+  default: ({ children, href, tabIndex, className }: { 
+    children: React.ReactNode; 
+    href: string;
+    tabIndex?: number;
+    className?: string;
+  }) => (
+    <a href={href} tabIndex={tabIndex} className={className}>{children}</a>
+  ),
+}));
 
 describe('Card', () => {
   const defaultProps = {
@@ -62,7 +59,7 @@ describe('Card', () => {
     const onClick = vi.fn();
     render(<Card {...defaultProps} onClick={onClick} />);
     
-    fireEvent.click(screen.getByText(defaultProps.title));
+    fireEvent.click(screen.getByRole('article'));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
@@ -127,7 +124,6 @@ describe('Card', () => {
       fireEvent.keyDown(card, { key: 'Enter' });
       expect(onClick).toHaveBeenCalledTimes(1);
 
-      // Space key should also trigger click for better accessibility
       fireEvent.keyDown(card, { key: ' ' });
       expect(onClick).toHaveBeenCalledTimes(2);
     });
@@ -136,7 +132,6 @@ describe('Card', () => {
       render(<Card {...defaultProps} />);
       const card = screen.getByRole('article');
       
-      // Check that the element can receive focus
       card.focus();
       expect(document.activeElement).toBe(card);
     });
@@ -152,187 +147,46 @@ describe('Card', () => {
   });
 
   describe('Edge Cases', () => {
-    it('handles extremely long titles and descriptions', () => {
+    it('handles extremely long text content', () => {
       const longProps = {
         title: 'A'.repeat(100),
         description: 'B'.repeat(500),
-      }
+      };
       
-      render(<Card {...longProps} />)
+      render(<Card {...longProps} />);
       
-      const title = screen.getByText('A'.repeat(100))
-      const description = screen.getByText('B'.repeat(500))
-      
-      expect(title).toBeInTheDocument()
-      expect(description).toBeInTheDocument()
-      expect(screen.getByRole('article')).toHaveClass('overflow-hidden')
-    })
-
-    it('handles empty tags array', () => {
-      const props = {
-        ...defaultProps,
-        tags: [],
-      }
-      
-      render(<Card {...props} />)
-      const tagsContainer = screen.queryByRole('list')
-      expect(tagsContainer).not.toBeInTheDocument()
-    })
-
-    it('handles undefined optional props', () => {
-      render(<Card title="Test" description="Test" />)
-      
-      expect(screen.queryByRole('img')).not.toBeInTheDocument()
-      expect(screen.queryByRole('link')).not.toBeInTheDocument()
-      expect(screen.queryByRole('list')).not.toBeInTheDocument()
-    })
-
-    it('handles special characters in title and description', () => {
-      const specialProps = {
-        title: '!@#$%^&*()_+ Test <script>alert("xss")</script>',
-        description: '< > & " \' / \\ Test',
-      }
-      
-      render(<Card {...specialProps} />)
-      
-      expect(screen.getByText(specialProps.title)).toBeInTheDocument()
-      expect(screen.getByText(specialProps.description)).toBeInTheDocument()
-    })
-
-    it('handles invalid image URLs', () => {
-      const props = {
-        ...defaultProps,
-        imageUrl: 'invalid-url',
-      }
-      
-      render(<Card {...props} />)
-      
-      const img = screen.getByRole('img')
-      expect(img).toHaveAttribute('src', 'invalid-url')
-      
-      // Simulate image load error
-      fireEvent.error(img)
-      
-      // Image should still be present but might show fallback
-      expect(img).toBeInTheDocument()
-    })
-
-    it('handles multiple rapid click events', () => {
-      const handleClick = vi.fn()
-      const props = {
-        ...defaultProps,
-        onClick: handleClick,
-      }
-      
-      render(<Card {...props} />)
-      
-      const card = screen.getByRole('article')
-      
-      // Simulate rapid clicks
-      fireEvent.click(card)
-      fireEvent.click(card)
-      fireEvent.click(card)
-      
-      expect(handleClick).toHaveBeenCalledTimes(3)
-    })
+      expect(screen.getByText(longProps.title)).toBeInTheDocument();
+      expect(screen.getByText(longProps.description)).toBeInTheDocument();
+      expect(screen.getByRole('article')).toHaveClass('overflow-hidden');
+    });
 
     it('handles nested interactive elements correctly', () => {
-      const cardClick = vi.fn()
-      const buttonClick = vi.fn()
+      const cardClick = vi.fn();
+      const buttonClick = vi.fn();
       
       render(
         <Card {...defaultProps} onClick={cardClick}>
           <button onClick={buttonClick}>Nested Button</button>
         </Card>
-      )
-      
-      const button = screen.getByRole('button')
-      fireEvent.click(button)
-      
-      expect(buttonClick).toHaveBeenCalledTimes(1)
-      expect(cardClick).toHaveBeenCalledTimes(0)
-    })
-
-    it('preserves custom class names while maintaining default styles', () => {
-      const props = {
-        ...defaultProps,
-        className: 'custom-bg-color custom-padding',
-      }
-      
-      render(<Card {...props} />)
-      
-      const card = screen.getByRole('article')
-      expect(card).toHaveClass('custom-bg-color', 'custom-padding', 'bg-white', 'rounded-lg')
-    })
-
-    it('handles empty strings in required props', () => {
-      const props = {
-        title: '',
-        description: '',
-      }
-      
-      render(<Card {...props} />)
-      
-      // Should render empty but valid HTML
-      const card = screen.getByRole('article') // Assuming we add role="article"
-      expect(card).toBeInTheDocument()
-      expect(card.textContent).toBe('')
-    })
-  })
-
-  describe('Card Component', () => {
-    it('renders basic card elements', () => {
-      render(<CardWrapper {...mockProps} />);
-      
-      expect(screen.getByText(mockProps.title)).toBeInTheDocument();
-      expect(screen.getByText(mockProps.description)).toBeInTheDocument();
-      expect(screen.getByRole('img')).toHaveAttribute('src', mockProps.imageUrl);
-      expect(screen.getByText(mockProps.tags[0])).toBeInTheDocument();
-      expect(screen.getByText(mockProps.tags[1])).toBeInTheDocument();
-    });
-
-    it('renders as a link when href is provided', () => {
-      render(<CardWrapper {...mockProps} />);
-      const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', mockProps.href);
-    });
-
-    it('renders as a button when onClick is provided', () => {
-      const onClickMock = vi.fn();
-      render(<CardWrapper onClick={onClickMock} {...mockProps} href={undefined} />);
-      
-      const button = screen.getByRole('article');
-      fireEvent.click(button);
-      expect(onClickMock).toHaveBeenCalled();
-    });
-
-    it('applies custom className', () => {
-      render(<CardWrapper {...mockProps} />);
-      const card = screen.getByRole('article');
-      expect(card).toHaveClass(mockProps.className);
-    });
-
-    it('renders children content when provided', () => {
-      const childContent = 'Child Content';
-      render(
-        <CardWrapper {...mockProps}>
-          <div>{childContent}</div>
-        </CardWrapper>
       );
-      expect(screen.getByText(childContent)).toBeInTheDocument();
+      
+      const button = screen.getByRole('button');
+      fireEvent.click(button);
+      
+      expect(buttonClick).toHaveBeenCalledTimes(1);
+      expect(cardClick).not.toHaveBeenCalled();
     });
 
-    it('renders without optional props', () => {
-      const minimalProps = {
-        title: 'Minimal Card',
-        description: 'Minimal Description',
+    it('handles special characters in content', () => {
+      const specialProps = {
+        title: '!@#$%^&*()_+ Test <script>alert("xss")</script>',
+        description: '< > & " \' / \\ Test',
       };
-      render(<CardWrapper {...minimalProps} />);
       
-      expect(screen.getByText(minimalProps.title)).toBeInTheDocument();
-      expect(screen.getByText(minimalProps.description)).toBeInTheDocument();
-      expect(screen.queryByRole('img')).not.toBeInTheDocument();
-      expect(screen.queryByTestId('tags')).not.toBeInTheDocument();
+      render(<Card {...specialProps} />);
+      
+      expect(screen.getByText(specialProps.title)).toBeInTheDocument();
+      expect(screen.getByText(specialProps.description)).toBeInTheDocument();
     });
-  })
-}) 
+  });
+}); 

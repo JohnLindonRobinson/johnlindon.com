@@ -1,36 +1,42 @@
 import { POST } from '../route';
 import { prisma } from '@/lib/prisma';
 import { NextResponse } from 'next/server';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // Mock Next.js Response
-jest.mock('next/server', () => ({
+vi.mock('next/server', () => ({
   NextResponse: {
-    json: jest.fn((data, init) => ({
-      ...data,
-      status: init?.status || 200,
-      ok: init?.status === undefined || init?.status === 200,
-      json: async () => data,
-    })),
+    json: vi.fn((data, init) => {
+      const response = new Response(JSON.stringify(data), {
+        status: init?.status || 200,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      Object.defineProperty(response, 'ok', {
+        get: () => init?.status === undefined || init?.status === 200,
+      });
+      return response;
+    }),
   },
 }));
 
 // Mock Prisma
-jest.mock('@/lib/prisma', () => ({
+vi.mock('@/lib/prisma', () => ({
   prisma: {
     contactSubmission: {
-      create: jest.fn(),
+      create: vi.fn(),
     },
   },
 }));
 
 describe('Contact API Route', () => {
-  const mockPrismaCreate = prisma.contactSubmission.create as jest.Mock;
-  const mockNextResponseJson = NextResponse.json as jest.Mock;
+  const mockPrismaCreate = prisma.contactSubmission.create as ReturnType<typeof vi.fn>;
+  const mockNextResponseJson = NextResponse.json as ReturnType<typeof vi.fn>;
 
   beforeEach(() => {
     // Reset mocks before each test
-    mockPrismaCreate.mockReset();
-    mockNextResponseJson.mockClear();
+    vi.resetAllMocks();
   });
 
   it('successfully creates a contact submission', async () => {
