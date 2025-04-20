@@ -63,4 +63,53 @@ This project is private and confidential. All rights reserved.
 
 ## 📞 Contact
 
-For inquiries, please use the contact form on the website or email john@johnlindon.com 
+For inquiries, please use the contact form on the website or email john@johnlindon.com
+
+## Testing
+
+### Test Infrastructure
+- **Framework**: Vitest with React Testing Library
+- **Environment**: JSDOM for component testing
+- **Coverage**: V8 provider with HTML, JSON, and text reporting
+- **Types**: TypeScript for type-safe tests
+
+### Running Tests
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run tests in watch mode
+npm run test:watch
+```
+
+### Test Structure
+```
+src/
+├── components/
+│   ├── __tests__/          # Component tests
+│   ├── ui/__tests__/       # UI component tests
+│   ├── sections/__tests__/ # Section component tests
+│   └── forms/__tests__/    # Form component tests
+├── app/
+│   └── api/
+│       └── __tests__/      # API endpoint tests
+└── test/
+    └── setup.ts            # Test configuration
+```
+
+### Test Categories
+- **Unit Tests**: Individual component testing
+- **Integration Tests**: Component interaction testing
+- **Security Tests**: Form and API security validation
+- **Accessibility Tests**: WCAG compliance checks
+- **E2E Tests**: Full user flow validation (coming soon)
+
+### Coverage Goals
+- Components: 80%+ coverage
+- API Endpoints: 90%+ coverage
+- Critical Paths: 100% coverage
+
+For detailed testing documentation, see [Test Implementation Plan](docs/testing/test-implementation-plan.md) 
