@@ -41,7 +41,9 @@ describe('Button Component', () => {
     render(<Button isLoading>Loading</Button>);
     const button = screen.getByRole('button', { name: 'Loading' });
     expect(button).toBeDisabled();
-    expect(screen.getByRole('img', { hidden: true })).toBeInTheDocument(); // SVG loader
+    const svg = document.querySelector('svg');
+    expect(svg).toBeInTheDocument();
+    expect(svg).toHaveClass('animate-spin');
   });
 
   it('handles click events', () => {
@@ -64,7 +66,7 @@ describe('Button Component', () => {
         Submit
       </Button>
     );
-    const button = screen.getByRole('button', { name: 'Submit' });
+    const button = screen.getByRole('button', { name: 'Submit form' });
     expect(button).toHaveAttribute('type', 'submit');
     expect(button).toHaveAttribute('aria-label', 'Submit form');
   });

@@ -67,7 +67,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden mt-4 space-y-2">
+            <div
+              data-testid="mobile-menu"
+              className="absolute top-full left-0 right-0 bg-white dark:bg-gray-800 shadow-lg md:hidden"
+            >
               {navItems.map(item => (
                 <Link
                   key={item.href}
