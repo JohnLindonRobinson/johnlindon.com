@@ -2,6 +2,22 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Card from '../Card';
+import { BrowserRouter } from 'react-router-dom';
+
+const mockProps = {
+  title: 'Test Card',
+  description: 'Test Description',
+  imageUrl: 'test-image.jpg',
+  tags: ['tag1', 'tag2'],
+  href: '/test-link',
+  className: 'test-class',
+};
+
+const CardWrapper = (props: any) => (
+  <BrowserRouter>
+    <Card {...props} />
+  </BrowserRouter>
+);
 
 describe('Card', () => {
   const defaultProps = {
@@ -262,5 +278,61 @@ describe('Card', () => {
       expect(card).toBeInTheDocument()
       expect(card.textContent).toBe('')
     })
+  })
+
+  describe('Card Component', () => {
+    it('renders basic card elements', () => {
+      render(<CardWrapper {...mockProps} />);
+      
+      expect(screen.getByText(mockProps.title)).toBeInTheDocument();
+      expect(screen.getByText(mockProps.description)).toBeInTheDocument();
+      expect(screen.getByRole('img')).toHaveAttribute('src', mockProps.imageUrl);
+      expect(screen.getByText(mockProps.tags[0])).toBeInTheDocument();
+      expect(screen.getByText(mockProps.tags[1])).toBeInTheDocument();
+    });
+
+    it('renders as a link when href is provided', () => {
+      render(<CardWrapper {...mockProps} />);
+      const link = screen.getByRole('link');
+      expect(link).toHaveAttribute('href', mockProps.href);
+    });
+
+    it('renders as a button when onClick is provided', () => {
+      const onClickMock = vi.fn();
+      render(<CardWrapper onClick={onClickMock} {...mockProps} href={undefined} />);
+      
+      const button = screen.getByRole('article');
+      fireEvent.click(button);
+      expect(onClickMock).toHaveBeenCalled();
+    });
+
+    it('applies custom className', () => {
+      render(<CardWrapper {...mockProps} />);
+      const card = screen.getByRole('article');
+      expect(card).toHaveClass(mockProps.className);
+    });
+
+    it('renders children content when provided', () => {
+      const childContent = 'Child Content';
+      render(
+        <CardWrapper {...mockProps}>
+          <div>{childContent}</div>
+        </CardWrapper>
+      );
+      expect(screen.getByText(childContent)).toBeInTheDocument();
+    });
+
+    it('renders without optional props', () => {
+      const minimalProps = {
+        title: 'Minimal Card',
+        description: 'Minimal Description',
+      };
+      render(<CardWrapper {...minimalProps} />);
+      
+      expect(screen.getByText(minimalProps.title)).toBeInTheDocument();
+      expect(screen.getByText(minimalProps.description)).toBeInTheDocument();
+      expect(screen.queryByRole('img')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('tags')).not.toBeInTheDocument();
+    });
   })
 }) 
