@@ -43,6 +43,14 @@
   - [ ] LCP (Largest Contentful Paint)
   - [ ] FID (First Input Delay)
   - [ ] CLS (Cumulative Layout Shift)
+- [ ] Optimize motion effects
+  - [ ] Implement lazy loading for parallax
+  - [ ] Add performance budgets for animations
+  - [ ] Document motion performance metrics
+- [ ] Optimize section transitions
+  - [ ] Implement efficient background transitions
+  - [ ] Add performance monitoring
+  - [ ] Document transition optimization
 📍 Context: Site performance and user experience
 👤 Requested by: John
 
