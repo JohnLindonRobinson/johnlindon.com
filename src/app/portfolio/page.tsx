@@ -1,4 +1,4 @@
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import Card from '@/components/Card';
 
 const projects = [
@@ -38,7 +38,7 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="pt-24 max-w-7xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Portfolio</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -47,7 +47,9 @@ export default function Portfolio() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 group/cards relative border-4 border-dashed border-transparent hover:border-yellow-500 p-4">
+        <div className="pointer-events-none fixed inset-0 bg-purple-900 opacity-0 group-hover/cards:opacity-50 transition-opacity duration-300" />
+        <div className="pointer-events-none absolute inset-0 bg-yellow-500/20 opacity-0 group-hover/cards:opacity-100 transition-opacity duration-300" />
         {projects.map(project => (
           <Card
             key={project.title}
@@ -57,17 +59,25 @@ export default function Portfolio() {
             href={project.href}
             imageUrl={project.imageUrl}
           >
-            <Button href={project.href} variant="outline" size="sm" className="mt-4">
-              View Project
-            </Button>
+            <a href={project.href}>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="mt-4 transition-all duration-300 group-hover/card:bg-blue-500 group-hover/card:text-white group-hover/card:border-blue-600 group-hover/card:scale-110"
+              >
+                View Project
+              </Button>
+            </a>
           </Card>
         ))}
       </div>
 
       <div className="mt-12 text-center">
-        <Button href="/contact" variant="primary" size="lg">
-          Start Your Project
-        </Button>
+        <a href="/contact">
+          <Button variant="default" size="lg">
+            Start Your Project
+          </Button>
+        </a>
       </div>
     </div>
   );

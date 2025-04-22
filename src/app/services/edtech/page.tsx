@@ -1,9 +1,9 @@
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 export default function EdTechService() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="mb-12">
+    <div className="pt-24 max-w-7xl mx-auto px-4 py-12">
+      <div className="mb-12 text-center">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Education Tech & Tutoring Systems</h1>
         <p className="text-xl text-gray-600">Custom tools for educators and edtech startups</p>
       </div>
@@ -71,9 +71,11 @@ export default function EdTechService() {
       </div>
 
       <div className="mt-12 text-center">
-        <Button href="/contact" variant="primary" size="lg">
-          Enhance Your Teaching
-        </Button>
+        <a href="/contact">
+          <Button variant="default" size="lg">
+            Enhance Your Teaching
+          </Button>
+        </a>
       </div>
     </div>
   );

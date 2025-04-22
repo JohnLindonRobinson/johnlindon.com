@@ -1,4 +1,4 @@
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
@@ -159,9 +159,11 @@ export default function About() {
       </div>
 
       <div className="mt-12 text-center">
-        <Button href="/contact" variant="primary" size="lg">
-          Let's Work Together
-        </Button>
+        <a href="/contact">
+          <Button variant="default" size="lg">
+            Let's Work Together
+          </Button>
+        </a>
       </div>
     </div>
   );

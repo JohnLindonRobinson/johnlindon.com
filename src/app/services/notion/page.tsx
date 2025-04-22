@@ -1,4 +1,4 @@
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 export default function NotionService() {
   return (
@@ -76,9 +76,11 @@ export default function NotionService() {
       </div>
 
       <div className="mt-12 text-center">
-        <Button href="/contact" variant="primary" size="lg">
-          Transform Your Workflow
-        </Button>
+        <a href="/contact">
+          <Button variant="default" size="lg">
+            Transform Your Workflow
+          </Button>
+        </a>
       </div>
     </div>
   );
