@@ -1,6 +1,6 @@
 'use client';
 
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
@@ -53,7 +53,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
+    <div className="pt-24 max-w-6xl mx-auto px-4 py-12">
       <div className="mb-12 text-center">
         <h1 className="text-4xl font-bold text-primary mb-4">Get in Touch</h1>
         <p className="text-xl text-text/80">Let's discuss how I can help with your project</p>
@@ -105,14 +105,20 @@ export default function Contact() {
               Book a time that works for you using my Motion calendar. I'll automatically adjust to
               your timezone and find the best available slot.
             </p>
-            <Button
+            <a 
               href="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
-              variant="secondary"
-              size="lg"
-              className="w-full"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full"
             >
-              Book a Meeting
-            </Button>
+              <Button
+                variant="secondary"
+                size="lg"
+                className="w-full"
+              >
+                Book a Meeting
+              </Button>
+            </a>
           </div>
 
           <div className="bg-white p-6 rounded-lg border border-primary/10">
@@ -199,10 +205,10 @@ export default function Contact() {
 
               <Button
                 type="submit"
-                variant="primary"
+                variant="default"
                 size="lg"
                 className="w-full"
-                isLoading={status === 'submitting'}
+                disabled={status === 'submitting'}
               >
                 {status === 'submitting' ? 'Sending...' : 'Send Message'}
               </Button>

@@ -1,76 +1,107 @@
-import Button from '@/components/ui/Button';
-import Card from '@/components/Card';
+'use client';
+
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/Card';
+import styles from '@/components/Card.module.css';
+import { motion } from 'framer-motion';
 
 const services = [
   {
     title: 'Business Automation & Internal Tooling',
     description:
       'Custom scripts and integrations to eliminate manual workflows, improve accuracy, and free up time. Specializing in Xero API, Zapier, EmailJS, and Google Apps Script integrations.',
-    tags: ['Automation', 'Integration', 'Xero', 'Zapier', 'Google Apps Script'],
     href: '/services/automation',
   },
   {
     title: 'Full-Stack Web App Development',
     description:
       'MVPs and internal dashboards with a modern frontend and scalable backend. Expertise in React, TypeScript, Node.js, and Deno for robust and maintainable applications.',
-    tags: ['React', 'TypeScript', 'Node.js', 'Deno', 'PostgreSQL'],
     href: '/services/web-development',
   },
   {
     title: 'Notion Systems & Productivity Consulting',
     description:
       'Custom CRMs, knowledge systems, and Zapier-integrated pipelines for operational clarity. Helping teams streamline their workflows and improve productivity.',
-    tags: ['Notion', 'Airtable', 'Zapier', 'Productivity', 'CRM'],
     href: '/services/notion',
   },
   {
     title: 'Education Tech & Tutoring Systems',
     description:
       'Curriculum tools, pseudocode engines, and student tracking solutions for tutors and edtech startups. Experience in GCSE and A-Level CS & Maths curriculum design.',
-    tags: ['EdTech', 'Curriculum', 'Tutoring', 'Assessment', 'Learning Tools'],
     href: '/services/edtech',
   },
   {
     title: 'Game Logic & Strategy Tools',
     description:
       'Tools for parsing complex game states, analyzing decks, and supporting turn-based game decision-making. Specializing in JSON-based game state analysis and heuristic evaluation.',
-    tags: ['Game Development', 'Logic', 'Strategy', 'Analysis', 'JSON'],
     href: '/services/game-tools',
   },
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
+
 export default function Services() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      <div className="text-center mb-12">
+    <div className="pt-24 max-w-7xl mx-auto px-4 py-12">
+      <motion.div 
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Services</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           I offer specialized solutions to help businesses and individuals streamline their
           operations, build custom applications, and improve their productivity.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div 
+        className={styles.cardGrid}
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
         {services.map(service => (
-          <Card
+          <motion.div
             key={service.title}
-            title={service.title}
-            description={service.description}
-            tags={service.tags}
-            href={service.href}
+            variants={item}
+            whileHover={{ scale: 1.02 }}
           >
-            <Button href={service.href} variant="outline" size="sm" className="mt-4">
-              Learn More
-            </Button>
-          </Card>
+            <Card
+              title={service.title}
+              description={service.description}
+              href={service.href}
+            />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="mt-12 text-center">
-        <Button href="/contact" variant="primary" size="lg">
-          Get in Touch
-        </Button>
-      </div>
+      <motion.div 
+        className="mt-12 text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+      >
+        <a href="/contact">
+          <Button variant="default" size="lg">
+            Get in Touch
+          </Button>
+        </a>
+      </motion.div>
     </div>
   );
 }
