@@ -54,10 +54,53 @@
 📍 Context: Mobile user experience
 👤 Requested by: John
 
+### Hero Section Animations
+- [ ] Test parallax effect on hero logo
+  - [ ] Verify scroll-based movement
+  - [ ] Check performance impact
+  - [ ] Test on different screen sizes
+  - [ ] Document optimal scroll speed
+- [ ] Test tagline animations
+  - [ ] Verify blinking cursor behavior
+  - [ ] Test dynamic rotation of specializations
+  - [ ] Check performance on mobile
+📍 Context: Hero section motion features
+👤 Requested by: John
+
+### Navbar Animations
+- [ ] Test indicator animation
+  - [ ] Verify underline to dot transition
+  - [ ] Check smooth cubic-bezier timing
+  - [ ] Test across different nav items
+  - [ ] Document animation parameters
+- [ ] Test hover states
+  - [ ] Verify dot expansion behavior
+  - [ ] Check performance impact
+  - [ ] Test on touch devices
+📍 Context: Navigation motion features
+👤 Requested by: John
+
+### Section Transitions
+- [ ] Test alternating background tints
+  - [ ] Verify color transitions
+  - [ ] Check performance impact
+  - [ ] Document color values
+- [ ] Test scroll-based effects
+  - [ ] Verify smooth transitions
+  - [ ] Check memory usage
+  - [ ] Document optimization techniques
+📍 Context: Section motion features
+👤 Requested by: John
+
 ## Completed Tasks
 - [x] Basic animation implementation
 - [x] Desktop browser testing
 - [x] Initial performance benchmarks
+- [x] Navbar indicator animation design
+- [x] Hero section parallax effect design
+- [x] Section background tint design
+- [x] Animation timing decisions (cubic-bezier)
+- [x] Motion behavior documentation
 
 ## Notes
 ⚠️ Note: Pay special attention to battery impact on mobile

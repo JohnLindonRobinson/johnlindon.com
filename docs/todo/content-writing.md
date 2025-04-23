@@ -61,6 +61,40 @@
 📍 Context: SEO and social sharing
 👤 Requested by: John
 
+### Service Content
+- [ ] Write service descriptions
+  - [ ] "What is it?" sections
+  - [ ] "What do I deliver?" bullet points
+  - [ ] "Who is it for?" target audience
+  - [ ] Service tags and keywords
+📍 Context: Service page content
+👤 Requested by: John
+
+### Hero Section
+- [ ] Write dynamic content
+  - [ ] Main headline (2-line)
+  - [ ] Supporting text
+  - [ ] Specialization rotations
+  - [ ] CTA text variations
+📍 Context: Hero section content
+👤 Requested by: John
+
+### Navigation
+- [ ] Write nav labels
+  - [ ] Main navigation items
+  - [ ] Service section labels
+  - [ ] Mobile menu text
+  - [ ] Accessibility labels
+📍 Context: Navigation content
+👤 Requested by: John
+
+## Completed Tasks
+- [x] Service page structure documentation
+- [x] Hero section structure documentation
+- [x] Navigation structure documentation
+- [x] Service content structure ("What is it?", "What do I deliver?", "Who is it for?")
+- [x] Motion behavior documentation
+
 ## Blocked
 - [ ] Blog posts (waiting for content strategy decision)
 - [ ] Case study details (waiting for client permissions)
