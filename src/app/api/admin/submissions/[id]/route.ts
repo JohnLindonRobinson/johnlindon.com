@@ -6,18 +6,12 @@ const updateSchema = z.object({
   status: z.enum(['new', 'read', 'replied']),
 });
 
-type Context = {
-  params: {
-    id: string;
-  };
-};
-
 export async function PATCH(
   request: NextRequest,
-  context: Context
+  { params }: { params: { id: string } }
 ) {
   try {
-    const id = parseInt(context.params.id);
+    const id = parseInt(params.id);
     if (isNaN(id)) {
       return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
     }
