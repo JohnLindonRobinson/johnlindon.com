@@ -90,17 +90,20 @@ const Select: React.FC<SelectProps> = ({
     <div
       ref={containerRef}
       className={`relative ${className}`}
+      role="combobox"
       aria-expanded={isOpen}
       aria-haspopup="listbox"
       aria-disabled={isDisabled}
-      aria-label={ariaLabel}
-      role="combobox"
+      aria-label={ariaLabel || 'Select dropdown'}
+      aria-controls="select-dropdown"
+      aria-owns="select-dropdown"
     >
       <div
-        className={`flex items-center justify-between p-2 border rounded-md cursor-pointer
-          ${isDisabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-white hover:border-blue-500'}
-          ${isOpen ? 'border-blue-500' : 'border-gray-300'}`}
+        className={`flex items-center justify-between p-2 border rounded-md cursor-pointer ${
+          isDisabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-white hover:border-blue-500'
+        } ${isOpen ? 'border-blue-500' : 'border-gray-300'}`}
         onClick={() => !isDisabled && setIsOpen(!isOpen)}
+        aria-label={displayValue}
       >
         <div className="flex-grow truncate">{displayValue}</div>
         <div className="flex items-center">
@@ -113,7 +116,12 @@ const Select: React.FC<SelectProps> = ({
       </div>
 
       {isOpen && !isDisabled && (
-        <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
+        <div 
+          id="select-dropdown"
+          className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg"
+          role="listbox"
+          aria-multiselectable={isMulti}
+        >
           {isSearchable && (
             <div className="p-2 border-b border-gray-300">
               <input
@@ -124,15 +132,19 @@ const Select: React.FC<SelectProps> = ({
                 value={searchTerm}
                 onChange={e => setSearchTerm(e.target.value)}
                 onClick={e => e.stopPropagation()}
+                role="searchbox"
+                aria-label="Search options"
               />
             </div>
           )}
 
           <div className="max-h-60 overflow-auto">
             {Object.entries(groupedOptions).map(([group, groupOptions]) => (
-              <div key={group || 'default'}>
+              <div key={group || 'default'} role="group" aria-label={group || 'Options'}>
                 {group && (
-                  <div className="px-3 py-1 text-sm font-semibold bg-gray-100">{group}</div>
+                  <div className="px-3 py-1 text-sm font-semibold bg-gray-100" role="presentation">
+                    {group}
+                  </div>
                 )}
                 {groupOptions.map(option => {
                   const isSelected = Array.isArray(value)
@@ -142,15 +154,22 @@ const Select: React.FC<SelectProps> = ({
                   return (
                     <div
                       key={option.value}
-                      className={`px-3 py-2 cursor-pointer flex items-center
-                        ${isSelected ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-100'}`}
+                      className={`px-3 py-2 cursor-pointer flex items-center ${
+                        isSelected ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-100'
+                      }`}
                       onClick={() => handleSelect(option.value)}
-                      role="option"
+                      role={isMulti ? 'checkbox' : 'option'}
                       aria-selected={isSelected}
+                      aria-checked={isMulti ? isSelected : undefined}
+                      tabIndex={0}
                     >
                       {isMulti && (
-                        <div className={`w-4 h-4 mr-2 border rounded flex items-center justify-center
-                          ${isSelected ? 'bg-blue-500 border-blue-500' : 'border-gray-300'}`}>
+                        <div 
+                          className={`w-4 h-4 mr-2 border rounded flex items-center justify-center ${
+                            isSelected ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
+                          }`}
+                          role="presentation"
+                        >
                           {isSelected && <CheckIcon className="w-3 h-3 text-white" />}
                         </div>
                       )}
@@ -161,13 +180,17 @@ const Select: React.FC<SelectProps> = ({
               </div>
             ))}
             {filteredOptions.length === 0 && (
-              <div className="px-3 py-2 text-gray-500">No options found</div>
+              <div className="px-3 py-2 text-gray-500" role="alert">No options found</div>
             )}
           </div>
         </div>
       )}
 
-      {error && <div className="mt-1 text-sm text-red-500">{error}</div>}
+      {error && (
+        <div className="mt-1 text-sm text-red-500" role="alert" aria-live="polite">
+          {error}
+        </div>
+      )}
     </div>
   );
 };
