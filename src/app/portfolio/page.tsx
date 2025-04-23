@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import Card from '@/components/Card';
+import { Card } from '@/components/Card';
 
 const projects = [
   {
@@ -60,9 +60,9 @@ export default function Portfolio() {
             imageUrl={project.imageUrl}
           >
             <a href={project.href}>
-              <Button 
-                variant="outline" 
-                size="sm" 
+              <Button
+                variant="secondary"
+                size="lg"
                 className="mt-4 transition-all duration-300 group-hover/card:bg-blue-500 group-hover/card:text-white group-hover/card:border-blue-600 group-hover/card:scale-110"
               >
                 View Project
@@ -73,11 +73,13 @@ export default function Portfolio() {
       </div>
 
       <div className="mt-12 text-center">
-        <a href="/contact">
-          <Button variant="default" size="lg">
-            Start Your Project
-          </Button>
-        </a>
+        <Button
+          variant="primary"
+          size="lg"
+          className="mt-8"
+        >
+          View All Projects
+        </Button>
       </div>
     </div>
   );

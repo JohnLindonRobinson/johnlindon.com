@@ -140,7 +140,7 @@ export function FeaturedWork() {
                     {/* Corner Flourish */}
                     <div className="absolute -bottom-1 -right-1 w-8 h-8 border-r-2 border-b-2 border-primary/20 rounded-br-xl transition-colors duration-300 group-hover:border-primary/40" />
                     <Button 
-                      variant="default" 
+                      variant="primary" 
                       className="font-manrope font-bold hover:bg-transparent hover:text-primary transition-colors px-4"
                     >
                       Learn More

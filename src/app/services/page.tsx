@@ -97,7 +97,7 @@ export default function Services() {
         transition={{ delay: 0.5 }}
       >
         <a href="/contact">
-          <Button variant="default" size="lg">
+          <Button variant="primary" size="lg">
             Get in Touch
           </Button>
         </a>

@@ -72,7 +72,7 @@ export default function EdTechService() {
 
       <div className="mt-12 text-center">
         <a href="/contact">
-          <Button variant="default" size="lg">
+          <Button variant="primary" size="lg">
             Enhance Your Teaching
           </Button>
         </a>

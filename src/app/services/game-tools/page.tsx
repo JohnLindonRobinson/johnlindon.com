@@ -1,4 +1,4 @@
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 export default function GameToolsService() {
   return (
@@ -73,9 +73,11 @@ export default function GameToolsService() {
       </div>
 
       <div className="mt-12 text-center">
-        <Button href="/contact" variant="primary" size="lg">
-          Build Your Game Tool
-        </Button>
+        <a href="/contact">
+          <Button variant="primary" size="lg">
+            Build Your Game Tool
+          </Button>
+        </a>
       </div>
     </div>
   );

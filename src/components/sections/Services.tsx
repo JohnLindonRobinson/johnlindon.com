@@ -134,7 +134,7 @@ export function Services() {
                 <div className="relative mt-auto pt-6">
                   <div className="absolute bottom-0 left-0 w-full h-[2px] bg-primary/20 transition-colors duration-300 group-hover:bg-primary/40" />
                   <Button 
-                    variant="ghost" 
+                    variant="secondary" 
                     className="font-manrope font-bold hover:bg-transparent hover:text-primary transition-colors px-0"
                   >
                     Learn More

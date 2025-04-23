@@ -179,7 +179,7 @@ describe('Motion Calendar Integration', () => {
       const { container } = render(
         <div className="w-full h-[600px] rounded-lg overflow-hidden">
           <iframe
-            src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            src="https://app.usemotion.com/meet/johnlindon/meeting"
             title="Motion Booking Page"
             width="100%"
             height="100%"
@@ -204,13 +204,13 @@ describe('Motion Calendar Integration', () => {
             height="100%"
             frameBorder="0"
             className="border-0"
-            importance="high"
+            loading="lazy"
           />
         </div>
       );
 
       const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('importance', 'high');
+      expect(iframe).toHaveAttribute('loading', 'lazy');
     });
   });
 }); 

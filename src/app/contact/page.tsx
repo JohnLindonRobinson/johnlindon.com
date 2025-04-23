@@ -205,7 +205,7 @@ export default function Contact() {
 
               <Button
                 type="submit"
-                variant="default"
+                variant="primary"
                 size="lg"
                 className="w-full"
                 disabled={status === 'submitting'}
