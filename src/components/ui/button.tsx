@@ -18,9 +18,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           {
             "bg-primary text-white hover:bg-primary/90": variant === "primary",
             "text-black hover:text-primary": variant === "secondary",
-            "h-12 px-6 text-base": size === "default",
-            "h-16 px-8 text-lg": size === "lg",
-            "h-9 px-4 text-sm": size === "sm",
+            "h-12 px-8 py-2": size === "default",
+            "h-14 px-10 py-3": size === "lg",
+            "h-10 px-6 py-1": size === "sm",
           },
           className
         )}
@@ -32,4 +32,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export { Button };
+export default Button;
