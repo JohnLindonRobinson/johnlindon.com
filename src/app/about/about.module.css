@@ -1,0 +1,45 @@
+.aboutContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(122, 46, 255, 0.1) 15%,
+    rgba(122, 46, 255, 0.1) 85%,
+    transparent
+  );
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .aboutContainer::before {
+    display: block;
+  }
+}
+
+.quickFact {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quickFact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.skillTag {
+  transition: all 0.2s ease;
+}
+
+.skillTag:hover {
+  background-color: rgba(122, 46, 255, 0.1);
+  transform: translateY(-1px);
+} 

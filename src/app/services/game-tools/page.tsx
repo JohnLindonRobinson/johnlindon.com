@@ -1,81 +1,100 @@
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 export default function GameToolsService() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="mb-12">
+    <div className="pt-24 max-w-7xl mx-auto px-4 py-12">
+      <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Game Logic & Strategy Tools</h1>
-        <p className="text-xl text-gray-600">Advanced tools for game analysis and strategy</p>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          Tools for parsing complex game states, analyzing decks, and supporting turn-based game
+          decision-making. Specializing in JSON-based game state analysis and heuristic evaluation.
+        </p>
       </div>
 
-      <div className="prose prose-lg max-w-none">
-        <h2>What I Offer</h2>
-        <p>
-          I develop specialized tools for analyzing game states, evaluating strategies, and
-          supporting decision-making in complex games. My solutions help game designers and players
-          understand and optimize their gameplay.
-        </p>
-
-        <h2>Key Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <h3 className="font-semibold mb-2">Analysis Tools</h3>
-            <ul className="list-disc pl-4">
-              <li>Game state parsing</li>
-              <li>Deck analysis</li>
-              <li>Strategy evaluation</li>
-              <li>Probability calculation</li>
-            </ul>
-          </div>
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <h3 className="font-semibold mb-2">Technical Capabilities</h3>
-            <ul className="list-disc pl-4">
-              <li>JSON-based state management</li>
-              <li>Heuristic evaluation</li>
-              <li>Logic tree construction</li>
-              <li>Performance optimization</li>
-            </ul>
-          </div>
-        </div>
-
-        <h2>Example Projects</h2>
-        <div className="bg-gray-50 p-6 rounded-lg">
-          <h3 className="text-xl font-semibold mb-2">MTG Analyzer</h3>
-          <ul className="list-disc pl-6">
-            <li>JSON-based game state parsing</li>
-            <li>Optimal play suggestions</li>
-            <li>Deck analysis and recommendations</li>
-            <li>Advanced logic tree construction</li>
-            <li>Heuristic evaluation system</li>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold mb-4">Features</h2>
+          <ul className="space-y-3">
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>Game state parsing and validation</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>Deck composition analysis</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>Turn-based decision support</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>Heuristic evaluation engines</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>Strategy optimization algorithms</span>
+            </li>
           </ul>
         </div>
 
-        <h2>Development Process</h2>
-        <ol>
-          <li>
-            <strong>Game Analysis:</strong> We study the game mechanics and identify key decision
-            points
-          </li>
-          <li>
-            <strong>Tool Design:</strong> I create a system architecture for analyzing and
-            evaluating game states
-          </li>
-          <li>
-            <strong>Implementation:</strong> I build and test the analysis tools
-          </li>
-          <li>
-            <strong>Optimization:</strong> We refine the tools for accuracy and performance
-          </li>
-          <li>
-            <strong>Support:</strong> Ongoing updates and improvements
-          </li>
-        </ol>
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold mb-4">Use Cases</h2>
+          <ul className="space-y-3">
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>Trading card game analysis tools</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>Board game companion apps</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>Strategy game decision support</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>Game testing and simulation</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>Tournament preparation tools</span>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div className="mt-12 text-center">
-        <Button href="/contact" variant="primary" size="lg">
-          Build Your Game Tool
-        </Button>
+      <div className="bg-gray-50 p-8 rounded-lg mb-12">
+        <h2 className="text-2xl font-semibold mb-6 text-center">Development Process</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="text-center">
+            <h3 className="font-semibold mb-2">1. Game State Analysis</h3>
+            <p className="text-gray-600">
+              Define game state structure and implement parsing logic for accurate state representation.
+            </p>
+          </div>
+          <div className="text-center">
+            <h3 className="font-semibold mb-2">2. Algorithm Development</h3>
+            <p className="text-gray-600">
+              Create and optimize algorithms for game analysis and decision-making support.
+            </p>
+          </div>
+          <div className="text-center">
+            <h3 className="font-semibold mb-2">3. Tool Implementation</h3>
+            <p className="text-gray-600">
+              Build user-friendly interfaces and integrate analysis capabilities into practical tools.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="text-center">
+        <a href="/contact">
+          <Button variant="default" size="lg">
+            Discuss Your Game Tool
+          </Button>
+        </a>
       </div>
     </div>
   );

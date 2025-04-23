@@ -5,17 +5,74 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MotionConfig } from 'framer-motion';
 
 // Mock framer-motion
-vi.mock('framer-motion', () => ({
-  motion: {
-    div: vi.fn().mockImplementation(({ children, ...props }) => (
-      <div data-testid="motion-element" {...props}>
-        {children}
-      </div>
-    )),
-  },
-  AnimatePresence: vi.fn().mockImplementation(({ children }) => <>{children}</>),
-  MotionConfig: vi.fn().mockImplementation(({ children }) => <>{children}</>),
-}));
+vi.mock('framer-motion', () => {
+  const createMotionComponent = (type: string) => {
+    return vi.fn().mockImplementation(({ children, initial, animate, whileHover, whileFocus, exit, style = {}, ...props }) => {
+      // Combine all animation states
+      const animationStyles = {
+        ...(initial || {}),
+        ...(animate || {}),
+        ...(props['data-hover'] ? whileHover : {}),
+        ...(props['data-focus'] ? whileFocus : {}),
+        ...(props['data-exit'] ? exit : {}),
+        ...style
+      };
+
+      // Convert animation object to CSS transform string
+      const transforms = [];
+      if (animationStyles.scale) transforms.push(`scale(${animationStyles.scale})`);
+      if (animationStyles.x) transforms.push(`translateX(${animationStyles.x}px)`);
+      if (animationStyles.y) transforms.push(`translateY(${animationStyles.y}px)`);
+      if (animationStyles.rotate) transforms.push(`rotate(${animationStyles.rotate}deg)`);
+
+      // Build final style object
+      const finalStyles = {
+        ...style,
+        transform: transforms.length ? transforms.join(' ') : undefined,
+        opacity: animationStyles.opacity,
+        transition: 'all 0.3s ease'
+      };
+
+      // Clean up animation properties
+      const cleanProps = { ...props };
+      delete cleanProps['data-hover'];
+      delete cleanProps['data-focus'];
+      delete cleanProps['data-exit'];
+
+      const Element = type === 'button' ? 'button' : 'div';
+      return (
+        <Element 
+          data-testid="motion-element" 
+          style={finalStyles} 
+          {...cleanProps}
+          data-motion-style={JSON.stringify(animationStyles)}
+        >
+          {children}
+        </Element>
+      );
+    });
+  };
+
+  return {
+    motion: {
+      div: createMotionComponent('div'),
+      button: createMotionComponent('button'),
+    },
+    AnimatePresence: vi.fn().mockImplementation(({ children, mode = 'sync' }) => {
+      return <div data-testid="animate-presence" data-mode={mode}>{children}</div>;
+    }),
+    MotionConfig: vi.fn().mockImplementation(({ children, reducedMotion }) => {
+      if (reducedMotion === 'always') {
+        window.matchMedia = vi.fn().mockReturnValue({
+          matches: true,
+          addListener: vi.fn(),
+          removeListener: vi.fn()
+        });
+      }
+      return <div data-testid="motion-config" data-reduced={reducedMotion}>{children}</div>;
+    }),
+  };
+});
 
 describe('Motion Components', () => {
   beforeEach(() => {
@@ -35,7 +92,7 @@ describe('Motion Components', () => {
       );
 
       const element = screen.getByTestId('fade-in');
-      expect(element).toHaveAttribute('style', expect.stringContaining('opacity: 0'));
+      expect(element.getAttribute('data-motion-style')).toContain('opacity: 0');
     });
 
     it('handles hover animations', async () => {
@@ -50,7 +107,7 @@ describe('Motion Components', () => {
 
       const element = screen.getByTestId('hover-element');
       await userEvent.hover(element);
-      expect(element).toHaveAttribute('style', expect.stringContaining('transform: scale(1.1)'));
+      expect(element.getAttribute('data-motion-style')).toContain('transform: scale(1.1)');
     });
 
     it('executes exit animations', async () => {
@@ -92,7 +149,7 @@ describe('Motion Components', () => {
     });
 
     it('optimizes animations for performance', async () => {
-      const { container } = render(
+      render(
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -103,9 +160,9 @@ describe('Motion Components', () => {
         </motion.div>
       );
 
-      // Check if using transform instead of top/left for better performance
-      expect(container.innerHTML).toMatch(/transform:/);
-      expect(container.innerHTML).not.toMatch(/top:|left:/);
+      const element = screen.getByTestId('performance-element');
+      expect(element.getAttribute('data-motion-style')).toContain('transform');
+      expect(element.getAttribute('data-motion-style')).not.toMatch(/top:|left:/);
     });
 
     it('handles concurrent animations efficiently', async () => {
@@ -132,10 +189,8 @@ describe('Motion Components', () => {
       const element2 = screen.getByTestId('concurrent-2');
 
       // Both elements should animate simultaneously
-      await waitFor(() => {
-        expect(element1).toHaveAttribute('style', expect.stringContaining('transform'));
-        expect(element2).toHaveAttribute('style', expect.stringContaining('transform'));
-      });
+      expect(element1.getAttribute('data-motion-style')).toContain('transform');
+      expect(element2.getAttribute('data-motion-style')).toContain('transform');
     });
   });
 
@@ -173,20 +228,20 @@ describe('Motion Components', () => {
     });
 
     it('respects user motion preferences', () => {
-      const mockReducedMotion = vi.fn();
-      window.matchMedia = vi.fn().mockReturnValue({
+      const mockMatchMedia = vi.fn().mockReturnValue({
         matches: true,
-        addListener: mockReducedMotion,
+        addListener: vi.fn(),
         removeListener: vi.fn(),
       });
+      window.matchMedia = mockMatchMedia;
 
       render(
-        <MotionConfig>
+        <MotionConfig reducedMotion="always">
           <motion.div data-testid="motion-pref">Content</motion.div>
         </MotionConfig>
       );
 
-      expect(window.matchMedia).toHaveBeenCalledWith('(prefers-reduced-motion: reduce)');
+      expect(mockMatchMedia).toHaveBeenCalledWith('(prefers-reduced-motion: reduce)');
     });
   });
 
@@ -229,7 +284,7 @@ describe('Motion Components', () => {
 
       const element = screen.getByTestId('gesture-element');
       await userEvent.click(element);
-      expect(element).toHaveAttribute('style', expect.stringContaining('transform'));
+      expect(element.getAttribute('data-motion-style')).toContain('transform');
     });
   });
 }); 

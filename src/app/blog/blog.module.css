@@ -1,0 +1,107 @@
+.blogContainer {
+  @apply relative w-full min-h-screen px-4 py-24;
+}
+
+.backgroundLogo {
+  @apply absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl opacity-5 pointer-events-none;
+  background-image: url('/logo.png');
+  background-repeat: no-repeat;
+  background-position: center 15%;
+  background-size: 80%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.filterBar {
+  @apply w-full flex justify-center mb-12;
+}
+
+.filterWrapper {
+  @apply relative inline-flex gap-4 px-6 py-3 bg-white backdrop-blur-sm rounded-full border border-white;
+}
+
+.indicator {
+  @apply absolute h-full bg-[#6B21A8] rounded-full transition-all duration-300;
+  top: 0;
+  box-shadow: 0 0 20px rgba(107, 33, 168, 0.3);
+}
+
+.filterBar button {
+  @apply relative z-10 px-4 py-2 transition-colors text-gray-500;
+}
+
+.filterBar button:hover {
+  @apply text-[#6B21A8];
+}
+
+.filterBar button[data-active="true"] {
+  @apply text-white;
+}
+
+.blogGrid {
+  @apply grid gap-8 w-full max-w-7xl mx-auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.blogGrid.shifted {
+  @apply pr-[500px];
+}
+
+@screen md {
+  .blogGrid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+@screen lg {
+  .blogGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .blogGrid.shifted {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.blogCard {
+  @apply bg-white/70 backdrop-blur-md rounded-xl border border-primary/10 shadow-sm cursor-pointer transition-all duration-300 h-full overflow-hidden transform-gpu;
+}
+
+.blogCard:hover {
+  @apply transform scale-[1.02] shadow-lg border-primary/20;
+}
+
+.modalOverlay {
+  @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50;
+}
+
+.modal {
+  @apply fixed top-0 right-0 h-full overflow-y-auto
+         bg-white/10 backdrop-blur-md z-50
+         border-l border-white/10 shadow-xl;
+  width: 66.666667%;
+  transform-origin: right center;
+}
+
+.closeButton {
+  @apply absolute top-4 right-4 text-3xl text-white hover:opacity-75 transition-opacity;
+}
+
+.modalImage {
+  @apply w-full h-64 object-cover;
+}
+
+.modalContent {
+  @apply p-6 space-y-4;
+}
+
+.modalTitle {
+  @apply text-2xl font-bold text-white;
+}
+
+.modalMeta {
+  @apply flex items-center gap-3 text-sm text-gray-300;
+}
+
+.modalDescription {
+  @apply text-gray-200 leading-relaxed;
+} 

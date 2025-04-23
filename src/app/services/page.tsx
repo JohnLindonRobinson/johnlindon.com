@@ -1,107 +1,150 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/Card';
-import styles from '@/components/Card.module.css';
-import { motion } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Card from '@/components/Card';
+import styles from './services.module.css';
 
 const services = [
   {
-    title: 'Business Automation & Internal Tooling',
-    description:
-      'Custom scripts and integrations to eliminate manual workflows, improve accuracy, and free up time. Specializing in Xero API, Zapier, EmailJS, and Google Apps Script integrations.',
-    href: '/services/automation',
+    id: 1,
+    title: 'Business Automation',
+    description: 'Streamline your business processes with custom automation solutions',
+    briefExplanation: 'Streamline your business processes with custom automation solutions',
+    whatIsIt: 'A comprehensive service that identifies, designs, and implements automation solutions for your business processes, reducing manual work and increasing efficiency.',
+    whatDoIDeliver: [
+      'Process analysis and optimization',
+      'Custom automation software',
+      'Integration with existing systems',
+      'Training and documentation'
+    ],
+    whoIsItFor: 'Business owners and managers looking to improve efficiency and reduce operational costs through automation.',
+    tags: ['Automation', 'Business', 'Efficiency', 'Integration'],
+    href: '/services/business-automation',
+    imageUrl: '/icons/automation.svg'
   },
   {
-    title: 'Full-Stack Web App Development',
-    description:
-      'MVPs and internal dashboards with a modern frontend and scalable backend. Expertise in React, TypeScript, Node.js, and Deno for robust and maintainable applications.',
+    id: 2,
+    title: 'Full-Stack Web Development',
+    description: 'Modern, scalable web applications built with cutting-edge technology',
+    briefExplanation: 'Modern, scalable web applications built with cutting-edge technology',
+    whatIsIt: 'End-to-end web application development service covering everything from user interface design to backend infrastructure and deployment.',
+    whatDoIDeliver: [
+      'Custom web applications',
+      'Responsive design',
+      'API development',
+      'Database design',
+      'Cloud deployment'
+    ],
+    whoIsItFor: 'Businesses and organizations needing custom web applications that scale with their needs.',
+    tags: ['Web Dev', 'Full Stack', 'React', 'Node.js'],
     href: '/services/web-development',
+    imageUrl: '/icons/webdev.svg'
   },
   {
-    title: 'Notion Systems & Productivity Consulting',
-    description:
-      'Custom CRMs, knowledge systems, and Zapier-integrated pipelines for operational clarity. Helping teams streamline their workflows and improve productivity.',
-    href: '/services/notion',
+    id: 3,
+    title: 'Notion Systems Consulting',
+    description: 'Transform your Notion workspace into a powerful business tool',
+    briefExplanation: 'Transform your Notion workspace into a powerful business tool',
+    whatIsIt: 'Expert consulting to help you leverage Notion for business operations, project management, and team collaboration.',
+    whatDoIDeliver: [
+      'Workspace optimization',
+      'Custom templates',
+      'Workflow automation',
+      'Team training'
+    ],
+    whoIsItFor: 'Teams and businesses looking to maximize their Notion workspace efficiency.',
+    tags: ['Notion', 'Productivity', 'Organization', 'Workflow'],
+    href: '/services/notion-consulting',
+    imageUrl: '/icons/notion.svg'
   },
   {
-    title: 'Education Tech & Tutoring Systems',
-    description:
-      'Curriculum tools, pseudocode engines, and student tracking solutions for tutors and edtech startups. Experience in GCSE and A-Level CS & Maths curriculum design.',
-    href: '/services/edtech',
-  },
-  {
-    title: 'Game Logic & Strategy Tools',
-    description:
-      'Tools for parsing complex game states, analyzing decks, and supporting turn-based game decision-making. Specializing in JSON-based game state analysis and heuristic evaluation.',
-    href: '/services/game-tools',
-  },
+    id: 4,
+    title: 'Education Tech Solutions',
+    description: 'Custom software solutions for educational institutions',
+    briefExplanation: 'Custom software solutions for educational institutions',
+    whatIsIt: 'Specialized software development for educational institutions, focusing on learning management, student engagement, and administrative efficiency.',
+    whatDoIDeliver: [
+      'Learning platforms',
+      'Student management systems',
+      'Assessment tools',
+      'Analytics dashboards'
+    ],
+    whoIsItFor: 'Educational institutions seeking to enhance their digital infrastructure and learning experience.',
+    tags: ['EdTech', 'Education', 'Learning', 'Software'],
+    href: '/services/education-tech',
+    imageUrl: '/icons/education.svg'
+  }
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
-};
-
 export default function Services() {
+  const [activeService, setActiveService] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const calculateActiveService = (progress: number) => {
+    const serviceIndex = Math.floor(progress * services.length);
+    return Math.min(serviceIndex, services.length - 1);
+  };
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.onChange((latest) => {
+      setActiveService(calculateActiveService(latest));
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress]);
+
   return (
-    <div className="pt-24 max-w-7xl mx-auto px-4 py-12">
-      <motion.div 
-        className="text-center mb-12"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Services</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          I offer specialized solutions to help businesses and individuals streamline their
-          operations, build custom applications, and improve their productivity.
+    <div className={styles.servicesContainer}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>SERVICES & SOLUTIONS</h1>
+        <p className={styles.subtitle}>
+          Transforming ideas into powerful digital solutions. Explore my services below to find the perfect match for your needs.
         </p>
-      </motion.div>
+      </div>
 
-      <motion.div 
-        className={styles.cardGrid}
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        {services.map(service => (
-          <motion.div
-            key={service.title}
-            variants={item}
-            whileHover={{ scale: 1.02 }}
-          >
-            <Card
-              title={service.title}
-              description={service.description}
-              href={service.href}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className={styles.content}>
+        <div className={styles.sidebar}>
+          <div className={styles.serviceNav}>
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                className={`${styles.serviceNavItem} ${index === activeService ? styles.active : ''}`}
+                initial={false}
+                animate={{
+                  scale: index === activeService ? 1.1 : 1,
+                  opacity: index === activeService ? 1 : 0.6
+                }}
+                whileHover={{ scale: 1.05 }}
+                onClick={() => {
+                  const element = document.getElementById(`service-${service.id}`);
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                {service.title}
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
-      <motion.div 
-        className="mt-12 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        <a href="/contact">
-          <Button variant="default" size="lg">
-            Get in Touch
-          </Button>
-        </a>
-      </motion.div>
+        <div ref={containerRef} className={styles.servicesGrid}>
+          {services.map((service, index) => (
+            <div
+              key={service.id}
+              id={`service-${service.id}`}
+              className={styles.serviceCard}
+            >
+              <Card
+                {...service}
+                isActive={index === activeService}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

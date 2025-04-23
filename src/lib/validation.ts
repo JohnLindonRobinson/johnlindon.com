@@ -1,6 +1,11 @@
 export function validateEmail(email: string): boolean {
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  return emailRegex.test(email);
+  if (!email) return false;
+  // More comprehensive email validation regex
+  const emailRegex = /^[a-zA-Z0-9](?:[a-zA-Z0-9._%+-]*[a-zA-Z0-9])?@[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?:\.[a-zA-Z]{2,})+$/;
+  const trimmedEmail = email.trim();
+  if (trimmedEmail !== email) return false; // Reject if had leading/trailing spaces
+  if (trimmedEmail.includes('..')) return false; // Reject consecutive dots
+  return emailRegex.test(trimmedEmail);
 }
 
 /**
@@ -9,26 +14,40 @@ export function validateEmail(email: string): boolean {
  * @returns Sanitized string
  */
 export function sanitizeInput(input: unknown): string {
-  // Handle non-string input
   if (input === null || input === undefined) {
     return '';
   }
-  const str = String(input);
 
-  // Remove HTML and script tags
-  let sanitized = str.replace(/<[^>]*>?/g, '');
+  let sanitized = String(input);
 
-  // Remove script injection patterns
-  sanitized = sanitized.replace(/javascript:|data:|vbscript:|expression\(|eval\(|on\w+\s*=|document\.|window\./gi, '');
+  // Remove script tags with content first
+  sanitized = sanitized.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+  
+  // Remove remaining HTML tags
+  sanitized = sanitized.replace(/<[^>]*>?/g, '');
+  
+  // Remove dangerous patterns
+  sanitized = sanitized.replace(/javascript:/gi, '');
+  sanitized = sanitized.replace(/on\w+\s*=/gi, '');
+
+  // Convert newlines and tabs to spaces first
+  sanitized = sanitized.replace(/[\n\r\t]/g, ' ');
 
   // Remove control characters
   sanitized = sanitized.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
 
-  // Remove SQL injection patterns
-  sanitized = sanitized.replace(/(\b(select|insert|update|delete|drop|union|exec|declare)\b)|(-{2}|\/\*|\*\/)/gi, '');
+  // Remove SQL keywords selectively
+  sanitized = sanitized.replace(/\b(SELECT|DROP|UNION)\b/gi, '');
 
-  // Normalize whitespace
+  // Remove SQL comments while preserving spaces
+  sanitized = sanitized.replace(/\/\*.*?\*\//g, ' ');
+  sanitized = sanitized.replace(/--\s*/g, ' ');
+
+  // Normalize remaining whitespace
   sanitized = sanitized.replace(/\s+/g, ' ').trim();
+
+  // Remove quotes at start/end
+  sanitized = sanitized.replace(/^["']|["']$/g, '');
 
   // Limit length to prevent DOS
   return sanitized.slice(0, 5000);

@@ -1,17 +1,22 @@
 import { render, screen, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { describe, it, expect, vi } from 'vitest';
 import BlogPage from '@/app/blog/page';
-import BlogPost from '@/app/blog/[slug]/page';
+import styles from '@/app/blog/blog.module.css';
 
 // Mock Next.js navigation hooks
-jest.mock('next/navigation', () => ({
-  useRouter: jest.fn(),
-  useSearchParams: jest.fn(),
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: vi.fn(),
+    back: vi.fn(),
+    forward: vi.fn(),
+  }),
+  useSearchParams: () => new URLSearchParams(),
 }));
 
 // Mock components
-jest.mock('@/components/ui/Button', () => ({
+vi.mock('@/components/ui/Button', () => ({
   __esModule: true,
   default: ({ children, onClick }: { children: React.ReactNode; onClick?: () => void }) => (
     <button onClick={onClick}>{children}</button>
@@ -33,17 +38,43 @@ describe('Blog Interaction Flow', () => {
   describe('Blog Landing Page Navigation', () => {
     it('should display blog posts in a grid layout', async () => {
       render(<BlogPage />);
-      const blogGrid = screen.getByRole('list', { name: /blog posts/i });
-      expect(blogGrid).toHaveClass('grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-6');
+      const blogGrid = screen.getByTestId('blog-grid');
+      expect(blogGrid).toHaveClass(styles.blogGrid);
     });
 
     it('should filter blog posts by category', async () => {
       render(<BlogPage />);
-      const categoryFilter = screen.getByRole('combobox', { name: /filter by category/i });
-      await userEvent.selectOptions(categoryFilter, 'technical');
+      const categoryButtons = screen.getAllByRole('button');
+      const aiButton = categoryButtons.find(button => button.textContent === 'AI & Automation');
       
-      expect(screen.getByText(/filtered by: technical/i)).toBeInTheDocument();
-      expect(screen.getAllByRole('article')).toHaveLength(3); // Assuming 3 technical posts
+      await userEvent.click(aiButton!);
+      
+      const posts = screen.getAllByRole('article');
+      expect(posts).toHaveLength(1); // We have 1 AI & Automation post
+      expect(posts[0]).toHaveTextContent('AI in Business Automation');
+    });
+
+    it('should animate the category indicator', async () => {
+      render(<BlogPage />);
+      const indicator = screen.getByTestId('category-indicator');
+      const initialPosition = indicator.style.left;
+      
+      const aiButton = screen.getByRole('button', { name: 'AI & Automation' });
+      await userEvent.click(aiButton);
+      
+      expect(indicator.style.left).not.toBe(initialPosition);
+    });
+
+    it('should animate blog cards when filtering', async () => {
+      render(<BlogPage />);
+      const aiButton = screen.getByRole('button', { name: 'AI & Automation' });
+      
+      await userEvent.click(aiButton);
+      
+      const posts = screen.getAllByTestId('blog-card');
+      posts.forEach(post => {
+        expect(post).toHaveStyle('transform: translateX(0)');
+      });
     });
 
     it('should search blog posts by title and content', async () => {
@@ -68,13 +99,13 @@ describe('Blog Interaction Flow', () => {
     });
 
     it('should render code blocks with syntax highlighting', async () => {
-      render(<BlogPost slug="test-post" />);
+      render(<BlogPage />);
       const codeBlock = screen.getByRole('code');
       expect(codeBlock).toHaveClass('language-typescript');
     });
 
     it('should allow copying code snippets', async () => {
-      render(<BlogPost slug="test-post" />);
+      render(<BlogPage />);
       const copyButton = screen.getByRole('button', { name: /copy code/i });
       await userEvent.click(copyButton);
       
@@ -84,7 +115,7 @@ describe('Blog Interaction Flow', () => {
 
   describe('Blog Interaction Features', () => {
     it('should track reading progress', async () => {
-      render(<BlogPost slug="test-post" />);
+      render(<BlogPage />);
       const progressBar = screen.getByRole('progressbar');
       
       // Simulate scroll
@@ -95,12 +126,12 @@ describe('Blog Interaction Flow', () => {
     });
 
     it('should show estimated reading time', () => {
-      render(<BlogPost slug="test-post" />);
+      render(<BlogPage />);
       expect(screen.getByText(/\d+ min read/i)).toBeInTheDocument();
     });
 
     it('should navigate between related posts', async () => {
-      render(<BlogPost slug="test-post" />);
+      render(<BlogPage />);
       const nextPostLink = screen.getByRole('link', { name: /next post/i });
       await userEvent.click(nextPostLink);
       
@@ -110,7 +141,7 @@ describe('Blog Interaction Flow', () => {
 
   describe('Blog Social Features', () => {
     it('should share blog post on social media', async () => {
-      render(<BlogPost slug="test-post" />);
+      render(<BlogPage />);
       const shareButton = screen.getByRole('button', { name: /share/i });
       await userEvent.click(shareButton);
       
@@ -119,7 +150,7 @@ describe('Blog Interaction Flow', () => {
     });
 
     it('should save post to reading list', async () => {
-      render(<BlogPost slug="test-post" />);
+      render(<BlogPage />);
       const saveButton = screen.getByRole('button', { name: /save/i });
       await userEvent.click(saveButton);
       

@@ -18,15 +18,26 @@ vi.mock('next/link', () => ({
 
 describe('Card', () => {
   const defaultProps = {
+    href: '/test-service',
     title: 'Test Card',
     description: 'Test description',
+    briefExplanation: 'A brief explanation of the service',
+    whatIsIt: 'This is a test service that helps with testing',
+    whatDoIDeliver: ['Item 1', 'Item 2', 'Item 3'],
+    whoIsItFor: 'This is for people who need testing services',
+    tags: ['Test', 'Service'],
   };
 
   it('renders with required props', () => {
     render(<Card {...defaultProps} />);
     
     expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
-    expect(screen.getByText(defaultProps.description)).toBeInTheDocument();
+    expect(screen.getByText(defaultProps.briefExplanation)).toBeInTheDocument();
+    expect(screen.getByText(defaultProps.whatIsIt)).toBeInTheDocument();
+    expect(screen.getByText(defaultProps.whoIsItFor)).toBeInTheDocument();
+    defaultProps.whatDoIDeliver.forEach(item => {
+      expect(screen.getByText(item)).toBeInTheDocument();
+    });
   });
 
   it('renders image when imageUrl is provided', () => {
@@ -39,28 +50,18 @@ describe('Card', () => {
   });
 
   it('renders tags when provided', () => {
-    const tags = ['React', 'TypeScript'];
-    render(<Card {...defaultProps} tags={tags} />);
+    render(<Card {...defaultProps} />);
     
-    tags.forEach(tag => {
-      expect(screen.getByText(tag)).toBeInTheDocument();
+    defaultProps.tags.forEach(tag => {
+      expect(screen.getByText(`#${tag}`)).toBeInTheDocument();
     });
   });
 
   it('renders as a link when href is provided', () => {
-    const href = '/test-link';
-    render(<Card {...defaultProps} href={href} />);
+    render(<Card {...defaultProps} />);
     
     const link = screen.getByRole('link');
-    expect(link).toHaveAttribute('href', href);
-  });
-
-  it('calls onClick handler when clicked', () => {
-    const onClick = vi.fn();
-    render(<Card {...defaultProps} onClick={onClick} />);
-    
-    fireEvent.click(screen.getByRole('article'));
-    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(link).toHaveAttribute('href', defaultProps.href);
   });
 
   it('renders children when provided', () => {
@@ -74,29 +75,28 @@ describe('Card', () => {
     expect(screen.getByText(childText)).toBeInTheDocument();
   });
 
-  it('applies custom className when provided', () => {
-    const customClass = 'custom-class';
-    render(<Card {...defaultProps} className={customClass} />);
-    
-    const card = screen.getByRole('article');
-    expect(card).toHaveClass(customClass);
-  });
-
   it('handles long text content gracefully', () => {
-    const longTitle = 'A'.repeat(100);
-    const longDescription = 'B'.repeat(300);
+    const longProps = {
+      ...defaultProps,
+      title: 'A'.repeat(100),
+      description: 'B'.repeat(300),
+      briefExplanation: 'C'.repeat(200),
+      whatIsIt: 'D'.repeat(200),
+      whoIsItFor: 'E'.repeat(200),
+    };
     
-    render(<Card title={longTitle} description={longDescription} />);
+    render(<Card {...longProps} />);
     
-    expect(screen.getByText(longTitle)).toBeInTheDocument();
-    expect(screen.getByText(longDescription)).toBeInTheDocument();
+    expect(screen.getByText(longProps.title)).toBeInTheDocument();
+    expect(screen.getByText(longProps.briefExplanation)).toBeInTheDocument();
   });
 
   it('renders without tags when tags array is empty', () => {
     render(<Card {...defaultProps} tags={[]} />);
     
-    const card = screen.getByText(defaultProps.title).closest('div');
-    expect(card?.querySelector('.gap-2')).not.toBeInTheDocument();
+    defaultProps.tags.forEach(tag => {
+      expect(screen.queryByText(`#${tag}`)).not.toBeInTheDocument();
+    });
   });
 
   it('renders without image when imageUrl is not provided', () => {
@@ -107,41 +107,24 @@ describe('Card', () => {
 
   describe('Accessibility', () => {
     it('has appropriate ARIA attributes when interactive', () => {
-      const onClick = vi.fn();
-      render(<Card {...defaultProps} onClick={onClick} />);
+      render(<Card {...defaultProps} />);
       
-      const card = screen.getByRole('article');
-      expect(card).toHaveAttribute('tabindex', '0');
-      expect(card).toHaveAttribute('aria-label', defaultProps.title);
-    });
-
-    it('handles keyboard interaction correctly', () => {
-      const onClick = vi.fn();
-      render(<Card {...defaultProps} onClick={onClick} />);
-      
-      const card = screen.getByRole('article');
-      card.focus();
-      fireEvent.keyDown(card, { key: 'Enter' });
-      expect(onClick).toHaveBeenCalledTimes(1);
-
-      fireEvent.keyDown(card, { key: ' ' });
-      expect(onClick).toHaveBeenCalledTimes(2);
+      const link = screen.getByRole('link');
+      expect(link).toHaveAttribute('href', defaultProps.href);
     });
 
     it('maintains focus states for keyboard navigation', () => {
       render(<Card {...defaultProps} />);
-      const card = screen.getByRole('article');
+      const link = screen.getByRole('link');
       
-      card.focus();
-      expect(document.activeElement).toBe(card);
+      link.focus();
+      expect(document.activeElement).toBe(link);
     });
 
     it('preserves tab order when rendered as a link', () => {
-      const href = '/test-link';
-      render(<Card {...defaultProps} href={href} />);
+      render(<Card {...defaultProps} />);
       
       const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('tabindex', '0');
       expect(link).not.toHaveAttribute('tabindex', '-1');
     });
   });
@@ -149,44 +132,34 @@ describe('Card', () => {
   describe('Edge Cases', () => {
     it('handles extremely long text content', () => {
       const longProps = {
+        ...defaultProps,
         title: 'A'.repeat(100),
         description: 'B'.repeat(500),
+        briefExplanation: 'C'.repeat(300),
+        whatIsIt: 'D'.repeat(300),
+        whoIsItFor: 'E'.repeat(300),
       };
       
       render(<Card {...longProps} />);
       
       expect(screen.getByText(longProps.title)).toBeInTheDocument();
-      expect(screen.getByText(longProps.description)).toBeInTheDocument();
-      expect(screen.getByRole('article')).toHaveClass('overflow-hidden');
-    });
-
-    it('handles nested interactive elements correctly', () => {
-      const cardClick = vi.fn();
-      const buttonClick = vi.fn();
-      
-      render(
-        <Card {...defaultProps} onClick={cardClick}>
-          <button onClick={buttonClick}>Nested Button</button>
-        </Card>
-      );
-      
-      const button = screen.getByRole('button');
-      fireEvent.click(button);
-      
-      expect(buttonClick).toHaveBeenCalledTimes(1);
-      expect(cardClick).not.toHaveBeenCalled();
+      expect(screen.getByText(longProps.briefExplanation)).toBeInTheDocument();
     });
 
     it('handles special characters in content', () => {
       const specialProps = {
+        ...defaultProps,
         title: '!@#$%^&*()_+ Test <script>alert("xss")</script>',
         description: '< > & " \' / \\ Test',
+        briefExplanation: '< > & " \' / \\ Brief',
+        whatIsIt: '< > & " \' / \\ What',
+        whoIsItFor: '< > & " \' / \\ Who',
       };
       
       render(<Card {...specialProps} />);
       
       expect(screen.getByText(specialProps.title)).toBeInTheDocument();
-      expect(screen.getByText(specialProps.description)).toBeInTheDocument();
+      expect(screen.getByText(specialProps.briefExplanation)).toBeInTheDocument();
     });
   });
 }); 

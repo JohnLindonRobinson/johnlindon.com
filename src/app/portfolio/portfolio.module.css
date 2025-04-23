@@ -1,0 +1,186 @@
+.portfolioContainer {
+  @apply relative min-h-screen w-full overflow-hidden bg-[#fcfbfd] z-0;
+}
+
+.backgroundLogo {
+  @apply absolute opacity-[0.02] z-0;
+  right: -10%;
+  top: 5%;
+  transform: rotate(-15deg) scale(1.5);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #7a2eff, #9f6aff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.filterBar {
+  @apply w-full flex justify-center mb-8 relative;
+  padding: 4px;
+  background: white;
+  border-radius: 9999px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: fit-content;
+  margin: 0 auto;
+  position: relative;
+  z-index: 50;
+}
+
+.filterWrapper {
+  @apply relative inline-flex gap-2 px-2;
+}
+
+.filterButton {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 2;
+}
+
+.filterButton[data-active="true"] {
+  color: white;
+}
+
+.indicator {
+  @apply absolute bg-primary rounded-full transition-all duration-300;
+  top: 4px;
+  bottom: 4px;
+  z-index: 1;
+}
+
+.projectGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 relative;
+  z-index: 40;
+}
+
+.projectCard {
+  background-color: var(--card);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--border);
+}
+
+.projectCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 225px;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .image {
+  transform: scale(1.05);
+}
+
+.cardContent {
+  padding: 1.5rem;
+}
+
+.projectTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.projectDescription {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 640px) {
+  .content {
+    padding: 5rem 3rem;
+  }
+  
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .projectGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .projectGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .content {
+    padding: 6rem 4rem;
+  }
+} 

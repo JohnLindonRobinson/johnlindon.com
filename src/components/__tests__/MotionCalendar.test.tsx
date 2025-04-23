@@ -23,7 +23,7 @@ describe('Motion Calendar Integration', () => {
       render(
         <div className="w-full h-[600px] rounded-lg overflow-hidden">
           <iframe
-            src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            src="https://app.usemotion.com/meet/johnlindon/meeting"
             title="Motion Booking Page"
             width="100%"
             height="100%"
@@ -36,14 +36,14 @@ describe('Motion Calendar Integration', () => {
 
       const iframe = screen.getByTestId('motion-calendar');
       expect(iframe).toBeInTheDocument();
-      expect(iframe).toHaveAttribute('src', 'https://app.usemotion.com/meet/john-robinson-fj8d/meeting');
+      expect(iframe).toHaveAttribute('src', 'https://app.usemotion.com/meet/johnlindon/meeting');
     });
 
     it('maintains responsive layout', () => {
       const { container } = render(
         <div className="w-full h-[600px] rounded-lg overflow-hidden">
           <iframe
-            src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            src="https://app.usemotion.com/meet/johnlindon/meeting"
             title="Motion Booking Page"
             width="100%"
             height="100%"
@@ -60,7 +60,7 @@ describe('Motion Calendar Integration', () => {
       const { container } = render(
         <div className="w-full h-[600px] rounded-lg overflow-hidden">
           <iframe
-            src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            src="https://app.usemotion.com/meet/johnlindon/meeting"
             title="Motion Booking Page"
             width="100%"
             height="100%"
@@ -86,7 +86,7 @@ describe('Motion Calendar Integration', () => {
       render(
         <div className="w-full h-[600px] rounded-lg overflow-hidden" role="complementary" aria-label="Booking Calendar">
           <iframe
-            src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            src="https://app.usemotion.com/meet/johnlindon/meeting"
             title="Motion Booking Page"
             width="100%"
             height="100%"
@@ -104,7 +104,7 @@ describe('Motion Calendar Integration', () => {
       render(
         <div className="w-full h-[600px] rounded-lg overflow-hidden">
           <iframe
-            src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            src="https://app.usemotion.com/meet/johnlindon/meeting"
             title="Motion Booking Page"
             width="100%"
             height="100%"
@@ -125,7 +125,7 @@ describe('Motion Calendar Integration', () => {
       render(
         <div className="w-full h-[600px] rounded-lg overflow-hidden">
           <iframe
-            src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            src="https://app.usemotion.com/meet/johnlindon/meeting"
             title="Motion Booking Page"
             width="100%"
             height="100%"
@@ -147,7 +147,7 @@ describe('Motion Calendar Integration', () => {
       render(
         <div className="w-full h-[600px] rounded-lg overflow-hidden">
           <iframe
-            src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            src="https://app.usemotion.com/meet/johnlindon/meeting"
             title="Motion Booking Page"
             width="100%"
             height="100%"
@@ -179,7 +179,7 @@ describe('Motion Calendar Integration', () => {
       const { container } = render(
         <div className="w-full h-[600px] rounded-lg overflow-hidden">
           <iframe
-            src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            src="https://app.usemotion.com/meet/johnlindon/meeting"
             title="Motion Booking Page"
             width="100%"
             height="100%"
@@ -198,7 +198,7 @@ describe('Motion Calendar Integration', () => {
       const { container } = render(
         <div className="w-full h-[600px] rounded-lg overflow-hidden">
           <iframe
-            src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            src="https://app.usemotion.com/meet/johnlindon/meeting"
             title="Motion Booking Page"
             width="100%"
             height="100%"

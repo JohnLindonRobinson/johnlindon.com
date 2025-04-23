@@ -1,0 +1,130 @@
+.servicesContainer {
+  min-height: 100vh;
+  background: #F9F5FC;
+  padding: 6rem 2rem 2rem;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 45px;
+  line-height: 0.84;
+  letter-spacing: -0.02em;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.173;
+  letter-spacing: -0.02em;
+  color: #000;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+}
+
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 6rem;
+  height: calc(100vh - 8rem);
+  overflow-y: auto;
+}
+
+.serviceNav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.serviceNavItem {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.173;
+  letter-spacing: -0.02em;
+  color: #000;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.serviceNavItem.active {
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+.servicesGrid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.serviceCard {
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: relative;
+    top: 0;
+    height: auto;
+  }
+
+  .serviceNav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .serviceNavItem {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesContainer {
+    padding: 4rem 1rem 1rem;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .serviceNavItem {
+    min-width: 150px;
+    font-size: 16px;
+  }
+} 

@@ -1,84 +1,173 @@
-import { Button } from '@/components/ui/button';
-import Card from '@/components/Card';
+'use client';
 
-const projects = [
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import ProjectCard from '@/components/ProjectCard';
+import styles from './portfolio.module.css';
+import Image from 'next/image';
+import { useParallax } from '@/hooks/useParallax';
+import { Button } from '@/components/ui/button';
+
+// Define the project data structure
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  href: string;
+  category: string;
+}
+
+// Sample project data
+const projects: Project[] = [
   {
-    title: 'TCQuick – E-Commerce Fulfillment Platform',
-    description:
-      'A comprehensive platform for order fulfillment, VAT compliance, and internal tooling. Reduced fulfillment time by 65% and enabled 3x business growth without additional hires.',
-    tags: ['Automation', 'Xero API', 'E-commerce', 'VAT Compliance', 'Inventory Management'],
-    href: '/portfolio/tcquick',
-    imageUrl: '/images/tcquick.jpg', // Changed from image to imageUrl
+    id: '1',
+    title: 'AI-Powered Task Management',
+    description: 'A smart task management system that uses AI to prioritize and organize tasks efficiently.',
+    image: '/projects/task-management.jpg',
+    tags: ['React', 'TypeScript', 'AI', 'Node.js'],
+    href: '/projects/task-management',
+    category: 'web'
   },
   {
-    title: 'BullSheet – Stock Trading Simulator',
-    description:
-      'A sophisticated stock trading simulator with paper trading, financial news aggregation, and market data charts. Built with Deno, React, TypeScript, and PostgreSQL.',
-    tags: ['Deno', 'React', 'TypeScript', 'PostgreSQL', 'Financial Tech'],
-    href: '/portfolio/bullsheet',
-    imageUrl: '/images/bullsheet.jpg', // Changed from image to imageUrl
+    id: '2',
+    title: 'Educational Platform',
+    description: 'An interactive learning platform with real-time collaboration features for students and teachers.',
+    image: '/projects/education.jpg',
+    tags: ['Next.js', 'MongoDB', 'WebRTC', 'Tailwind'],
+    href: '/projects/education-platform',
+    category: 'education'
   },
   {
-    title: 'MTG Analyzer',
-    description:
-      'An advanced tool for parsing JSON-based game states and suggesting optimal plays. Features deck analysis and heuristic evaluation for strategic decision-making.',
-    tags: ['Game Development', 'JSON', 'Logic', 'Strategy', 'Analysis'],
-    href: '/portfolio/mtg-analyzer',
-    imageUrl: '/images/mtg-analyzer.jpg', // Changed from image to imageUrl
+    id: '3',
+    title: 'Business Analytics Dashboard',
+    description: 'A comprehensive analytics dashboard for business intelligence and data visualization.',
+    image: '/projects/analytics.jpg',
+    tags: ['Vue.js', 'D3.js', 'Python', 'FastAPI'],
+    href: '/projects/analytics-dashboard',
+    category: 'business'
   },
-  {
-    title: 'Tutor Admin Suite',
-    description:
-      'A comprehensive Notion and Google Workspace integration for managing tutoring businesses. Tracks lessons, student progress, invoices, and feedback.',
-    tags: ['Notion', 'Google Workspace', 'Education', 'CRM', 'Automation'],
-    href: '/portfolio/tutor-admin',
-    imageUrl: '/images/tutor-admin.jpg', // Changed from image to imageUrl
-  },
+  // Add more projects as needed
 ];
 
+// Define categories for filtering
+const categories = ['all', 'web', 'education', 'business'];
+
 export default function Portfolio() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [indicatorStyle, setIndicatorStyle] = useState({ width: 0, left: 0 });
+  const filterWrapperRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  const parallaxOffset = useParallax(0.4);
+  
+  const logoY = useTransform(scrollY, [0, 1000], [0, 200]);
+  const logoScale = useTransform(scrollY, [0, 1000], [1, 1.1]);
+  const logoRotate = useTransform(scrollY, [0, 1000], [0, 10]);
+
+  const updateIndicator = (index: number) => {
+    if (!filterWrapperRef.current) return;
+    
+    const buttons = filterWrapperRef.current.getElementsByTagName('button');
+    if (buttons[index]) {
+      const button = buttons[index];
+      const wrapperRect = filterWrapperRef.current.getBoundingClientRect();
+      const buttonRect = button.getBoundingClientRect();
+      
+      setIndicatorStyle({
+        width: buttonRect.width,
+        left: buttonRect.left - wrapperRect.left
+      });
+    }
+  };
+
+  useEffect(() => {
+    // Initialize the indicator position for the 'all' category
+    const categoryIndex = categories.indexOf(selectedCategory.toLowerCase());
+    updateIndicator(categoryIndex);
+  }, [selectedCategory]);
+
+  const filteredProjects = projects.filter(project => 
+    selectedCategory.toLowerCase() === 'all' ? true : project.category === selectedCategory.toLowerCase()
+  );
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    updateIndicator(categories.indexOf(category));
+  };
+
   return (
-    <div className="pt-24 max-w-7xl mx-auto px-4 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Portfolio</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Explore my recent projects and see how I've helped clients solve complex problems with
-          custom solutions.
+    <motion.div 
+      className={styles.portfolioContainer}
+      style={{ transform: `translate3d(0, ${parallaxOffset}px, 0)` }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Image
+        src="/logo.svg"
+        alt="Background Logo"
+        width={1200}
+        height={1200}
+        className={styles.backgroundLogo}
+        style={{
+          transform: `translate3d(${parallaxOffset * 0.5}px, ${parallaxOffset * 0.2}px, 0) rotate(-15deg) scale(1.5)`,
+        }}
+      />
+      
+      <div className="container mx-auto px-4 py-16 pt-24 relative z-10">
+        <h1 className="text-4xl font-bold text-center mb-4">My Portfolio</h1>
+        <p className="text-lg text-center text-muted-foreground mb-8">
+          Explore my latest projects and achievements
         </p>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 group/cards relative border-4 border-dashed border-transparent hover:border-yellow-500 p-4">
-        <div className="pointer-events-none fixed inset-0 bg-purple-900 opacity-0 group-hover/cards:opacity-50 transition-opacity duration-300" />
-        <div className="pointer-events-none absolute inset-0 bg-yellow-500/20 opacity-0 group-hover/cards:opacity-100 transition-opacity duration-300" />
-        {projects.map(project => (
-          <Card
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            tags={project.tags}
-            href={project.href}
-            imageUrl={project.imageUrl}
-          >
-            <a href={project.href}>
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="mt-4 transition-all duration-300 group-hover/card:bg-blue-500 group-hover/card:text-white group-hover/card:border-blue-600 group-hover/card:scale-110"
+        <div className={styles.filterBar}>
+          <div className={styles.filterWrapper} ref={filterWrapperRef}>
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant="ghost"
+                onClick={() => handleCategoryChange(category)}
+                className={`relative z-[2] capitalize px-4 ${
+                  selectedCategory.toLowerCase() === category ? 'text-white' : ''
+                }`}
               >
-                View Project
+                {category}
               </Button>
-            </a>
-          </Card>
-        ))}
-      </div>
+            ))}
+            <motion.div
+              className={styles.indicator}
+              style={{
+                width: indicatorStyle.width,
+                left: indicatorStyle.left,
+              }}
+            />
+          </div>
+        </div>
 
-      <div className="mt-12 text-center">
-        <a href="/contact">
-          <Button variant="default" size="lg">
-            Start Your Project
-          </Button>
-        </a>
+        <motion.div 
+          className={styles.projectGrid}
+          layout
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

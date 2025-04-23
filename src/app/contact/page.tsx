@@ -105,11 +105,11 @@ export default function Contact() {
               Book a time that works for you using my Motion calendar. I'll automatically adjust to
               your timezone and find the best available slot.
             </p>
-            <a 
-              href="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+            <a
+              className="text-primary hover:text-primary/80 transition-colors"
+              href="https://app.usemotion.com/meet/johnlindon/meeting"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full"
             >
               <Button
                 variant="secondary"
@@ -224,7 +224,7 @@ export default function Contact() {
             </p>
             <div className="w-full h-[600px] rounded-lg overflow-hidden">
               <iframe
-                src="https://app.usemotion.com/meet/john-robinson-fj8d/meeting"
+                src="https://app.usemotion.com/meet/johnlindon/meeting"
                 title="Motion Booking Page"
                 width="100%"
                 height="100%"
