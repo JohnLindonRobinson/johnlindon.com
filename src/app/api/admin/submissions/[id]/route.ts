@@ -6,9 +6,13 @@ const updateSchema = z.object({
   status: z.enum(['new', 'read', 'replied']),
 });
 
+interface RouteSegment {
+  id: string;
+}
+
 export async function PATCH(
-  request: NextRequest,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  { params }: { params: RouteSegment }
 ) {
   try {
     const id = parseInt(params.id);
@@ -16,7 +20,7 @@ export async function PATCH(
       return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
     }
 
-    const body = await request.json();
+    const body = await req.json();
     const validatedData = updateSchema.parse(body);
 
     const submission = await prisma.contactSubmission.update({
