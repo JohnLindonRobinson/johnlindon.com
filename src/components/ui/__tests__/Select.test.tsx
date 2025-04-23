@@ -1,5 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { getElementError } from '@testing-library/dom';
+import { describe, it, expect, vi } from 'vitest';
 import Select from '../Select';
 
 describe('Select Component', () => {
@@ -32,7 +34,7 @@ describe('Select Component', () => {
     });
 
     it('selects an option on click', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       render(<Select options={defaultOptions} onChange={onChange} />);
       
       fireEvent.click(screen.getByRole('combobox'));
@@ -55,7 +57,7 @@ describe('Select Component', () => {
   // Multi-select Tests
   describe('Multi-select Functionality', () => {
     it('allows multiple selections', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       render(<Select options={defaultOptions} isMulti onChange={onChange} />);
       
       fireEvent.click(screen.getByRole('combobox'));
@@ -74,7 +76,7 @@ describe('Select Component', () => {
     });
 
     it('toggles selections in multi-select mode', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       render(<Select options={defaultOptions} isMulti onChange={onChange} />);
       
       fireEvent.click(screen.getByRole('combobox'));
@@ -146,6 +148,8 @@ describe('Select Component', () => {
   describe('Edge Cases', () => {
     it('handles empty options array', () => {
       render(<Select options={[]} />);
+      expect(screen.getByRole('combobox')).toBeInTheDocument();
+      expect(screen.getByText('Select...')).toBeInTheDocument();
       
       fireEvent.click(screen.getByRole('combobox'));
       expect(screen.getByText('No options found')).toBeInTheDocument();
@@ -279,4 +283,4 @@ describe('Select Component', () => {
       expect(selectedOption).toHaveAttribute('aria-selected', 'true');
     });
   });
-}); 
+});
