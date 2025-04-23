@@ -72,7 +72,7 @@ export default function AutomationService() {
 
       <div className="mt-12 text-center">
         <a href="/contact">
-          <Button variant="default" size="lg">
+          <Button variant="primary" size="lg">
             Get Started with Automation
           </Button>
         </a>

@@ -77,7 +77,7 @@ export default function NotionService() {
 
       <div className="mt-12 text-center">
         <a href="/contact">
-          <Button variant="default" size="lg">
+          <Button variant="primary" size="lg">
             Transform Your Workflow
           </Button>
         </a>

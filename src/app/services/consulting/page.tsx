@@ -74,7 +74,7 @@ export default function ConsultingService() {
 
       <div className="mt-12 text-center">
         <a href="/contact">
-          <Button variant="default" size="lg">
+          <Button variant="primary" size="lg">
             Schedule a Consultation
           </Button>
         </a>
