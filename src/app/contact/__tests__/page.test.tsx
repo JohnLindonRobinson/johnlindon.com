@@ -10,43 +10,51 @@ describe('Contact Page', () => {
     (global.fetch as jest.Mock).mockReset();
   });
 
-  it('renders contact page with all sections', () => {
+  it('renders contact page with all sections and icons', () => {
     render(<Contact />);
 
-    // Check main heading
+    // Check main heading and intro text
     expect(screen.getByText('Get in Touch')).toBeInTheDocument();
     expect(
       screen.getByText("Let's discuss how I can help with your project")
     ).toBeInTheDocument();
+    expect(screen.getByText('05 — CONTACT')).toBeInTheDocument();
 
-    // Check contact information section
+    // Check contact information section with icons
     expect(screen.getByText('Contact Information')).toBeInTheDocument();
     expect(screen.getByText('john@johnlindon.com')).toBeInTheDocument();
     expect(screen.getByText('github.com/JohnLindonRobinson')).toBeInTheDocument();
     expect(screen.getByText('linkedin.com/in/johnlindonrobinson')).toBeInTheDocument();
+    
+    // Verify icons are present
+    const envelopeIcons = screen.getAllByTestId('envelope-icon');
+    expect(envelopeIcons.length).toBeGreaterThan(0);
+    expect(screen.getByTestId('github-icon')).toBeInTheDocument();
+    expect(screen.getByTestId('linkedin-icon')).toBeInTheDocument();
 
-    // Check schedule section
+    // Check schedule section with calendar icon
     expect(screen.getByText('Schedule a Call')).toBeInTheDocument();
-    expect(screen.getByText('Book a Meeting')).toBeInTheDocument();
+    expect(screen.getByText('📅 Book a Meeting')).toBeInTheDocument();
+    expect(screen.getByTestId('calendar-icon')).toBeInTheDocument();
 
-    // Check response time section
-    expect(screen.getByText('Response Time')).toBeInTheDocument();
-    expect(
-      screen.getByText(/I typically respond to messages within 24 hours/)
-    ).toBeInTheDocument();
+    // Check response time with clock icon
+    expect(screen.getByText('Typical response time: 24 hours')).toBeInTheDocument();
+    expect(screen.getByTestId('clock-icon')).toBeInTheDocument();
 
-    // Check form elements
+    // Check form elements and chat icon
+    expect(screen.getByText('Send a Message')).toBeInTheDocument();
+    expect(screen.getByTestId('chat-icon')).toBeInTheDocument();
     expect(screen.getByLabelText('Name')).toBeInTheDocument();
     expect(screen.getByLabelText('Email')).toBeInTheDocument();
     expect(screen.getByLabelText('Subject')).toBeInTheDocument();
     expect(screen.getByLabelText('Message')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /send message/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '💬 Let\'s Talk' })).toBeInTheDocument();
   });
 
   it('handles form submission successfully', async () => {
     (global.fetch as jest.Mock).mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve({ message: 'Submission received successfully', id: 1 }),
+      json: () => Promise.resolve({ message: 'Success' }),
     });
 
     render(<Contact />);
@@ -66,16 +74,14 @@ describe('Contact Page', () => {
     });
 
     // Submit the form
-    fireEvent.click(screen.getByRole('button', { name: /send message/i }));
+    fireEvent.click(screen.getByRole('button', { name: '💬 Let\'s Talk' }));
 
     // Check loading state
-    expect(screen.getByRole('button', { name: /sending/i })).toBeDisabled();
+    expect(screen.getByRole('button', { name: '💬 Let\'s Talk' })).toBeDisabled();
 
     // Check success message
     await waitFor(() => {
-      expect(
-        screen.getByText("Message sent successfully! I'll get back to you soon.")
-      ).toBeInTheDocument();
+      expect(screen.getByText('Message sent successfully!')).toBeInTheDocument();
     });
 
     // Verify form was reset
@@ -119,7 +125,7 @@ describe('Contact Page', () => {
     });
 
     // Submit the form
-    fireEvent.click(screen.getByRole('button', { name: /send message/i }));
+    fireEvent.click(screen.getByRole('button', { name: '💬 Let\'s Talk' }));
 
     // Check error message
     await waitFor(() => {
@@ -137,7 +143,7 @@ describe('Contact Page', () => {
     render(<Contact />);
 
     // Submit empty form
-    fireEvent.click(screen.getByRole('button', { name: /send message/i }));
+    fireEvent.click(screen.getByRole('button', { name: '💬 Let\'s Talk' }));
 
     // Check that fetch wasn't called
     expect(global.fetch).not.toHaveBeenCalled();
@@ -188,5 +194,29 @@ describe('Contact Page', () => {
 
     const emailLink = screen.getByText('john@johnlindon.com').closest('a');
     expect(emailLink).toHaveAttribute('href', 'mailto:john@johnlindon.com');
+  });
+
+  it('has correct styling classes for visual elements', () => {
+    render(<Contact />);
+
+    // Check card backgrounds
+    const cards = screen.getAllByRole('region');
+    cards.forEach(card => {
+      expect(card).toHaveClass('rounded-lg');
+      expect(card).toHaveClass('border');
+    });
+
+    // Check form input styling
+    const inputs = screen.getAllByRole('textbox');
+    inputs.forEach(input => {
+      expect(input).toHaveClass('rounded-lg');
+      expect(input).toHaveClass('transition-colors');
+    });
+
+    // Check button styling
+    const submitButton = screen.getByRole('button', { name: '💬 Let\'s Talk' });
+    expect(submitButton).toHaveClass('bg-purple-600');
+    expect(submitButton).toHaveClass('hover:scale-[1.02]');
+    expect(submitButton).toHaveClass('transition-all');
   });
 }); 

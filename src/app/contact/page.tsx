@@ -2,7 +2,8 @@
 
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin, FaClock, FaCalendarAlt } from 'react-icons/fa';
+import { HiChatAlt2 } from 'react-icons/hi';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -53,20 +54,25 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-24 max-w-6xl mx-auto px-4 py-12">
+    <div className="max-w-6xl mx-auto px-6 py-16 pt-24">
       <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-primary mb-4">Get in Touch</h1>
+        <p className="text-sm uppercase tracking-widest text-purple-600 mb-2">05 — CONTACT</p>
+        <h1 className="text-4xl font-bold mb-6">Get in Touch</h1>
+        <p className="text-xl text-text/80 mb-4">I'd love to hear about your project — or just have a conversation about possibilities.</p>
         <p className="text-xl text-text/80">Let's discuss how I can help with your project</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Contact Information */}
-        <div className="space-y-8">
-          <div className="bg-white p-6 rounded-lg border border-primary/10">
-            <h2 className="text-2xl font-semibold text-primary mb-4">Contact Information</h2>
+        <div className="space-y-8 self-start">
+          <div className="bg-[#fcfbfd] p-6 rounded-lg border border-primary/10 hover:shadow-lg transition-shadow" role="region">
+            <div className="flex items-center gap-3 mb-4">
+              <FaEnvelope className="text-purple-600" size={24} data-testid="envelope-icon" />
+              <h2 className="text-2xl font-semibold text-primary">Contact Information</h2>
+            </div>
             <div className="space-y-4">
               <div className="flex items-center">
-                <FaEnvelope className="text-text/60 mr-3" size={20} />
+                <FaEnvelope className="text-text/60 mr-3" size={20} data-testid="envelope-icon" />
                 <a
                   href="mailto:john@johnlindon.com"
                   className="text-text/60 hover:text-accent transition-colors"
@@ -75,7 +81,7 @@ export default function Contact() {
                 </a>
               </div>
               <div className="flex items-center">
-                <FaGithub className="text-text/60 mr-3" size={20} />
+                <FaGithub className="text-text/60 mr-3" size={20} data-testid="github-icon" />
                 <a
                   href="https://github.com/JohnLindonRobinson"
                   target="_blank"
@@ -86,7 +92,7 @@ export default function Contact() {
                 </a>
               </div>
               <div className="flex items-center">
-                <FaLinkedin className="text-text/60 mr-3" size={20} />
+                <FaLinkedin className="text-text/60 mr-3" size={20} data-testid="linkedin-icon" />
                 <a
                   href="https://linkedin.com/in/johnlindonrobinson"
                   target="_blank"
@@ -99,8 +105,11 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-lg border border-primary/10">
-            <h2 className="text-2xl font-semibold text-primary mb-4">Schedule a Call</h2>
+          <div className="bg-[#fcfbfd] p-6 rounded-lg border border-primary/10 hover:shadow-lg transition-shadow" role="region">
+            <div className="flex items-center gap-3 mb-4">
+              <FaCalendarAlt className="text-purple-600" size={24} data-testid="calendar-icon" />
+              <h2 className="text-2xl font-semibold text-primary">Schedule a Call</h2>
+            </div>
             <p className="text-text/80 mb-4">
               Book a time that works for you using my Motion calendar. I'll automatically adjust to
               your timezone and find the best available slot.
@@ -114,29 +123,24 @@ export default function Contact() {
               <Button
                 variant="secondary"
                 size="lg"
-                className="w-full"
+                className="w-full hover:scale-[1.02] transition-transform"
               >
-                Book a Meeting
+                📅 Book a Meeting
               </Button>
             </a>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg border border-primary/10">
-            <h2 className="text-2xl font-semibold text-primary mb-4">Response Time</h2>
-            <p className="text-text/80">
-              I typically respond to messages within 24 hours. For urgent matters, please indicate
-              in your message.
-            </p>
           </div>
         </div>
 
         {/* Contact Form and Calendar */}
         <div className="lg:col-span-2">
-          <div className="bg-white p-6 rounded-lg border border-primary/10 mb-8">
-            <h2 className="text-2xl font-semibold text-primary mb-6">Send a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="bg-white p-8 rounded-lg border border-primary/10 hover:shadow-lg transition-shadow" role="region">
+            <div className="flex items-center gap-3 mb-6">
+              <HiChatAlt2 className="text-purple-600" size={28} data-testid="chat-icon" />
+              <h2 className="text-2xl font-semibold text-primary">Send a Message</h2>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-text mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-text mb-2">
                   Name
                 </label>
                 <input
@@ -145,13 +149,13 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-primary/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                  className="w-full px-4 py-3 border border-primary/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-purple-600 transition-colors"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-text mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-text mb-2">
                   Email
                 </label>
                 <input
@@ -160,13 +164,13 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-primary/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                  className="w-full px-4 py-3 border border-primary/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-purple-600 transition-colors"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-text mb-1">
+                <label htmlFor="subject" className="block text-sm font-medium text-text mb-2">
                   Subject
                 </label>
                 <input
@@ -175,13 +179,13 @@ export default function Contact() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-primary/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                  className="w-full px-4 py-3 border border-primary/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-purple-600 transition-colors"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-text mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-text mb-2">
                   Message
                 </label>
                 <textarea
@@ -190,47 +194,44 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-2 border border-primary/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                  className="w-full px-4 py-3 border border-primary/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-purple-600 transition-colors"
                   required
                 ></textarea>
               </div>
 
               {status === 'error' && <div className="text-red-500 text-sm">{error}</div>}
-
               {status === 'success' && (
-                <div className="text-green-500 text-sm">
-                  Message sent successfully! I'll get back to you soon.
-                </div>
+                <div className="text-green-500 text-sm">Message sent successfully!</div>
               )}
 
-              <Button
-                type="submit"
-                variant="default"
-                size="lg"
-                className="w-full"
-                disabled={status === 'submitting'}
-              >
-                {status === 'submitting' ? 'Sending...' : 'Send Message'}
-              </Button>
+              <div className="flex items-center justify-between gap-6">
+                <div className="flex items-center gap-3 text-sm text-text/80">
+                  <FaClock className="text-purple-600" size={16} data-testid="clock-icon" />
+                  <span>Typical response time: 24 hours</span>
+                </div>
+                <Button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-2 rounded-lg hover:scale-[1.02] transition-all"
+                >
+                  💬 Let's Talk
+                </Button>
+              </div>
             </form>
           </div>
 
-          {/* Motion Calendar Embed */}
-          <div className="bg-white p-6 rounded-lg border border-primary/10">
-            <h2 className="text-2xl font-semibold text-primary mb-4">View Available Times</h2>
-            <p className="text-text/80 mb-4">
-              Browse and select a time that works best for you. The calendar will automatically
-              adjust to your timezone.
-            </p>
-            <div className="w-full h-[600px] rounded-lg overflow-hidden">
+          <div className="mt-8 bg-[#fcfbfd] p-6 rounded-lg border border-primary/10" role="region">
+            <div className="flex items-center gap-3 mb-4">
+              <FaCalendarAlt className="text-purple-600" size={24} />
+              <h2 className="text-2xl font-semibold text-primary">📅 Book a Call</h2>
+            </div>
+            <div className="w-full aspect-[3/2] rounded-lg overflow-hidden">
               <iframe
                 src="https://app.usemotion.com/meet/johnlindon/meeting"
-                title="Motion Booking Page"
                 width="100%"
                 height="100%"
-                frameBorder="0"
                 className="border-0"
-              />
+              ></iframe>
             </div>
           </div>
         </div>
