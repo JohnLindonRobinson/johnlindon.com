@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ParallaxLogo } from "@/components/ParallaxLogo";
 import { TypewriterText } from "@/components/TypewriterText";
@@ -29,10 +30,12 @@ export function Hero() {
             </p>
 
             <div className="flex items-center space-x-8 pt-4 mb-4">
-              <Button size="lg">Get In Touch</Button>
-              <button className="font-manrope font-extrabold text-lg hover:text-primary transition-colors">
-                Second CTA &gt;
-              </button>
+              <Button asChild size="lg">
+                <Link href="/contact">Get In Touch</Link>
+              </Button>
+              <Button asChild variant="ghost" className="font-manrope font-extrabold text-lg hover:text-primary transition-colors">
+                <Link href="/services">Second CTA &gt;</Link>
+              </Button>
             </div>
           </div>
         </div>

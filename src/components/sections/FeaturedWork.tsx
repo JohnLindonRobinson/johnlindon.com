@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { motion, type Variants } from "framer-motion";
 
@@ -140,10 +141,11 @@ export function FeaturedWork() {
                     {/* Corner Flourish */}
                     <div className="absolute -bottom-1 -right-1 w-8 h-8 border-r-2 border-b-2 border-primary/20 rounded-br-xl transition-colors duration-300 group-hover:border-primary/40" />
                     <Button 
+                      asChild
                       variant="default" 
                       className="font-manrope font-bold hover:bg-transparent hover:text-primary transition-colors px-4"
                     >
-                      Learn More
+                      <Link href={`/portfolio/${index + 1}`}>Learn More</Link>
                     </Button>
                   </div>
                 </div>

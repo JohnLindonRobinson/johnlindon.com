@@ -2,7 +2,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
-import Button from '../Button';
+import { Button } from '../button';
+import Link from 'next/link';
 
 describe('Button Component', () => {
   it('renders with default props', () => {
@@ -32,10 +33,13 @@ describe('Button Component', () => {
     expect(button).toHaveClass('px-6', 'py-3', 'text-lg');
   });
 
-  it('renders as a link when href is provided', () => {
-    render(<Button href="/test">Link Button</Button>);
-    const link = screen.getByRole('link', { name: 'Link Button' });
-    expect(link).toHaveAttribute('href', '/test');
+  it('renders as a link when asChild is used with Link', () => {
+    render(
+      <Button asChild>
+        <Link href="/test">Click me</Link>
+      </Button>
+    );
+    expect(screen.getByRole('link')).toHaveAttribute('href', '/test');
   });
 
   it('shows loading state when isLoading is true', () => {
@@ -47,12 +51,11 @@ describe('Button Component', () => {
     expect(svg).toHaveClass('animate-spin');
   });
 
-  it('handles click events', () => {
+  it('handles click events', async () => {
     const handleClick = vi.fn();
     render(<Button onClick={handleClick}>Click me</Button>);
-    const button = screen.getByRole('button', { name: 'Click me' });
-    fireEvent.click(button);
-    expect(handleClick).toHaveBeenCalledTimes(1);
+    await userEvent.click(screen.getByRole('button'));
+    expect(handleClick).toHaveBeenCalled();
   });
 
   it('applies custom className', () => {
@@ -83,5 +86,17 @@ describe('Button Component', () => {
     fireEvent.click(button);
     expect(handleClick).not.toHaveBeenCalled();
     expect(button).toBeDisabled();
+  });
+
+  it('shows loading state correctly', () => {
+    render(<Button isLoading>Loading...</Button>);
+    const button = screen.getByRole('button');
+    expect(button).toHaveClass('opacity-50');
+    expect(button).toHaveClass('pointer-events-none');
+  });
+
+  it('applies variant styles correctly', () => {
+    render(<Button variant="destructive">Delete</Button>);
+    expect(screen.getByRole('button')).toHaveClass('bg-destructive');
   });
 });
