@@ -133,17 +133,16 @@ export default function Blog() {
   }, [selectedCategory])
 
   return (
-    <div className={styles.blogContainer}>
-      <div className={styles.backgroundLogo} />
-      
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold text-white mb-4">Blog</h1>
-        <p className="text-gray-400 max-w-2xl mx-auto">
-          Explore insights and experiences in web development, AI automation, and educational technology.
-        </p>
-      </div>
+    <div className="max-w-6xl mx-auto px-6 py-16 pt-24">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-4"
+      />
+      <h1 className="text-4xl font-bold mb-6 text-left">My Writing</h1>
 
-      <div className={styles.filterBar}>
+      <div className={styles.filterBar + ' mb-8'}>
         <div ref={filterWrapperRef} className={styles.filterWrapper}>
           <div
             data-testid="category-indicator"
@@ -159,7 +158,7 @@ export default function Blog() {
               data-category={category}
               data-active={selectedCategory === category}
               onClick={() => setSelectedCategory(category)}
-              className="relative z-10 transition-colors"
+              className={`tag${selectedCategory === category ? ' active' : ''} relative z-10 transition-all`}
             >
               {category}
             </button>

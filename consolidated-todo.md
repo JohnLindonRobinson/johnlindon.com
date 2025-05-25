@@ -104,4 +104,14 @@
 - LinkedIn: https://www.linkedin.com/in/johnlindonrobinson/
 - GitHub: https://github.com/JohnLindonRobinson
 - Business Email: john@johnlindon.com
-- Booking Link: [Motion] 
+- Booking Link: [Motion]
+
+# Current
+
+- [ ] Scroll-snapping service cards with feedback
+  👤 Requested by: Johnny
+  📍 Context: Services page
+  📅 Timestamp: 2024-04-23
+  - Cards should snap/lock into place as you scroll.
+  - Play a "thock" sound or haptic feedback when a card locks in.
+  - Each card should lock in a visually pleasing default position. 

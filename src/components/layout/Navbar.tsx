@@ -44,12 +44,12 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2 group">
           <div className="relative">
-            <span className="font-manrope font-extrabold text-4xl tracking-tighter">
+            <span className="font-manrope font-extrabold text-5xl tracking-tighter transition-all duration-200 group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]">
               John Lindon
             </span>
-            <div className="absolute -bottom-1 left-0 w-full h-1.5 bg-primary" />
+            <div className="absolute -bottom-1 left-0 w-full h-1.5 bg-primary opacity-80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
           </div>
         </Link>
 

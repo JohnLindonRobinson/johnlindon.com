@@ -55,8 +55,7 @@ export default function Contact() {
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16 pt-24">
-      <div className="mb-12 text-center">
-        <p className="text-sm uppercase tracking-widest text-purple-600 mb-2">05 — CONTACT</p>
+      <div className="mb-12 text-left">
         <h1 className="text-4xl font-bold mb-6">Get in Touch</h1>
         <p className="text-xl text-text/80 mb-4">I'd love to hear about your project — or just have a conversation about possibilities.</p>
         <p className="text-xl text-text/80">Let's discuss how I can help with your project</p>
@@ -65,14 +64,14 @@ export default function Contact() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Contact Information */}
         <div className="space-y-8 self-start">
-          <div className="bg-[#fcfbfd] p-6 rounded-lg border border-primary/10 hover:shadow-lg transition-shadow" role="region">
+          <div className="bg-[#fcfbfd] p-6 rounded-lg border border-primary/10 hover:shadow-lg transition-shadow">
             <div className="flex items-center gap-3 mb-4">
-              <FaEnvelope className="text-purple-600" size={24} data-testid="envelope-icon" />
+              <FaEnvelope className="text-purple-600" size={24} />
               <h2 className="text-2xl font-semibold text-primary">Contact Information</h2>
             </div>
             <div className="space-y-4">
               <div className="flex items-center">
-                <FaEnvelope className="text-text/60 mr-3" size={20} data-testid="envelope-icon" />
+                <FaEnvelope className="text-text/60 mr-3" size={20} />
                 <a
                   href="mailto:john@johnlindon.com"
                   className="text-text/60 hover:text-accent transition-colors"
@@ -81,7 +80,7 @@ export default function Contact() {
                 </a>
               </div>
               <div className="flex items-center">
-                <FaGithub className="text-text/60 mr-3" size={20} data-testid="github-icon" />
+                <FaGithub className="text-text/60 mr-3" size={20} />
                 <a
                   href="https://github.com/JohnLindonRobinson"
                   target="_blank"
@@ -92,7 +91,7 @@ export default function Contact() {
                 </a>
               </div>
               <div className="flex items-center">
-                <FaLinkedin className="text-text/60 mr-3" size={20} data-testid="linkedin-icon" />
+                <FaLinkedin className="text-text/60 mr-3" size={20} />
                 <a
                   href="https://linkedin.com/in/johnlindonrobinson"
                   target="_blank"
@@ -105,9 +104,9 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-[#fcfbfd] p-6 rounded-lg border border-primary/10 hover:shadow-lg transition-shadow" role="region">
+          <div className="bg-[#fcfbfd] p-6 rounded-lg border border-primary/10 hover:shadow-lg transition-shadow">
             <div className="flex items-center gap-3 mb-4">
-              <FaCalendarAlt className="text-purple-600" size={24} data-testid="calendar-icon" />
+              <FaCalendarAlt className="text-purple-600" size={24} />
               <h2 className="text-2xl font-semibold text-primary">Schedule a Call</h2>
             </div>
             <p className="text-text/80 mb-4">
@@ -133,9 +132,9 @@ export default function Contact() {
 
         {/* Contact Form and Calendar */}
         <div className="lg:col-span-2">
-          <div className="bg-white p-8 rounded-lg border border-primary/10 hover:shadow-lg transition-shadow" role="region">
+          <div className="bg-white p-8 rounded-lg border border-primary/10 hover:shadow-lg transition-shadow">
             <div className="flex items-center gap-3 mb-6">
-              <HiChatAlt2 className="text-purple-600" size={28} data-testid="chat-icon" />
+              <HiChatAlt2 className="text-purple-600" size={28} />
               <h2 className="text-2xl font-semibold text-primary">Send a Message</h2>
             </div>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -206,7 +205,7 @@ export default function Contact() {
 
               <div className="flex items-center justify-between gap-6">
                 <div className="flex items-center gap-3 text-sm text-text/80">
-                  <FaClock className="text-purple-600" size={16} data-testid="clock-icon" />
+                  <FaClock className="text-purple-600" size={16} />
                   <span>Typical response time: 24 hours</span>
                 </div>
                 <Button
@@ -220,7 +219,7 @@ export default function Contact() {
             </form>
           </div>
 
-          <div className="mt-8 bg-[#fcfbfd] p-6 rounded-lg border border-primary/10" role="region">
+          <div className="mt-8 bg-[#fcfbfd] p-6 rounded-lg border border-primary/10">
             <div className="flex items-center gap-3 mb-4">
               <FaCalendarAlt className="text-purple-600" size={24} />
               <h2 className="text-2xl font-semibold text-primary">📅 Book a Call</h2>

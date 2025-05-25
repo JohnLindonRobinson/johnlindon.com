@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import Footer from "./layout/Footer";
+import { Navbar } from "./layout/Navbar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,6 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
       <header className="bg-white border-b border-primary/10">
         <nav className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
@@ -90,72 +93,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <main className="flex-grow">{children}</main>
 
-      <footer className="bg-white border-t border-primary/10">
-        <div className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold text-primary mb-4">John Robinson</h3>
-              <p className="text-text/60">Freelance Developer & Systems Consultant</p>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-primary mb-4">Navigation</h4>
-              <ul className="space-y-2">
-                {navItems.map(item => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-text/60 hover:text-accent transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-primary mb-4">Connect</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="https://linkedin.com/in/johnlindonrobinson"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-text/60 hover:text-accent transition-colors"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/JohnLindonRobinson"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-text/60 hover:text-accent transition-colors"
-                  >
-                    GitHub
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-primary mb-4">Contact</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="mailto:john@johnlindon.com"
-                    className="text-text/60 hover:text-accent transition-colors"
-                  >
-                    john@johnlindon.com
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-primary/10 text-center text-text/60 text-sm">
-            © {new Date().getFullYear()} John Robinson. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

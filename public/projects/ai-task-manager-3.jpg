@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content=": Explore the impact of AI in project management. Learn how AI revolutionizes strategies for success in project execution. Discover the future of efficient project management with AI" />
+        <meta name="keywords" content="AI, AI in product management, Role of AI, AI in Project Management" />
+        <link rel="canonical" href="https://www.amitjadhav.com/blogs/AI-in-Project-Management" />
+        <link rel="icon" href="../assets/images/amit-jadhav-social-media-1.png" sizes="35x35" type="image/png">
+        <title>AI Project Management: Transforming Strategies for Success</title>
+
+        <link rel="stylesheet" href="../assets/css/all.min.css">
+        <link rel="stylesheet" href="../assets/css/flaticon.css">
+        <link rel="stylesheet" href="../assets/css/animate.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css">
+        <link rel="stylesheet" href="../assets/css/perfect-scrollbar.css">
+        <link rel="stylesheet" href="../assets/css/slick.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/responsive.css">
+        <link rel="stylesheet" href="../assets/css/color.css">
+        		     <!-- start analytics -->
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HY5XDWW45F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HY5XDWW45F');
+</script>
+ 
+    <!-- end analytics -->
+    
+    <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
+<script>
+    // Version: 2.0
+    window.Brevo = window.Brevo || [];
+    Brevo.push([
+        "init",
+        {
+        client_key: "ng5hamsly0pi7hp50o65ajfc",
+        // Optional: Add other initialization options, see documentation
+        }
+    ]);
+</script>
+    </head>
+    <body>
+        <main>
+            <header class="stick style1 w-100">
+                <div class="container">
+                    <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
+                        <div class="logo"><span class="mb-0"><a href="https://www.amitjadhav.com" title="Home"><img class="img-fluid img-fluid_logo" src="../assets/images/logo.png" alt="Logo" srcset="../assets/images/logo.png"></a></span></div><!-- Logo -->
+                        <nav class="d-inline-flex align-items-center">
+                            <div class="header-left">
+                                <ul class="mb-0 list-unstyled d-inline-flex">
+                                    <li><a href="https://www.amitjadhav.com" title="">HOME</a></li>
+									
+									<li class="menu-item-has-children"><a href="javascript:void(0);" title="">SPEAKING</a>
+                                        <ul class="children mb-0 list-unstyled">
+                                            <li><a href="../conference-speaker.html" title="">Conference Speaker</a></li>
+                                            <li><a href="../seminar-speaker.html" title="">Seminar Speaker</a></li>
+                                            <li><a href="../corporate-speaker.html" title="">Corporate Speaker</a></li>
+                                            <li><a href="../socialmedia-keynote-speaker.html" title="">Social Media Keynote Speaker</a></li>
+                                            <li><a href="../motivational-speaker.html" title="">Motivational Speaker</a></li>
+											<li><a href="../entrepreneurship-speaker.html" title="">Entrepreneurship Speaker</a></li>
+											<li><a href="../leadership-speaker.html" title="">Leadership Speaker</a></li>
+											<li><a href="../guest-speaker.html" title="">Guest Speaker</a></li>
+                                        </ul>
+                                    </li>
+									 <li class="menu-item-has-children"><a href="javascript:void(0);" title="">TRAINING</a>
+                                         <ul class="children mb-0 list-unstyled">
+                                             <li><a href="../event.html" title="">#Events</a></li>
+                                            <li><a href="../BrandBajaBusiness.html" title="">#BrandBajaBusiness</a></li>
+                                            <li><a href="../let_it_out.html" title="">#LetItOut</a></li>
+                                            <li><a href="../ReclaimTheLifeYouDeserve.html" title="">#ReclaimTheLifeYouDeserve</a></li>
+                                            <li><a href="../SocialSellingWorkshop.html" title="">#SocialSellingWorkshop</a></li>
+                                            <!--<li><a href="social_selling_masterclass/" title="">#SocialSellingMasterclass</a></li>-->
+                                            <li><a href="../linkedin_masterclass.html" title="">#LinkedInMasterclass</a></li>
+                                            <li><a href="../digital_marketing/" title="">#DigitalMarketingMasterclass</a></li>
+                                            <!--<li><a href="InnerCircle.html" title="">Inner Circle</a></li>-->
+                                            
+                                        </ul>
+                                    </li>
+                                    <li><a href="../consulting.html" title="">CONSULTING</a></li>
+                                    <li><a href="../media.html" title="">MEDIA</a></li>
+                                    
+                                    <li><a href="../blogs/" title="">BLOGS</a></li>
+                                    <li><a href="../contact.html" title="">CONTACT</a></li>
+                                </ul>
+                            </div>
+                            <div class="header-right-btns">
+                                <a class="menu-btn" href="javascript:void(0);" title="">
+								<div class="m-icon"></div>
+								<div class="m-icon"></div>
+								<div class="m-icon"></div></a>
+                            </div>
+                        </nav>
+                    </div><!-- Logo Menu Wrap -->
+                </div>
+            </header><!-- Header -->
+            <div class="menu-wrap">
+                <span class="menu-close"><i class="fas fa-times"></i></span>
+                <ul class="mb-0 list-unstyled w-100">
+                    <li><a href="https://www.amitjadhav.com/" title="">HOME</a></li>
+                                    
+                                    <li class="menu-item-has-children"><a href="javascript:void(0);" title="">SPEAKING</a>
+                                        <ul class="children mb-0 list-unstyled">
+                                            <li><a href="../conference-speaker.html" title="">Conference Speaker</a></li>
+                                            <li><a href="../seminar-speaker.html" title="">Seminar Speaker</a></li>
+                                            <li><a href="../corporate-speaker.html" title="">Corporate Speaker</a></li>
+                                            <li><a href="../socialmedia-keynote-speaker.html" title="">Social Media Keynote Speaker</a></li>
+                                            <li><a href="../motivational-speaker.html" title="">Motivational Speaker</a></li>
+											<li><a href="../entrepreneurship-speaker.html" title="">Entrepreneurship Speaker</a></li>
+											<li><a href="../leadership-speaker.html" title="">Leadership Speaker</a></li>
+											<li><a href="../guest-speaker.html" title="">Guest Speaker</a></li>
+                                        </ul>
+                                    </li>
+									<li class="menu-item-has-children"><a href="javascript:void(0);" title="">TRAINING</a>
+                                         <ul class="children mb-0 list-unstyled">
+                                             <li><a href="../event.html" title="">#Events</a></li>
+                                            <li><a href="../BrandBajaBusiness.html" title="">#BrandBajaBusiness</a></li>
+                                            <li><a href="../let_it_out.html" title="">#LetItOut</a></li>
+                                            <li><a href="../ReclaimTheLifeYouDeserve.html" title="">#ReclaimTheLifeYouDeserve</a></li>
+                                            <li><a href="../SocialSellingWorkshop.html" title="">#SocialSellingWorkshop</a></li>
+                                            <!--<li><a href="social_selling_masterclass/" title="">#SocialSellingMasterclass</a></li>-->
+                                            <li><a href="../linkedin_masterclass.html" title="">#LinkedInMasterclass</a></li>
+                                            <li><a href="../digital_marketing/" title="">#DigitalMarketingMasterclass</a></li>
+                                            <!--<li><a href="InnerCircle.html" title="">Inner Circle</a></li>-->
+                                            
+                                        </ul>
+                                    </li>
+                                    <li><a href="../consulting.html" title="">CONSULTING</a></li>
+                                   <li><a href="../media.html" title="">MEDIA</a></li>
+                                  
+                                    <li><a href="../blogs/" title="">BLOGS</a></li>
+                                    <li><a href="../contact.html" title="">CONTACT</a></li>
+                </ul>
+                
+            </div><!-- Menu Wrap -->
+           
+			<!-- Header Search -->
+            <section>
+                <div class="w-100 pt-180 pb-180 page-title-wrap text-center black-layer opc5 position-relative">
+                    <div class="fixed-bg" style="background-image: url(images/ais-role-in-the-future-of-content-creation2.jpg);"></div>
+                    <div class="container">
+                        <div class="page-title-inner d-inline-block">
+                            <span class="mb-0"><span class="nine_x_growth_other ">&nbsp;</span></span>
+                            <ol class="breadcrumb">
+                               
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- Page Title Wrap -->
+            </section>
+            
+           <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.amitjadhav.com/blogs/AI-in-Project-Management"
+  },
+  "headline": "AI in Project Management: The Future of Task Allocation",
+  "description": "The blog likely discusses the integration and impact of artificial intelligence in the field of project management. For detailed insights, it is recommended to visit the link directly and explore the content on AI's role in optimizing project processes.",
+  "image": "https://www.amitjadhav.com/blogs/images/AI-in-Project-Management.png",  
+  "author": {
+    "@type": "Organization",
+    "name": "Amit Jadhav",
+    "url": "https://www.amitjadhav.com/"
+  },  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Amit Jadhav",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.amitjadhav.com/assets/images/logo.png"
+    }
+  },
+  "datePublished": "2024-02-05",
+  "dateModified": "2024-02-05"
+}
+</script>
+
+        <section>
+                <div class="w-100 pt-140 pb-120 position-relative">
+                    <div class="container">
+                        <div class="page-wrap w-100">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-lg-8">
+                                    <div class="blog-detail w-100">
+                                        <div class="blog-detail-info w-100">
+                                            <img class="img-fluid w-100" src="images/AI-in-Project-Management.png" alt="The Role of AI in Project Management">
+                                            <h1 class="mb-0 pt-140">AI in Project Management: The Future of Task Allocation</h1>
+                                            <div class="post-meta2">
+                                                <span class="post-date thm-clr">February 5, 2024</span>
+                                            </div>
+                                        </div>
+                                        <div class="blog-detail-desc w-100 pt-140">
+                                        <p class="mb-0">AI is set to revolutionize project management by improving task allocation, streamlining processes for greater efficiency and accuracy. According to research, only 35% of projects are currently completed successfully, largely due to the low level of technological maturity in project management. However, AI and machine learning technologies are beginning to be applied in project management, and by 2030, significant shifts are expected in the field. These technologies will enhance project selection and prioritization, monitor progress, speed up reporting, and enable virtual project assistants to automate administrative tasks. To benefit from these advancements, organizations should start gathering and cleaning project data, preparing their employees, and allocating resources for this transformation.</p>
+<h2 class="mb-0 pt-140" style="text-decoration: underline #E82277;">Key Takeaways:</h2>
+<ul>
+    <li>AI in project management improves task allocation, efficiency, and accuracy.</li>
+    <li>By 2030, significant advancements are expected in the field of project management due to AI and machine learning technologies.</li>
+    <li>Organizations should gather and clean project data, prepare employees, and allocate resources to benefit from AI in project management.</li>
+</ul>
+<h2 class="mb-0 pt-140" style="text-decoration: underline #E82277;">The Role of AI in Project Management</h2>
+<p class="mb-0">AI is revolutionizing project management by providing data-driven insights and improving decision-making processes. With its advanced data analysis capabilities, AI can extract hidden patterns and gain a deep understanding of complex data sets, empowering project managers to make informed choices. Through predictive analytics, AI can anticipate potential risks and recommend appropriate courses of action based on objective analysis and historical data. These capabilities enhance the efficiency of project management, reduce costs, and improve outcomes.</p>
+<p class="mb-0">One of the key areas where AI has a significant impact is in task allocation. AI algorithms consider various factors such as team members' skills, availability, and workload to assign tasks efficiently. By leveraging AI, project managers can optimize the allocation of resources and ensure that the right tasks are assigned to the right team members, leading to improved productivity and overall project success.</p>
+<p class="mb-0">Moreover, AI enables project managers to automate repetitive tasks, freeing up their time to focus on strategic decision-making. This automation improves project outcomes by minimizing errors and increasing efficiency. Additionally, AI-powered chatbots and virtual assistants facilitate communication and collaboration among team members, providing support and streamlining project workflows.</p>
+<p class="mb-0">In conclusion, AI plays a critical role in project management by providing valuable insights, optimizing task allocation, and enabling automation. By embracing AI, organizations can enhance their decision-making processes, improve project efficiency, and achieve better outcomes.</p>
+<h2 class="mb-0 pt-140" style="text-decoration: underline #E82277;">Table: Benefits of AI in Project Management</h2>
+	
+<br/>
+<table  class="table table-bordered"> 
+                                                <tr>
+                                                    <th class="mb-0 ">Benefits</th>
+                                                    <th class="mb-0 ">Description</th>
+                                                </tr>
+                                                <tr><td>Improved decision-making</td><td>	AI provides data-driven insights and predictive analytics to support informed decision-making in project management.</td> </tr>
+                                                <tr><td>Efficient task allocation</td><td>	AI algorithms optimize task assignment by considering team members' skills, availability, and workload, resulting in better resource allocation and improved productivity.</td> </tr>
+                                                <tr><td>Automated processes</td><td>	AI automates repetitive tasks, reducing errors and freeing up project managers' time for more strategic activities.</td> </tr>
+                                                <tr><td>Enhanced communication and collaboration</td><td>	AI-powered chatbots and virtual assistants improve communication and collaboration among team members, enabling streamlined project workflows.</td> </tr>
+                                                </table>
+                                            <br>
+<h2 class="mb-0 pt-140" style="text-decoration: underline #E82277;">Embracing AI in Project Management</h2>
+<p class="mb-0">In today's competitive landscape, organizations must embrace artificial intelligence (AI) in project management to enhance efficiency, decision-making, communication, and collaboration. By leveraging AI technologies, project managers can automate repetitive tasks, enabling them to focus on strategic decision-making and drive improved project outcomes.</p>
+<p class="mb-0">AI-powered chatbots and virtual assistants play a vital role in enhancing communication and collaboration among team members. These intelligent assistants provide real-time support, freeing up valuable time for more complex tasks while ensuring seamless information exchange within the team.</p>
+<p class="mb-0">Furthermore, AI platforms facilitate efficient data management by recommending suitable collaborators for specific projects. This maximizes team collaboration, ensuring that the right people with the necessary expertise are involved in each project, ultimately leading to enhanced project outcomes.</p>
+<p class="mb-0">By effectively integrating AI into project management processes, organizations can optimize resource allocation, enhance decision-making, and achieve increased productivity across all projects. Embracing AI is not just a trend but a strategic imperative for organizations aiming to stay ahead in the dynamic world of project management.</p>
+<p class="mb-0">Amit Jadhav is the <a style="color:#ea4e91;"  href="https://www.amitjadhav.com/socialmedia-keynote-speaker">best keynote speaker</a>, seminar speaker, <a style="color:#ea4e91;"  href="https://www.amitjadhav.com/leadership-speaker">leadership speaker</a>, <a style="color:#ea4e91;"  href="https://www.amitjadhav.com/leadership-speaker">professional corporate speaker</a>, conference speaker, and motivational speaker. Want to gain more knowledge about AI? Then, join his <a style="color:#ea4e91;"  href="https://www.amitjadhav.com/">AI masterclass</a> and gain extensive knowledge about AI technology. </p>
+<p class="mb-0">Through his experience of more than 20 years, Amit Jadhav has also designed a new course known as Digital Growth Accelerator System (DGAS). You can join this online digital marketing video course, Digital Growth Accelerator System (DGAS), by signing up at the link <a style="color:#ea4e91;"  href="https://www.amitjadhav.com/dgas/">https://www.amitjadhav.com/dgas/</a>.</p>
+
+
+                                            <p class="mb-0">- Amit Jadhav<br>
+                                            <a style="color:#ea4e91;" href="https://www.amitjadhav.com">www.amitjadhav.com</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                
+<div class="col-md-12 col-sm-12 col-lg-4">
+    <aside class="sidebar-wrap w-100">
+        <div class="widget-box w-100">
+            <h3>Recent Blogs</h3>
+                        <div class="recent-events-list w-100 pt-140">
+                <div class="recent-event w-100">
+                    <a href="Master-Digital-Marketing-with-Video-Course-by-Amit-Jadhav-Pune" title="">
+                        <img src="images/Master-Digital-Marketing-with-Video-Course-by-Amit-Jadhav-Pune.jpg" alt="Master Digital Marketing with Amit Jadhav’s Video Course in Pune"  class="img-fluid w-100">
+                    </a>
+                    <div class="recent-event-info">
+                        <h4 class="mb-0">
+                            <a href="Master-Digital-Marketing-with-Video-Course-by-Amit-Jadhav-Pune" title="">
+                                Master Digital Marketing with Video Course by Amit Jadhav - Pune                            </a>
+                        </h4>
+                        <span class="thm-clr">
+                        28 April 2025                        </span>
+                    </div>
+                </div>
+            </div>
+                        <div class="recent-events-list w-100 pt-140">
+                <div class="recent-event w-100">
+                    <a href="Why-Every-Leader-Needs-to-Understand-AI-Amit-Jadhav-Explains" title="">
+                        <img src="images/Why-Every-Leader-Needs-to-Understand-AI-Amit-Jadhav-Explains.jpg" alt="Importance of AI Understanding for Leaders - Insights by Amit Jadhav"  class="img-fluid w-100">
+                    </a>
+                    <div class="recent-event-info">
+                        <h4 class="mb-0">
+                            <a href="Why-Every-Leader-Needs-to-Understand-AI-Amit-Jadhav-Explains" title="">
+                                Why Every Leader Needs to Understand AI - Amit Jadhav Explains                            </a>
+                        </h4>
+                        <span class="thm-clr">
+                        24 April 2025                        </span>
+                    </div>
+                </div>
+            </div>
+                        <div class="recent-events-list w-100 pt-140">
+                <div class="recent-event w-100">
+                    <a href="What-is-Social-Selling-and-Why-Its-Crucial-in-2025" title="">
+                        <img src="images/What-is-Social-Selling-and-Why-Its-Crucial-in-2025.jpg" alt="Digital strategy concept showing social selling trends in 2025"  class="img-fluid w-100">
+                    </a>
+                    <div class="recent-event-info">
+                        <h4 class="mb-0">
+                            <a href="What-is-Social-Selling-and-Why-Its-Crucial-in-2025" title="">
+                                What is Social Selling & Why It’s Crucial in 2025?                            </a>
+                        </h4>
+                        <span class="thm-clr">
+                        17 April 2025                        </span>
+                    </div>
+                </div>
+            </div>
+                        <div class="recent-events-list w-100 pt-140">
+                <div class="recent-event w-100">
+                    <a href="AI-Masterclass-for-Entrepreneurs-Master-the-Future-Today" title="">
+                        <img src="images/AI-Masterclass-for-Entrepreneurs-Master-the-Future-Today.jpg" alt="AI Masterclass for Entrepreneurs by Amit Jadhav"  class="img-fluid w-100">
+                    </a>
+                    <div class="recent-event-info">
+                        <h4 class="mb-0">
+                            <a href="AI-Masterclass-for-Entrepreneurs-Master-the-Future-Today" title="">
+                                AI Masterclass for Entrepreneurs: Master the Future Today                            </a>
+                        </h4>
+                        <span class="thm-clr">
+                        16 April 2025                        </span>
+                    </div>
+                </div>
+            </div>
+                    </div>
+    </aside>
+</div>                                
+                                
+                            </div>
+                        </div><!-- Page Wrap -->
+                    </div>
+                </div>
+            </section>
+<footer>
+                <div class="w-100 pt-12021 blue-layer opc1 position-relative">
+                    <div class="fixed-bg back-blend-multiply bg-color4" ></div>
+					<!--<div class="fixed-bg back-blend-multiply bg-color4" style="background-image: url(assets/images/parallax2.jpg);"></div>-->
+                    <div class="container position-relative">
+                       
+					    <div class="footer-wrap w-100 text-center">
+						<div class="sec-title-inner d-inline-block">
+											<h3 class="mb-0">let's connect</h3>
+									</div>
+                            <div class="footer-inner d-inline-block">
+                            </div>
+                        </div>
+					   <script type="text/javascript">
+function numbersonly(e){
+    var unicode=e.charCode? e.charCode : e.keyCode
+    if (unicode!=8){ //if the key isn't the backspace key (which we should allow)
+        if (unicode<48||unicode>57) //if not a number
+            return false //disable key press
+    }
+}
+
+
+function lettersOnly() 
+{
+            var charCode = event.keyCode;
+            if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode == 32)
+                return true;
+            else
+                return false;
+}
+
+
+</script>
+					   
+					   
+					   		<style>
+										.connect_text_s{
+										text-transform: uppercase;
+line-height: 2.75rem;
+font-size: 3.15rem;
+font-weight: 1000;
+font-family: Barlow;
+}
+.flexrow {
+    display: flex;
+    flex-flow: row wrap;
+	color: #908f97;
+	margin-top: 25px;
+}
+.element {
+  margin: 8px;
+  text-align: center;
+}
+ @media (min-width:276px){.flexrow.row-7-el > .element{flex: 0 1 calc(100%/1  - 16px);max-width: calc(100%/1  - 16px);}.soc_text_det{font-size: 13px;}}
+ @media (min-width:376px){.flexrow.row-7-el > .element{flex: 0 1 calc(100%/2  - 16px);max-width: calc(100%/2  - 16px);}.soc_text_det{font-size: 14px;}}
+ @media (min-width:576px){.flexrow.row-7-el > .element{flex: 0 1 calc(100%/3  - 16px);max-width: calc(100%/3  - 16px);}.soc_text_det{font-size: 15px;}}
+ @media (min-width:768px){.flexrow.row-7-el > .element{flex: 0 1 calc(100%/3  - 16px);max-width: calc(100%/3  - 16px);}.soc_text_det{font-size: 16px;}}
+ @media (min-width:992px){.flexrow.row-7-el > .element{flex: 0 1 calc(100%/7  - 16px);max-width: calc(100%/7  - 16px);}.soc_text_det{font-size: 17px;}}
+ @media (min-width:1200px){.flexrow.row-7-el > .element{flex: 0 1 calc(100%/7  - 16px);max-width: calc(100%/7  - 16px);}.soc_text_det{font-size: 17px;}}
+
+</style>					
+							 
+<div class="flexrow row-7-el ">
+	<div class="element social-links"><a class="facebook rounded-circle" href="https://www.facebook.com/AmitJadhavSocial" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a><br><span class="soc_text_det">my live videos and social media / productivity  tips daily postings</span></div>
+
+    <div class="element social-links"><a class="instagram rounded-circle" href="https://www.instagram.com/amitjadhavsocial/" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a><br><span class="soc_text_det">all of my fitness / travel / food / quotes exclusive content</span></div>
+
+    <div class="element social-links"><a class="linkedin rounded-circle" href="https://www.linkedin.com/in/amitjadhavsocial" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a><br><span class="soc_text_det">more team building productivity professional tips</span></div>
+
+	<div class="element social-links"><a class="twitter rounded-circle" href="https://twitter.com/amitjadhavs" title="Twitter" target="_blank"><img src="../assets/images/logos/twitter.svg" alt='clubhouse' style="width: 58%;margin-bottom:6px;"></a><br><span class="soc_text_det">more of tech / social media tweets</span></div>
+   <div class="element social-links"><a class="youtube rounded-circle" href="https://www.youtube.com/channel/UCilsbVmtC2b0h_jb7jTy4Eg?sub_confirmation=1" title="Youtube" target="_blank"><i class="fab fa-youtube"></i></a><br><span class="soc_text_det">my keynotes and motivational stuff</span></div>
+
+    <div class="element social-links"><a class="wordpress rounded-circle" href="https://amitsocialmedia.wordpress.com/" title="Wordpress" target="_blank"><i class="fab fa-wordpress"></i></a><br><span class="soc_text_det">window to my writing blog posts</span></div>
+
+    <div class="element social-links"><a class="slideshare rounded-circle" href="https://www.slideshare.net/amitjadhavsocial" title="Wordpress" target="_blank"><i class="fab fa-slideshare"></i></a><br><span class="soc_text_det">my presentation slidedecks</span></div>
+	
+
+</div>
+                        <div class="footer-wrap w-100 text-center">
+                            <div class="footer-inner d-inline-block">
+                                <div class="logo d-inline-block"><span class="mb-0"><a href="../index.html" title=""><img class="img-fluid" src="../assets/images/logo.png" alt="Logo" style="margin-bottom:25px;"></a></span></div>
+                               <ul class="bottom-links list-unstyled d-flex flex-wrap justify-content-center mb-0">
+                                    <li><a  onclick="toggleForm()">Download Brochure</a>
+									<div class="dwnload_form">
+											<div class="overlay-form">
+											 <form action="../BrochureDownload.php" method="POST" id="SampleForm">
+											  <div class="form-element">
+												<label for="fullname">Full name</label>
+												<input type="text" id="fullname" name="fullname" required  onkeypress="return lettersOnly()">
+											  </div>
+											  <div class="form-element">
+												<label for="email">Email</label>
+												<input type="email" id="email" name="email" required>
+											  </div>
+											  <div class="form-element">
+												<label for="mobile_no">Mobile No.</label>
+												<input type="text" id="mobile_no" name="mobile_no" required  onkeypress="return numbersonly(event)">
+											  </div>
+											  <div class="form-element">
+											   <button id="btn_download" name="submit" type="submit">SUBMIT</button> <a style="background-color: #fff;color: #4f4f4f;padding-right: 15px;padding-left: 15px;padding-top: 6px;padding-bottom: 6px;border-radius: 10px;" onclick="toggleForm()">CANCEL</a>
+											  </div>
+											  </form>
+											</div>
+											</div>	
+									
+									<script type="text/javascript">
+                                                function numbersonly(e){
+                                                    var unicode=e.charCode? e.charCode : e.keyCode
+                                                    if (unicode!=8){ //if the key isn't the backspace key (which we should allow)
+                                                        if (unicode<48||unicode>57) //if not a number
+                                                            return false //disable key press
+                                                    }
+                                                }
+                                                
+                                                
+                                                function lettersOnly() 
+                                                {
+                                                            var charCode = event.keyCode;
+                                                            if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode == 32)
+                                                                return true;
+                                                            else
+                                                                return false;
+                                                }
+                                                
+                                                
+                                                </script>	
+									</li>
+                                    <li><a href="../privacy-policy.html" title="">Privacy policy</a></li>
+                                    <li><a href="../contact.html" title="">Faq's</a></li>
+                                    <li><a href="../contact.html" title="">Contact Us</a></li>
+                                </ul>
+                                <p class="mb-0"><a href="../index.html" title="">AJ</a> - Copyright <script>document.write(new Date().getFullYear())</script>.  ALL RIGHTS RESERVED</p>
+
+                            </div>
+                            <div class="footer-bottom d-flex flex-wrap justify-content-center w-100">
+                                <p class="mb-0 foot-cont"><i class="thm-clr flaticon-headset"></i>Call Us Today: <strong>+91 8237016167</strong></p>
+								<p class="mb-0 foot-cont"><i class="thm-clr fas fa-envelope-open"></i><strong></strong><a href="mailto:amit@amitjadhav.com">amit@amitjadhav.com</a></p>
+								  
+                            </div><!-- Footer Bottom -->
+                        </div>
+                    </div>
+                </div>
+            </footer><!-- Footer -->
+			<script>
+			function toggleForm(){
+						document.body.classList.toggle('activeForm');
+					}
+			</script>
+			<style>
+			
+			.blog-detail-desc ul li::before {
+  content: none;
+
+}
+			
+			
+.overlay-form {
+  position:fixed;
+  background:rgba(0,0,0,0.8);
+  z-index:-1;
+  opacity:0;
+  overflow:hidden;
+  box-sizing:border-box;
+  transition: top 500ms ease-in-out,
+              opacity 500ms ease-in-out,
+              height 0ms ease-in-out 500ms;  
+}
+.overlay-form .close-btn {
+  position:absolute;
+  top:20%;
+  right:40px;
+  color:#fff;
+  font-size:40px;
+  font-weight:600;
+  cursor:pointer;
+}
+.overlay-form h1 {
+  font-size:32px;
+  color:#fff;
+}
+
+.overlay-form label {
+  display:block;
+  font-size:17px;
+  color:#eee;
+  margin-bottom:5px;
+}
+.overlay-form input {
+  width:100%;
+   color:#fff;
+  padding:6px;
+  font-size:17px;
+  border:2px solid #eee;
+  background:transparent;
+  outline:none;
+  border-radius:10px;
+}
+.overlay-form button {
+  margin-top:10px;
+  width:100px;
+  height:35px;
+  font-size:15px;
+  text-transform:uppercase;
+  background:#fff;
+  color:#222;
+  border:none;
+  outline:none;
+  border-radius:10px;
+}
+
+body.activeForm .overlay-form {
+  z-index:2;
+  opacity:1;
+  top:0px;
+  height:100vh;
+  transition: top 500ms ease-in-out,
+              opacity 500ms ease-in-out,
+              height 0ms ease-in-out 0ms;
+}
+			
+			</style>
+			 <style>
+                
+                                                p{margin-top: 1rem !important;
+  margin-bottom: 2rem;}
+  
+  .blog-detail-desc ol{
+  margin-top: 15px;
+  margin-bottom: 1rem;
+}
+
+.blog-detail-desc ul{
+  margin-top: 15px;
+  margin-bottom: 1rem;
+}
+                                         
+            </style>
+			
+        </main><!-- Main Wrapper -->
+
+	
+
+
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/wow.min.js"></script>
+        <script src="../assets/js/counterup.min.js"></script>
+        <script src="../assets/js/jquery.downCount.js"></script>
+        <script src="../assets/js/jquery.fancybox.min.js"></script>
+        <script src="../assets/js/perfect-scrollbar.min.js"></script>
+        <script src="../assets/js/slick.min.js"></script>
+        <script src="../assets/js/custom-scripts.js"></script>
+    </body>	
+</html>

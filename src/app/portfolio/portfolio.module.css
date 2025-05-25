@@ -41,19 +41,11 @@
 }
 
 .filterBar {
-  @apply w-full flex justify-center mb-8 relative;
-  padding: 4px;
-  background: white;
-  border-radius: 9999px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  max-width: fit-content;
-  margin: 0 auto;
-  position: relative;
-  z-index: 50;
+  @apply w-full flex justify-center mb-12;
 }
 
 .filterWrapper {
-  @apply relative inline-flex gap-2 px-2;
+  @apply relative inline-flex gap-4 px-6 py-3 bg-white backdrop-blur-sm rounded-full border border-white;
 }
 
 .filterButton {
@@ -72,10 +64,28 @@
 }
 
 .indicator {
-  @apply absolute bg-primary rounded-full transition-all duration-300;
-  top: 4px;
-  bottom: 4px;
-  z-index: 1;
+  @apply absolute h-full bg-[#6B21A8] rounded-full transition-all duration-300;
+  top: 0;
+  box-shadow: 0 0 20px rgba(107, 33, 168, 0.3);
+}
+
+.tag {
+  @apply relative z-10 px-4 py-2 transition-colors text-gray-500 capitalize;
+  background: none;
+  border: none;
+  outline: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.tag:hover {
+  @apply text-[#6B21A8];
+}
+
+.tag.active,
+.tag[data-active="true"] {
+  @apply text-white !important;
 }
 
 .projectGrid {
@@ -141,15 +151,6 @@
   margin-bottom: 1rem;
 }
 
-.tag {
-  padding: 0.25rem 0.75rem;
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-  border-radius: 9999px;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
 .cta {
   display: flex;
   align-items: center;
@@ -183,4 +184,12 @@
   .content {
     padding: 6rem 4rem;
   }
+}
+
+.active {
+  color: #fff !important;
+}
+
+.badge {
+  @apply inline-block bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full text-xs font-semibold;
 } 

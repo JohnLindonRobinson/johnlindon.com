@@ -25,18 +25,6 @@ export default function About() {
   return (
     <div className="min-h-screen bg-[#fcfbfd] pt-24">
       <div className="container mx-auto px-4 py-16">
-        {/* Section Label */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-12"
-        >
-          <span className="text-sm font-semibold tracking-wider text-primary/80">
-            03 — ABOUT ME
-          </span>
-        </motion.div>
-
         {/* Main Grid Layout */}
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 ${styles.aboutContainer}`}>
           {/* Left Column - About Me */}
@@ -143,7 +131,6 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

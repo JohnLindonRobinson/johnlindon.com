@@ -1,0 +1,1087 @@
+<!DOCTYPE html><!-- Last Published: Wed Apr 30 2025 15:38:33 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="www.usemotion.com" data-wf-page="6478c78ad77ca0a3ec7c48dd" data-wf-site="5fcb349058268443b1f5dbdb" data-wf-collection="6478c78ad77ca0a3ec7c4878" data-wf-item-slug="ai-task-manager"><head><meta charset="utf-8"/><title>AI Task Manager: I Tested 20+ Task Managers. Here&#x27;s My Top 7</title><meta content="I tested over 20 AI task managers and used my experience with each AI task manager to give you the most detailed comparison." name="description"/><meta content="AI Task Manager: I Tested 20+ Task Managers. Here&#x27;s My Top 7" property="og:title"/><meta content="I tested over 20 AI task managers and used my experience with each AI task manager to give you the most detailed comparison." property="og:description"/><meta content="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666b4999c7cd76d9197d329e_twysbtx9wx.webp" property="og:image"/><meta content="AI Task Manager: I Tested 20+ Task Managers. Here&#x27;s My Top 7" property="twitter:title"/><meta content="I tested over 20 AI task managers and used my experience with each AI task manager to give you the most detailed comparison." property="twitter:description"/><meta content="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666b4999c7cd76d9197d329e_twysbtx9wx.webp" property="twitter:image"/><meta property="og:type" content="website"/><meta content="summary_large_image" name="twitter:card"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/css/motion-dev.shared.6679286bd.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Inter:100,200,300,regular,500,600,700,800,900","Albert Sans:regular,500,600,700"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/5fcb3490582684169bf5dc76_Motion%20logo%20new%2032px.png" rel="shortcut icon" type="image/x-icon"/><link href="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/5fcb34905826841d27f5dc75_Motion%20logo%20new%20256px.png" rel="apple-touch-icon"/><link href="https://www.usemotion.com/blog/ai-task-manager" rel="canonical"/><link href="rss.xml" rel="alternate" title="RSS Feed" type="application/rss+xml"/><script>
+  if (window.location.pathname.includes('signup-iframes')) {
+  	window.__enzuzoConfig = window.__enzuzoConfig ?? {}
+	window.__enzuzoConfig.bannerMode = 'dontshow'
+  }
+  
+  window.webappUrl = (function() {
+    const hostname = window.location.hostname;
+    if (hostname === "motion-dev.webflow.io") {
+      return "https://staging.dev-usemotion.com";
+    } else {
+      return "https://app.usemotion.com";
+    }
+  })();
+</script>
+
+<!--segment-->
+<script>
+  !function () {
+    const writeKey = window.location.hostname === 'www.usemotion.com' ? 'WQQU1TebtGFCogK5Ty5V9FnfqdLuSRKS' : 'CDoWkXaIAAxZYrjFZYr85W9aaZDitaAu'
+    const getCookieValue = (name) => document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop()
+    let mot_session = getCookieValue('mot_session')
+    if (!mot_session) {
+      // uuidv4
+      mot_session = ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+      )
+      const domain = window.location.hostname.endsWith('usemotion.com') ? ';domain=usemotion.com' : ''
+      document.cookie = `mot_session=${mot_session}${domain}`
+    }
+    var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+      analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://segmentcdn.usemotion.com/snippet/" + key; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = writeKey; analytics._cdn = "https://segmentcdn.usemotion.com"; analytics.SNIPPET_VERSION = "4.15.3";
+      analytics.setAnonymousId(mot_session)
+      analytics.load(writeKey);
+    }
+    // partnerstack
+    
+    var gs = document.createElement('script');gs.src = 'https://get.usemotion.com/pr/js';gs.type = 'text/javascript';gs.async = 'true';gs.onload = gs.onreadystatechange = function() {var rs = this.readyState;if (rs && rs != 'complete' && rs != 'loaded') return;try {growsumo._initialize('pk_Z9Qwv6u8eUNOtPSbAfixoxmJCdANuCwa'); if (typeof(growsumoInit) === 'function') {growsumoInit();}} catch (e) {}};var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gs, s);
+  }();
+</script> 
+
+<!--- styling --->
+<style>  
+body{
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+  
+.w-background-video>video {   
+	max-width: -webkit-fill-available;
+}
+</style>
+
+<!-- Dash.Fi Alpha -->
+<script async src="https://pixel.dashfi.dev/static/js/pixel.dash.fi.js"></script>
+<script>window.dashFiTracker = window.dashFiTracker ||
+{};window.dashFiTracker['siteIdentifier'] = '1efde14b-e8fb-6d6c-85d8-85328af1561f';
+</script>
+<!-- End Dash.Fi Alpha -->
+
+<style>
+	.blog-rich-text .button {
+  	color:#fff !important;
+    margin-bottom:24px;
+    text-decoration:none;
+  }
+  
+  .navbar-5.white {
+  	position:fixed !important;
+  }
+  
+  .blog-rich-text h2,.blog-rich-text h3 {
+  	outline:none;
+  }
+  
+  .w-richtext figure.w-richtext-align-fullwidth>div {
+  	width:100%;
+  }
+  
+  h2 a {
+  	font-weight:600;
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Article",
+  "headline": "AI Task Manager: I Tested 20+ Task Managers. Here&#39;s My Top 7",
+  "image": [
+    "https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666b4999c7cd76d9197d329e_twysbtx9wx.webp"
+  ],
+  "author": [{
+    "@type": "Person",
+    "name": "Zac Harris"
+  }],
+  "datePublished": "Nov 07, 2024",
+  "dateModified": "Nov 07, 2024"
+}
+</script></head><body><div class="global-styles w-embed w-script"><!-- Motion Puzzle Animation for Webflow -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<style>
+
+/* Snippet gets rid of top margin on first element in any rich text*/
+.w-richtext>:first-child {
+	margin-top: 0;
+}
+
+/* Snippet gets rid of bottom margin on last element in any rich text*/
+.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+	margin-bottom: 0;
+}
+
+/* Snippet prevents all click and hover interaction with an element */
+.clickable-off {
+	pointer-events: none;
+}
+
+/* Snippet enables all click and hover interaction with an element */
+.clickable-on{
+  pointer-events: auto;
+}
+
+/* Snippet enables you to add class of div-square which creates and maintains a 1:1 dimension of a div.*/
+.div-square::after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+
+/*Hide focus outline for main content element*/
+main:focus-visible {
+	outline: -webkit-focus-ring-color auto 0px;
+}
+
+/* Make sure containers never lose their center alignment*/
+.container-medium, .container-small, .container-large {
+	margin-right: auto !important;
+	margin-left: auto !important;
+}
+
+/*Reset buttons, and links styles*/
+a {
+	color: inherit;
+	text-decoration: inherit;
+	font-size: inherit;
+}
+
+/*Apply "..." after 3 lines of text */
+.text-style-3lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+/*Apply "..." after 2 lines of text */
+.text-style-2lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+/*style radio button on team size modal*/
+input[type=radio]:checked ~ .radio-button-card-wrapper {
+	border-color: #3C61DD;
+  outline: 2px solid #3C61DD;
+}
+
+.radio-button-card input[type="radio"]:checked ~ .radio-button-card-content-wrapper .radio-button-card-icon {
+	filter: saturate(1);
+}
+</style></div><div data-collapse="medium" data-animation="default" data-duration="0" id="navbar" data-easing="ease" data-easing2="ease" role="banner" class="navbar-5 white w-nav"><div class="nav-wrapper w-container"><a href="/" class="navlogo with-text w-nav-brand"><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/62265e06cee82d77c29cc84d_motion-logo.svg" loading="lazy" alt="" class="motionlogo"/><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/5fd561683c9c153dd3b463ce_Motion%20Logo%203X-min.png" loading="lazy" alt="" class="mobile-nav_logo"/></a><nav role="navigation" class="nav-menu-5 landing-page-2 w-nav-menu"><div data-hover="true" data-delay="0" class="nav-dropdown w-dropdown"><div class="nav-link w-dropdown-toggle"><div class="nav-dropdown-icon w-icon-dropdown-toggle"></div><div>Features</div></div><nav class="dropdown-window w-dropdown-list"><a href="/ai-project-manager" class="dropdown-nav-link w-inline-block"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67fee9e7dc87f901113a25ac_project-icon.svg" class="navbar-item-icon"/><div><div>AI Project Manager</div></div></a><a href="/calendar" class="dropdown-nav-link w-inline-block"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67fee9e71ddcf4990a7fc787_calendar-icon.svg" class="navbar-item-icon"/><div><div>AI Calendar</div></div></a><a href="/task-manager" class="dropdown-nav-link w-inline-block"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67fee9e7f11b9414a06c97c0_task-icon.svg" class="navbar-item-icon"/><div><div>AI Task Manager</div></div></a><a href="/ai-meeting-notetaker" class="dropdown-nav-link w-inline-block"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67fee9e7a7cb66df51235ebc_notetaker-icon.svg" class="navbar-item-icon"/><div><div>AI Meeting Notetaker</div></div></a><a href="/ai-docs-assistant" class="dropdown-nav-link w-inline-block"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67fee9e9ff13eb9edbb87d75_docs-icon.svg" class="navbar-item-icon"/><div><div>AI Docs Assistant</div></div></a><a href="/ai-workflows" class="dropdown-nav-link w-inline-block"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67fee9e86af187eadbba03e3_workflows-icon.svg" class="navbar-item-icon"/><div><div>AI Workflows</div></div></a><a href="/ai-gantt-chart" class="dropdown-nav-link w-inline-block"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67fee9e70fe3c0b379078936_gantt-icon.svg" class="navbar-item-icon"/><div><div>AI Gantt Chart</div></div></a><a href="/meeting-assistant" class="dropdown-nav-link w-inline-block"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67fee9e7f24448422109b160_link-icon.svg" class="navbar-item-icon"/><div><div>AI Meeting Assistant</div></div></a><a href="/ai-dashboards" class="dropdown-nav-link w-inline-block"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67fee9e70534f99dba114b0f_dashboard-icon.svg" class="navbar-item-icon"/><div><div>AI Dashboards</div></div></a><a href="/integrations" class="dropdown-nav-link w-inline-block"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67fee9e7028d15e8ab42f5bd_integrations-icon.svg" class="navbar-item-icon"/><div><div>Integrations</div></div></a></nav></div><div data-hover="true" data-delay="0" class="nav-dropdown w-dropdown"><div class="nav-link w-dropdown-toggle"><div class="nav-dropdown-icon w-icon-dropdown-toggle"></div><div>Use Cases</div></div><nav class="dropdown-window w-dropdown-list"><div class="use-case-nav-grid"><div><div class="nav-dropdown-subtitle">Service Businesses</div><div class="w-dyn-list"><div role="list" class="use-case-nav-dropdown w-dyn-items"><div role="listitem" class="w-dyn-item"><a href="/use-cases/it-service-providers" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f906fc4c021d0fe4e53_it-service-providers.svg" class="use-case-nav-icon"/><div><div>IT Service Providers</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/marketing-agencies" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f987ffcb807d5ea1c25_marketing-agencies.svg" class="use-case-nav-icon"/><div><div>Marketing Agencies</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/design-agencies" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f8a6f1c3bb63fe6415a_design-agencies.svg" class="use-case-nav-icon"/><div><div>Design Agencies</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/law-firms" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f8494ee8a3e5d8874f0_law-firms.svg" class="use-case-nav-icon"/><div><div>Law Firms</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/consulting-businesses" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f6ec21775fe43e8f7cc_consulting-business.svg" class="use-case-nav-icon"/><div><div>Consulting Businesses</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/trades-people" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fe5cdae22ef64d475fce15_construction-companies.svg" class="use-case-nav-icon"/><div><div>Trades People</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/repair-and-installation-firms" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f7150c7c2792977b4ad_construction-companies.svg" class="use-case-nav-icon"/><div><div>Repair and Installation Firms</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/real-estate-management" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f37599e1c32b1d6be55_real-estate-management.svg" class="use-case-nav-icon"/><div><div>Real Estate Management</div></div></a></div></div></div></div><div><div class="nav-dropdown-subtitle">Functional Teams</div><div class="w-dyn-list"><div role="list" class="use-case-nav-dropdown w-dyn-items"><div role="listitem" class="w-dyn-item"><a href="/use-cases/startups" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f4135660c659ae537af_early-stage-startups.svg" class="use-case-nav-icon"/><div><div>Startups</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/product-teams" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f50a682a3d5adc75682_product.svg" class="use-case-nav-icon"/><div><div>Product Teams</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/marketing-teams" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f5652960e3789fd5199_marketing-teams.svg" class="use-case-nav-icon"/><div><div>Marketing Teams</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/sales-teams" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fd0f5f37dee32ec1807d6a_sales-team.svg" class="use-case-nav-icon"/><div><div>Sales Teams</div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/use-cases/executive-teams" class="dropdown-nav-link w-inline-block"><img loading="lazy" alt="" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/62fe553d5c607a0c9547ceb9_executive-teams.svg" class="use-case-nav-icon"/><div><div>Executive Teams</div></div></a></div></div></div></div></div></nav></div><a href="/teams" class="nav-link hide w-inline-block"><div>Teams</div></a><a href="/teams" class="nav-link hide w-nav-link">Teams</a><a href="/pricing" class="nav-link w-nav-link">Pricing</a><a href="/careers" class="nav-link w-nav-link">Careers</a><a href="https://help.usemotion.com/contacting-support" class="nav-link w-nav-link">Contact</a><a href="https://app.usemotion.com/" class="nav-link w-nav-link">Log in</a><div class="padding-left nav-bar-spacing"></div><a id="checkout-survey-button" href="https://app.usemotion.com/checkout" class="button open-team-member-modal w-button">Try Motion for free</a><div class="button-row mobile-vertical"><a href="http://usemotion.com/checkout" class="button cta-button-v1 w-button">Try Motion for free</a><a id="contact-sales-button" data-w-id="3ba6ef64-ff09-b8b7-586d-06ee6f544ec7" href="#" class="button secondary w-button">Contact sales</a></div></nav><div class="menu-button-5 w-nav-button"><div class="w-icon-nav-menu"></div></div><div class="button-row mobile-nav-button-2"><a href="http://usemotion.com/checkout" class="button cta-button-v1 w-button">Try Motion for free</a></div></div></div><div class="main-wrapper"><div class="section-blog-post-hero"><div class="page-padding"><div class="container-medium"><a href="/blog" class="blog-back w-inline-block"><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/63c1ea8a243adc0df202f45a_back-arrow.svg" loading="lazy" alt="" class="blog-back-arrow"/><div>Back to blog</div></a><div class="blog-heading-wrapper"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666b4999c7cd76d9197d329e_twysbtx9wx.webp" class="blog-header-image"/><div><h1 class="blog-heading">AI Task Manager: I Tested 20+ Task Managers. Here&#x27;s My Top 7</h1><p class="blog-article-desc">I&#x27;ve been hands-on with 7 AI task managers and used my experience with each task manager to give you the most detailed comparison, helping you choose the perfect tool for your needs.</p><div class="blog-article_details"><div class="blog-author"><div class="blog-card_author-img-wrapper"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666b4c648d3675b00c3b2a6f_T03QC2CHF6Y-U03PV20CASK-a05a828fd665-512.jpeg" loading="lazy" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666b4c648d3675b00c3b2a6f_T03QC2CHF6Y-U03PV20CASK-a05a828fd665-512-p-500.jpeg 500w, https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666b4c648d3675b00c3b2a6f_T03QC2CHF6Y-U03PV20CASK-a05a828fd665-512.jpeg 512w" class="blog-card_author-img"/></div><div><div>Zac Harris</div><div class="margin-top margin-xsmall"><div class="text-size-small w-embed"><div style="color:#646a74;"> at <a style="text-decoration:underline;" href="https://www.usemotion.com" target="_blank">Motion</a></div></div></div></div></div><div class="blog-date"><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/6320909eded8c3c89546e386_calendar-icon.svg" loading="lazy" alt=""/><div>Nov 7, 2024</div></div></div></div></div></div></div></div><div class="section-blog"><div class="page-padding"><div class="container-medium"><div class="blog-wrapper"><div class="blog-toc-wrapper"><div class="toc-sticky"><div class="toc-cta"><div class="modal-container"><div class="modal-content"><h4 class="modal-heading">Keep your projects on track with Motion</h4><ul role="list" class="modal-list w-list-unstyled"><li class="modal-list-item">Never stress over project deadlines again<br/></li><li class="modal-list-item">Full visibility and accountability for every project and task<br/></li><li class="modal-list-item">Powerful and fully-customizable project management software<br/></li><li class="modal-list-item">Extremely easy to adopt. You&#x27;ll be up and running in less than 30 minutes<br/></li></ul><div class="button-row blog-posts"><a href="http://usemotion.com/checkout" class="button cta-button-v1 w-button">Try Motion for free</a><a id="contact-sales-button" data-w-id="3ba6ef64-ff09-b8b7-586d-06ee6f544ec7" href="#" class="button secondary w-button">Contact sales</a><a id="checkout-survey-button" href="https://app.usemotion.com/checkout" class="button open-team-member-modal w-button">Try Motion for free</a></div><div class="lp-hint-text blog new"><span class="trial-text">For 15+ person teams</span></div></div></div></div></div></div><div class="blog-article-wrapper"><div id="content" class="blog-rich-text w-richtext"><p>Managing tasks and projects can be overwhelming, especially when you&#x27;re juggling multiple responsibilities.</p><p>That&#x27;s where AI task managers come in.</p><p>These intelligent tools leverage artificial intelligence to help you stay organized, prioritize tasks, and collaborate with your team more effectively.</p><p>We&#x27;ll dive into their key features, and pricing to help you make an informed decision.</p><p><strong>TL;DR:</strong></p><ul><li>AI task managers leverage artificial intelligence to help you stay organized and prioritize tasks effectively.</li><li><a href="https://www.usemotion.com/blog/ai-task-manager#motion" target="_self" rel="noopener">Motion</a>, <a href="https://www.usemotion.com/blog/ai-task-manager#taskade" target="_self" rel="noopener">Taskade</a>, <a href="https://www.usemotion.com/blog/ai-task-manager#clickup" target="_self" rel="noopener">ClickUp</a>, <a href="https://www.usemotion.com/blog/ai-task-manager#todoist" target="_self" rel="noopener">Todoist</a>, <a href="https://www.usemotion.com/blog/ai-task-manager#wrike" target="_self" rel="noopener">Wrike</a>, <a href="https://www.usemotion.com/blog/ai-task-manager#asana" target="_self" rel="noopener">Asana</a>, and <a href="https://www.usemotion.com/blog/ai-task-manager#timehero" target="_self" rel="noopener">Timehero</a> are some of the best AI task managers available.</li><li>These tools offer features like intelligent task scheduling, real-time collaboration, customizable workflows, and time tracking.</li><li>Consider factors like task prioritization, integrations, interface, customization, and mobile accessibility when choosing an AI task manager.</li><li>Motion stands out as the best AI task manager for its AI-powered task prioritization, seamless calendar integration, team collaboration, and dynamic scheduling.</li></ul><p><br></p><h2>The best AI task managers</h2><ul><li><a href="https://www.usemotion.com/blog/ai-task-manager#motion" target="_self" rel="noopener">Motion</a> for AI-powered task auto-scheduling and project management</li><li><a href="https://www.usemotion.com/blog/ai-task-manager#taskade" target="_self" rel="noopener">Taskade</a> for collaborative task management with built-in video chat</li><li><a href="https://www.usemotion.com/blog/ai-task-manager#clickup" target="_self" rel="noopener">ClickUp</a> for customizable workflows and automation</li><li><a href="https://www.usemotion.com/blog/ai-task-manager#todoist" target="_self" rel="noopener">Todoist</a> for simple, intuitive task management</li><li><a href="https://www.usemotion.com/blog/ai-task-manager#wrike" target="_self" rel="noopener">Wrike</a> for enterprise-level project management</li><li><a href="https://www.usemotion.com/blog/ai-task-manager#asana" target="_self" rel="noopener">Asana</a> for team collaboration and task visualization</li><li><a href="https://www.usemotion.com/blog/ai-task-manager#timehero" target="_self" rel="noopener">Timehero</a> for time tracking and productivity insights</li></ul><p><br></p><h2>What are AI task managers?</h2><p>AI task managers are intelligent <a href="https://www.usemotion.com/blog/productivity-tools" target="_self" rel="noopener">productivity tools</a> that leverage artificial intelligence to automate and optimize your task management process. </p><p>By analyzing your work patterns, deadlines, and priorities, these tools can automatically schedule tasks, adapt to changes in your workflow, and provide personalized recommendations to help you work smarter, not harder. </p><p>Additionally, AI task managers use NLP algorithms to understand user input and create tasks, including automated routine tasks like assigning tasks to team members and sending reminders.</p><p><strong>The benefits of using an AI task manager include:</strong></p><ul><li><a href="https://www.usemotion.com/blog/increase-productivity" target="_self" rel="noopener">Increased productivity</a> and efficiency</li><li>Improved task prioritization and time management</li><li>Reduced cognitive load and decision fatigue (<em>In my opinion, the best benefit</em>)</li><li>Enhanced team collaboration and communication</li><li>Greater visibility into project progress and bottlenecks</li><li>Valuable insights for continuous improvement</li></ul><p><br></p><h3>AI task management software vs. traditional task management software</h3><p>Traditional task management software relies on manual input and static rules to organize tasks and projects. </p><p>While these task manager apps can be effective, they often require significant time and effort to maintain. </p><p>AI <a href="https://www.usemotion.com/blog/best-task-management-software" target="_blank" rel="noopener">task management software</a> uses machine learning algorithms to automate and optimize task management processes. </p><p>These tools can learn from your behavior, adapt to your preferences, and provide personalized recommendations to help you work more efficiently.</p><p><br></p><h2>Picking an AI task manager: What to look for</h2><p></p><div class="letterdrop-custom-embed" id=htmlembed_1731005125850><style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap') !important;
+
+.review-process {
+    background-color: #f8f9fd !important;
+    padding: 48px !important;
+    border-radius: 12px !important;
+    font-family: 'Albert Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    color: #1f2937 !important;
+    margin: 32px 0 !important;
+}
+
+.review-process h3 {
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    margin: 0 0 24px 0 !important;
+    color: #111827 !important;
+    line-height: 1.2 !important;
+}
+
+.review-process p {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    margin: 0 0 24px 0 !important;
+    color: #4b5563 !important;
+}
+
+.review-process p:last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
+<div class="review-process">
+    <h3>How we write reviews</h3>
+    <p>Our reviews come from people who've spent years in marketing and leading teams across multiple companies. These aren't just writers—they're experts who've actually implemented and used these tools in the real world. When we review an app, you're getting insights from people who truly know what they're talking about.</p>
+    <p>We don't just rely on our own experience, though. We dig deep into user feedback on platforms like Reddit and G2, and we check out what other experts in the field are saying. This helps us give you the full picture—not just our take.</p>
+    <p>We never accept payment for reviews or rankings. Yes, we're fans of Motion, but we're fair—pointing out where other apps shine and where we could do better. You're getting the honest truth, every time.</p>
+</div></div><p>I evaluated each AI task manager based on the criteria below:</p><ul><li><strong>Intelligent task scheduling.</strong> How well does the AI understand and adapt to your work patterns, automatically prioritizing and scheduling tasks based on deadlines, importance, and your availability?</li><li><strong>Integrations.</strong> Can the tool integrate with your existing workflow, syncing with your calendar, email, and other productivity apps to provide a centralized hub for task management?</li><li><strong>Intuitive interface.</strong> Is the app user-friendly, with a clean, intuitive design that makes it easy to view, organize, and manage your tasks?</li><li><strong>Customization and flexibility.</strong> Can you tailor the tool to your specific needs, with options for custom project templates, workflows, and task categories?</li><li><strong>Mobile accessibility.</strong> Is there a mobile app available, and does it offer a seamless, feature-rich experience for managing tasks on the go? </li></ul><p>To test each AI task manager, I signed up for a trial account, imported existing tasks and projects, and used the tool for a week (some of the tools I&#x27;ve already used in a team and agency setting). </p><p><br></p><h2>A quick look at the best AI task managers</h2><p></p><div class="letterdrop-custom-embed" id=htmlembed_1719273523893><style> 
+        .task-manager-container {
+            width: 100% !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+        .task-manager-table {
+            width: 100% !important;
+            min-width: 600px !important;
+            border-collapse: separate !important;
+            border-spacing: 0 8px !important;
+            font-family: 'Inter', sans-serif !important;
+            background-color: #ffffff !important;
+        }
+        .task-manager-table thead th {
+            background-color: #101828 !important;
+            color: white !important;
+            padding: 15px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 10 !important;
+        }
+        .task-manager-table thead th:first-child {
+            border-radius: 8px 0 0 8px !important;
+        }
+        .task-manager-table thead th:last-child {
+            border-radius: 0 8px 8px 0 !important;
+        }
+        .task-manager-table tbody tr {
+            background-color: #f8f9fa !important;
+        }
+        .task-manager-table tbody tr:nth-child(even) {
+            background-color: #ffffff !important;
+        }
+        .task-manager-table tbody tr td:first-child {
+            border-top-left-radius: 8px !important;
+            border-bottom-left-radius: 8px !important;
+        }
+        .task-manager-table tbody tr td:last-child {
+            border-top-right-radius: 8px !important;
+            border-bottom-right-radius: 8px !important;
+        }
+        .task-manager-table td {
+            padding: 15px !important;
+            vertical-align: middle !important;
+        }
+        .task-manager-table .icon-name-wrapper {
+            display: flex !important;
+            align-items: center !important;
+        }
+        .task-manager-table .icon {
+            width: 24px !important;
+            height: 24px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-right: 10px !important;
+        }
+        .task-manager-table .icon img {
+            max-width: 100% !important;
+            max-height: 100% !important;
+            object-fit: contain !important;
+        }
+        .task-manager-table .task-manager {
+            font-weight: normal !important;
+        }
+        .task-manager-table .pricing {
+            white-space: pre-line !important;
+        }
+        .task-manager-table .plan-name {
+            font-weight: bold !important;
+        }
+        @media (max-width: 768px) {
+            .task-manager-table {
+                font-size: 14px !important;
+            }
+            .task-manager-table td, .task-manager-table th {
+                padding: 10px !important;
+            }
+        }
+    </style>
+
+    <div class="task-manager-container">
+        <table class="task-manager-table">
+            <thead>
+                <tr>
+                    <th>Task Manager</th>
+                    <th>Best Features</th>
+                    <th>Pricing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="icon-name-wrapper">
+                            <span class="icon"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/6670a25ac2b101c37f251fea_666c6b6e99e004a5409ec3b7_Logo%2520(5).svg" alt="Motion icon" ></span>
+                            <span class="task-manager">Motion</span>
+                        </div>
+                    </td>
+                    <td>AI-assisted task prioritization and auto-scheduling</td>
+                    <td class="pricing"><span class="plan-name">Individual:</span> $19/month
+<span class="plan-name">Team:</span> $12/user/month</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="icon-name-wrapper">
+                            <span class="icon"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/6670a25ac2b101c37f251fef_666c7865e96f3e99accda323_Mask%2520group.svg" alt="Taskade icon" ></span>
+                            <span class="task-manager">Taskade</span>
+                        </div>
+                    </td>
+                    <td>Real-time collaboration, templatee, AI agents</td>
+                    <td class="pricing"><span class="plan-name">Pro:</span> $10/month/user</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="icon-name-wrapper">
+                            <span class="icon"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/6670a25ac2b101c37f251fe0_666c6f7c33498c07b1523b05_clickup.svg" alt="Clickup icon" ></span>
+                            <span class="task-manager">Clickup</span>
+                        </div>
+                    </td>
+                    <td>Comprehensive project and task management, multiple views</td>
+                    <td class="pricing"><span class="plan-name">Unlimited:</span> $5/month/user
+<span class="plan-name">Business:</span> $12/month/user
+<span class="plan-name">Enterprise:</span> Custom pricing</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="icon-name-wrapper">
+                            <span class="icon"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/6670a25ac2b101c37f251ff2_666c6c5b06911e99f7de8edb_Logo%2520(4).svg" alt="Todoist icon" ></span>
+                            <span class="task-manager">Todoist</span>
+                        </div>
+                    </td>
+                    <td>Task prioritization, simple interface, productivity tracking</td>
+                    <td class="pricing"><span class="plan-name">Individual:</span> $19/month
+<span class="plan-name">Team:</span> $12/user/month</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="icon-name-wrapper">
+                            <span class="icon"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/6670a25ac2b101c37f251fe5_666c6c5b4881e1ec918b4512_Logo%2520(3).svg" alt="Wrike icon" ></span>
+                            <span class="task-manager">Wrike</span>
+                        </div>
+                    </td>
+                    <td>Project management, calendar integration, real-time collaboration</td>
+                    <td class="pricing"><span class="plan-name">Professional:</span> $9.80/month/user
+<span class="plan-name">Business:</span> $24.80/month/user
+<span class="plan-name">Enterprise:</span> Custom pricing</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="icon-name-wrapper">
+                            <span class="icon"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/6670a25ac2b101c37f251ff8_666c6c5cb3c8c3a3685ce5a8_Logo%2520(2).svg" alt="Asana icon" ></span>
+                            <span class="task-manager">Asana</span>
+                        </div>
+                    </td>
+                    <td>Task management, project tracking, team collaboration</td>
+                    <td class="pricing"><span class="plan-name">Premium:</span> $10.99/month/user
+<span class="plan-name">Business:</span> $24.99/month/user</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="icon-name-wrapper">
+                            <span class="icon"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/6670a25ac2b101c37f251fdd_666c6ce3b3f4b15606109b99_Logo%2520(7).svg" alt="TimeHero icon" ></span>
+                            <span class="task-manager">TimeHero</span>
+                        </div>
+                    </td>
+                    <td>Task scheduling, project tracking, automatic rescheduling</td>
+                    <td class="pricing"><span class="plan-name">Pro:</span> $12/month/user</td>
+                </tr>
+            </tbody>
+        </table>
+    </div><p><br></p><h3><span id='motion'>Mo‎tion: Best AI task manager for task auto-scheduling and project management</span></h3><p></p><div class="letterdrop-custom-embed" id=htmlembed_1718310587858><style>
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+  height: 0;
+}
+
+.youtube-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>
+
+<div class="video-container">
+  <iframe class="youtube-video" src="https://www.youtube.com/embed/no2l-Ob1Eq4?si=nLLlcA6NNsbXaLPK" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></div><h4>Standout features</h4><ul><li><strong>AI-Powered Task Prioritization:</strong> Automatically adjusts your tasks based on their urgency and your available time.</li><li><strong>Seamless Calendar Integration:</strong> Integrates with Google and Apple calendars for a consolidated view of all tasks and events.</li><li><strong>Team Collaboration:</strong> Allows project managers to assign tasks to team members’ calendars, reducing the need for micromanagement.</li><li><strong>Dynamic Scheduling:</strong> Automatically reschedules tasks you miss, ensuring nothing falls through the cracks.</li></ul><p><a href="https://www.usemotion.com/" target="_blank" rel="noopener">Motion</a> stands out from other <a href="https://www.usemotion.com/task-manager" target="_blank" rel="noopener">AI task managers</a> by seamlessly integrating tasks with your calendar. </p><p>It uses AI to auto-schedule tasks based on your availability, priorities, and preferences, ensuring that you always know what to work on next.</p><p>With Motion, you can easily manage personal tasks alongside team projects, thanks to its calendar integration and collaborative features.</p><p>Motion adapts to changes on the fly, automatically reprioritizing and rescheduling tasks to keep you on track.</p><p>Unlike other tools that focus primarily on traditional <a href="https://www.usemotion.com/blog/best-task-management-software" target="_blank" rel="noopener">task management</a>, Motion takes a holistic approach by considering your entire schedule.</p><p>‎It intelligently slots tasks into your calendar, adapting to changes in real-time. </p><p>This means you don&#x27;t have to constantly update your task list or manually reschedule items when something comes up.</p><p>Motion also offers project management capabilities, allowing you to break down complex projects into manageable tasks and subtasks. </p><p>You can set dependencies, assign tasks to team members, and track progress all within the app.</p><h4>What I liked</h4><p>One of the most impressive aspects of Motion is its AI-powered task prioritization. </p><p></p><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/64f89d94dd8450098726ce9f_scheduler_in_motion_u6rh.gif' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div><p>‎It automatically adjusts tasks based on urgency and available time, which means I spend less time worrying about what to do next and more time actually getting things done. </p><p>Another feature I loved is the dynamic scheduling. </p><p>If I miss a task, Motion automatically reschedules it (thanks to its <a href="https://www.usemotion.com/blog/ai-scheduling-assistant" target="_blank" rel="noopener">AI scheduling assistant</a>), ensuring nothing falls through the cracks. </p><p>This feature alone has significantly reduced my cognitive load, allowing me to focus on executing tasks rather than constantly reorganizing my schedule.</p><h4>What I disliked</h4><p>While Motion offers a lot of great features, it does require manual task input, which can be time-consuming. </p><p>However, this is expected to change with future product releases. </p><p>If you are new to AI task managers, you may find that Motion has a bit of a learning curve. However, once you&#x27;ve learned the basics, you&#x27;ll find Motion incredibly easy to use.</p><h4>How to get the most out of Motion</h4><p>To truly maximize your Motion trial, follow these tips:</p><ul><li>Commit to creating at least <strong>5-10 tasks</strong> during your first week, covering both work and personal responsibilities (<em>focus on the tasks you want to complete that week</em>).</li><li>Diversify your tasks to include projects, goals, errands, and self-care activities.</li><li>Create a minimum of two projects to group related tasks and enhance organization. By capturing a comprehensive task list and organizing it into projects, you&#x27;ll free yourself from the mental burden of constant decision-making, allowing Motion&#x27;s AI to optimize your schedule for peak productivity.</li></ul><h4>Pricing</h4><p>Motion offers two pricing plans:</p><ul><li><strong>Individual</strong><ul><li>$19&#x2F;month (<em>billed annually</em>)</li><li>$34&#x2F;month (<em>billed monthly</em>)</li></ul></li><li><strong>Team</strong><ul><li>$12&#x2F;user&#x2F;month (<em>billed annually</em>)</li><li>$20&#x2F;user&#x2F;month (<em>billed monthly</em>)</li></ul></li></ul><h4>What other users have to say about Motion</h4><p>&quot;Motion keeps my tasks in front of me and helps arrange them around my schedule according to priority and projected time length. Really helpful for anyone who deals with lots of tasks and needs assistance with deciding what to do next!&quot; - <a href="https://www.g2.com/products/motionapp/reviews/motion-review-9712998" target="_blank" rel="noopener">Micah K.</a></p><p>&quot;I work ~375 hours a month. Keeping up with work, volunteer, and personal life tasks has become a challenge, and I have been consistently dropping the ball. I have found that with Motion I am dropping that ball less and staying much more focused on what needs to be done, rather than trying to figure out what needs to be done.&quot; - <a href="https://www.g2.com/products/motionapp/reviews/motion-review-8639889" target="_blank" rel="noopener">Vanessa G.</a></p><p><br></p><p></p><div class="letterdrop-custom-embed" id=htmlembed_1718235589771><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTA Template</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/letterdrop/dist/letterdrop.min.css">
+    
+    <style>
+        .cta-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+            background-color: #f8f9fa; /* Change to your desired background color */
+            border-radius: 10px; /* Add curved border radius */
+            overflow: hidden; /* Hide overflow for curved effect */
+        }
+    </style>
+</head>
+<body>
+    
+    <section class="cta-container">
+        <div>
+            <p style="font-size:20px; font-weight: bold; margin: 0px">Worry less and accomplish more with Motion</p>
+            <p>Sign up now to get started</p> 
+        </div> 
+        <a href="https://app.usemotion.com/checkout" class="button" rel="noopener">Get Started</a>
+    </section>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/letterdrop/dist/letterdrop.min.js"></script>
+</body>
+</html></div><h3><span id='taskade'>Ta‎skade: Best AI task manager for collaborative task management with built-in video chat</span></h3><h4><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666a3853efcee511cbcc7096_CleanShot20240607at16.10.10_2x_iuwd.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div>Standout features</h4><ul><li><strong>Real-Time Collaboration:</strong> Allows team members to work together on tasks and projects in real-time.</li><li><strong>Templates:</strong> Offers a variety of templates to get you started quickly.</li><li><strong>AI Agents:</strong> Provides AI agents to assist with task management, although their usefulness is limited.</li></ul><p>‎<a href="https://www.taskade.com/" target="_blank" rel="noopener">Taskade</a> started as a traditional task and project management tool but has evolved into a versatile collaboration app with a heavy focus on AI. </p><p>The onboarding process is simple, and you&#x27;ll find a sample project labeled &quot;Getting Started&quot; to help you get up to speed. I recommend going through this initial setup to make the most of Taskade.</p><h4>What I liked</h4><p>I&#x27;m a sucker for generative AI and Taskade has implemented generative AI <strong><em>everywhere</em></strong>. </p><p>You can build custom AI agents to retrieve documents and answer questions, making it a powerful tool for teams. </p><p>Taskade also offers strong automation features, allowing you to set up triggers and actions for repetitive tasks. The interface for automations is similar to that of Zapier, making it easy to design workflows.</p><p></p><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/66708e99e5198ffd1e0bda01_25979441909139.jpeg' alt='automation-scheduler.jpg' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' ><figcaption                 class="letterdrop-image-caption"
+                style="display: flex;white-space: break-spaces;align-items: center;justify-content: center; flex-wrap: wrap; gap:3px;"
+              >
+                <a href="https://help.taskade.com/en/articles/8958467-getting-started" rel="noopener noopener noreferrer" target="_blank">Source</a>
+              </figcaption>
+          </figure></div></div></div></div><p>Taskade also offers a wide range of templates for projects and automations, which can save you a lot of setup time. </p><h4>What I disliked</h4><p>Similar to ClickUp, Taskade&#x27;s richness in features makes the app overwhelming.</p><p>As a new user, I found Taskade overwhelming due to its complexity, which is telling since my nickname is the &quot;tool man&quot; (I use a lot of tools). </p><p>The mobile app, in particular, can feel clunky and lacks the usability and performance of the desktop version.</p><p>The AI agents, while a good idea, are limited and require a lot of back-and-forth to get anything useful. </p><h4>Pricing</h4><p>Taskade offers three pricing plans:</p><ul><li><strong>Free</strong> <ul><li>$0&#x2F;month with limited features</li></ul></li><li><strong>Pro</strong><ul><li>$8&#x2F;user&#x2F;month (<em>billed annually</em>) for additional features and integrations</li></ul></li><li><strong>Team</strong><ul><li> $16&#x2F;user&#x2F;month (<em>billed annually</em>) for advanced security and control</li></ul></li></ul><h3><span id='clickup'>Cl‎ickUp: Best task manager for customizable workflows</span></h3><h4><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666a3854efcee511cbcc70af_ClickUp_e5at.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div>Standout features</h4><ul><li><strong>Multiple Views:</strong> Task lists, boards, <a href="https://www.usemotion.com/blog/gantt-chart" target="_self" rel="noopener">Gantt charts</a>, and more.</li><li><strong>Comprehensive Project Management:</strong> A wide range of features for managing complex projects.</li><li><strong>Customization:</strong> Highly customizable to fit different workflows.</li></ul><p>‎<a href="https://clickup.com/" target="_blank" rel="noopener">ClickUp</a> markets itself as the &quot;one app to replace them all,&quot; and it certainly lives up to that promise in terms of features. </p><p>ClickUp offers everything from task and project management to time tracking, documents, chat, whiteboards, dashboards, AI and more.</p><p>Phew, that&#x27;s <strong><em>a lot</em></strong>. </p><p>If you need a feature-rich tool, ClickUp has you covered.</p><h4>What I liked</h4><p>The wide range of features in ClickUp is impressive. You can customize almost everything, from views to fields to workflows.</p><p>My team at Copy.ai used ClickUp to manage our sprints and OKRs. </p><p></p><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/66708e99e5198ffd1e0bd9df_ClickupGoals_yj29.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div><p>‎We also built out a marketing request form that directly tied into the platform, making it easy for us to capture marketing requests from leadership and other teams.</p><p>This level of customization can be incredibly powerful but is often too much for most teams.</p><h4>What I disliked</h4><p>ClickUp&#x27;s wide range of features can also be overwhelming and make the app feel bloated.</p><p>The onboarding process is straightforward, but there&#x27;s a lot to digest. New users might find it challenging to navigate and set up the tool effectively.</p><p>Outside of the onboarding process, ClickUp can be very buggy.</p><p>We experienced issues with saving tasks, moving tasks between projects, and comments not being added.</p><p>This made it difficult to get the most value out of the platform. We spent <strong><em>a lot</em></strong> of time fighting with ClickUp, which erased all of our productivity gains. </p><p>Ultimately, we switched to Basecamp before <strong><em>finally</em></strong> landing with Motion.</p><p>Another dislike of mine is the overwhelming number of notifications.</p><p>You get a notification for almost everything, which can flood your inbox and make it easy to miss important updates.</p><p>Customizing notifications can help, but it&#x27;s something to be aware of.</p><h4>Pricing</h4><p>ClickUp offers four pricing plans:</p><ul><li><strong>Free </strong><ul><li>$0&#x2F;month with limited features</li></ul></li><li><strong>Unlimited</strong> <ul><li>$10&#x2F;user&#x2F;month for additional features and integrations</li></ul></li><li><strong>Business</strong> <ul><li>$19&#x2F;user&#x2F;month for advanced automation and reporting</li></ul></li><li><strong>Enterprise</strong> <ul><li>Custom pricing for large organizations</li></ul></li></ul><p><br></p><p></p><div class="letterdrop-custom-embed" id=htmlembed_1723134967300><style>
+  .cta-callout {
+    background-color: #f8f9fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: inherit;
+  }
+  .cta-callout p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: normal;
+  }
+  .cta-callout .read-more {
+    font-weight: bold;
+  }
+  .cta-callout a {
+    color: #5664d2;
+    text-decoration: none;
+    font-weight: normal;
+  }
+  .cta-callout a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="cta-callout">
+  <p><span class="read-more">Read more:</span> <a href="https://www.usemotion.com/compare/clickup-vs-motion" rel="noopener">ClickUp vs. Motion</a></p>
+</div></div><h3><span id='todoist'>To‎doist: Best task manager for simple task management</span></h3><h4><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666a3854efcee511cbcc70a8_CleanShot20240612at17.33.06_2x_5k83.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div>‎Standout features</h4><ul><li><strong>Task Prioritization:</strong> Simple interface for setting task priorities.</li><li><strong>Productivity Tracking:</strong> Basic tracking of productivity metrics.</li></ul><p><a href="https://todoist.com/" target="_blank" rel="noopener">Todoist</a> is a task management and <a href="https://www.usemotion.com/blog/ai-to-do-list" target="_blank" rel="noopener">to-do list</a> application that aims to simplify and organize both work and personal tasks. </p><p>Getting started with Todoist is incredibly easy, thanks to its straightforward onboarding process. </p><p>You can sign up with Google auth, and the initial setup includes a light onboarding with a couple of tasks to help you get started.</p><h4>What I liked</h4><p>The simplicity. </p><p>The interface is very user-friendly, making it easy to add and manage tasks. </p><p>Todoist offers quick-start templates that can help you get up to speed if you&#x27;re not sure how to break down your tasks. </p><p></p><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/66709beccb6f93372981c38e_CleanShot20240612at17.33.06_2x1_swob.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div><p>However, without upgrading, you&#x27;re limited to list and board views, missing out on the calendar view and other advanced features.</p><p>Todoist also includes filters and labels to help you organize tasks. You can set due dates and reminders, although some features require a paid upgrade. </p><p>One unique feature is the kudos system, which rewards users for completing tasks. I&#x27;ve used Slack channels for this in the past, but having it integrated within your task management tool can be a great motivator for teams.</p><p>Also, the natural language input was a nice touch too, which sped up my task creation.</p><h4>What I disliked</h4><p>Todoist does not automatically reschedule tasks, unlike Motion. Todoist requires manual adjustments to schedules and does not offer built-in time tracking.</p><p>You also can&#x27;t set start dates for tasks, which can be a drawback if you need more control over your task scheduling.</p><p>If you love using keyboard shortcuts, you&#x27;ll likely find the shortcuts in Todoist confusing as they&#x27;ve flipped them on their head (# for projects and @ for labels).</p><p>Also, the mobile app can be buggy, especially for Android users.</p><p>In my opinion, Todoist is more suited for personal productivity rather than in-depth task management.</p><h4>Pricing</h4><p>Todoist offers three pricing plans:</p><ul><li><strong>Beginner </strong><ul><li>$0&#x2F;month, 5 personal projects, no AI access</li></ul></li><li><strong>Pro</strong> <ul><li>$4&#x2F;user&#x2F;month (<em>billed annually)</em> for additional features and integrations</li></ul></li><li><strong>Business</strong> <ul><li>$6&#x2F;user&#x2F;month (<em>billed annually)</em> for team collaboration and admin tools</li></ul></li></ul><p><br></p><p></p><div class="letterdrop-custom-embed" id=htmlembed_1723135013245><style>
+  .cta-callout {
+    background-color: #f8f9fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: inherit;
+  }
+  .cta-callout p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: normal;
+  }
+  .cta-callout .read-more {
+    font-weight: bold;
+  }
+  .cta-callout a {
+    color: #5664d2;
+    text-decoration: none;
+    font-weight: normal;
+  }
+  .cta-callout a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="cta-callout">
+  <p><span class="read-more">Read more:</span> <a href="https://www.usemotion.com/blog/trello-vs-todoist" rel="noopener">Trello vs. Todoist</a></p>
+</div></div><p><br></p><h3><span id='wrike'>Wr‎ike: Best task manager for enterprise-level task management</span></h3><h4><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666a3854efcee511cbcc70a1_CleanShot20240612at17.36.52_2x_dqn7.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div>Standout features</h4><ul><li><strong>Real-Time Collaboration:</strong> Allows for real-time updates and collaboration.</li><li><strong>Comprehensive Task Management:</strong> Detailed task management features.</li><li><strong>Custom Workflows:</strong> Highly customizable workflows.</li></ul><p><a href="https://wrike.com/" target="_blank" rel="noopener">Wrike</a> is an enterprise-grade project and task management tool that has been around for years. </p><p>My experience with Wrike dates back to my time at Northcutt, where we used it extensively for all client work. </p><p>One of the things I liked about Wrike is its reliability and consistency. </p><p>For enterprise-level teams, uptime and reliability are crucial, and Wrike delivers on that front.</p><p>The onboarding process is relatively straightforward, with a task list that helps you get up to speed quickly. </p><p>Wrike offers a high level of customization, allowing you to add custom fields, create request forms, and customize your productivity dashboard. </p><p></p><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/66708e99e5198ffd1e0bd9b7_CleanShot20240617at14.18.09_2x_yffb.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div><p>‎This makes it easy to tailor the tool to your specific needs.</p><p>The tool includes analytics, calendar views, and some AI features, although I found the AI to be somewhat limited. </p><h4>What I liked</h4><p>One feature I particularly liked was the concept of blueprints, which allows you to create templates for recurring work. </p><p>This is especially useful for agencies with consistent deliverables.</p><h4>What I disliked</h4><p>The initial setup can be time-consuming, and there is a steep learning curve.</p><p>While my team found it relatively easy to use at Northcutt, newer users might struggle. Additionally, we experienced issues with support, which could be slow to respond.</p><p>Also, the calendar integration does not adjust your daily schedule in real-time as tasks and priorities change.</p><h4>Pricing</h4><p>Wrike offers three pricing plans:</p><ul><li><strong>Team</strong> <ul><li>$9.80&#x2F;user&#x2F;month for basic project management features</li></ul></li><li><strong>Business</strong> <ul><li>$24.80&#x2F;user&#x2F;month for advanced features and integrations</li></ul></li><li><strong>Enterprise</strong> <ul><li>Custom pricing for large organizations with complex needs</li></ul></li></ul><p><br></p><p></p><div class="letterdrop-custom-embed" id=htmlembed_1723135058191><style>
+  .cta-callout {
+    background-color: #f8f9fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: inherit;
+  }
+  .cta-callout p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: normal;
+  }
+  .cta-callout .read-more {
+    font-weight: bold;
+  }
+  .cta-callout a {
+    color: #5664d2;
+    text-decoration: none;
+    font-weight: normal;
+  }
+  .cta-callout a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="cta-callout">
+  <p><span class="read-more">Read more:</span> <a href="https://www.usemotion.com/compare/wrike-vs-motion" rel="noopener">Wrike vs. Motion</a></p>
+</div></div><p><br></p><h3><span id='asana'>As‎ana: Best task manager for collaboration and task visualization</span></h3><h4><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666a3853efcee511cbcc7092_Asana_s2iq.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div>Standout features</h4><ul><li><strong>Team Collaboration:</strong> Excellent for team-based projects.</li><li><strong>Project Tracking:</strong> Robust project tracking features.</li><li><strong>Customizable Workflows:</strong> Allows for tailored project management and <a href="https://www.usemotion.com/blog/workflow-automation" target="_self" rel="noopener">workflow automation</a>.</li></ul><p><a href="https://asana.com/" target="_blank" rel="noopener">Asana</a> is one of the most popular project management tools out there, typically heralded for its ease of use and intuitive interface. </p><p>When I first set up Asana, I found the onboarding process to be incredibly straightforward. The interface is designed in such a way that you can see the status of tasks and projects at a glance, making it easy to get started and stay organized.</p><h4>What I liked</h4><p>Two words. Customizable workflows.</p><p></p><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/66708e99e5198ffd1e0bd9f5_CleanShot20240617at14.20.38_2x_mcmk.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div><p>‎I&#x27;ve used Asana in an agency setting, and I found these workflows particularly helpful for setting up tasks and automations. This feature allows you to build out deliverables and ensure that every step of a project is accounted for. </p><h4>What I disliked</h4><p>While Asana is easy to use, it does require a lot of manual effort to stay on top of your tasks. </p><p>Unlike Motion, which automatically reschedules overdue tasks, Asana requires you to manually adjust due dates. This can be time-consuming, especially when managing multiple projects. </p><p>I also experienced some technical issues with Asana, such as trouble accessing the app and certain views not loading despite having a strong internet connection (600 MBPS).</p><h4>Pricing</h4><p>Asana offers four pricing plans:</p><ul><li><strong>Personal</strong><ul><li>Free for individuals and small teams</li></ul></li><li><strong>Starter</strong> <ul><li>$10.99&#x2F;user&#x2F;month (<em>billed annually</em>) for additional features and integrations</li></ul></li><li><strong>Business</strong> <ul><li>$24.99&#x2F;user&#x2F;month (<em>billed annually</em>) for advanced features and security</li></ul></li><li><strong>Enterprise</strong> <ul><li>Custom pricing for large organizations with complex needs</li></ul></li></ul><p><br></p><p></p><div class="letterdrop-custom-embed" id=htmlembed_1723135092610><style>
+  .cta-callout {
+    background-color: #f8f9fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: inherit;
+  }
+  .cta-callout p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: normal;
+  }
+  .cta-callout .read-more {
+    font-weight: bold;
+  }
+  .cta-callout a {
+    color: #5664d2;
+    text-decoration: none;
+    font-weight: normal;
+  }
+  .cta-callout a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="cta-callout">
+  <p><span class="read-more">Read more:</span> <a href="https://www.usemotion.com/compare/asana-vs-motion" rel="noopener">Asana vs. Motion</a></p>
+</div></div><p><br></p><h3><span id='timehero'>Ti‎meHero: Best task manager for time tracking and productivity insights</span></h3><h4><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666a3854efcee511cbcc70ac_CleanShot20240612at17.43.43_2x_32x4.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div>Standout features</h4><ul><li><strong>Task Scheduling:</strong> Basic task scheduling features.</li><li><strong>Project Tracking:</strong> Simple project tracking.</li></ul><p>‎<a href="https://www.timehero.com/" target="_blank" rel="noopener">TimeHero</a> is another project management tool that aims to simplify task management. </p><p>My experience with TimeHero was mixed. Onboarding with TimeHero was relatively easy, but the initial interface was somewhat confusing. </p><p>The sidebar and instructions didn&#x27;t clearly indicate where to add tasks, making the first few minutes of use a bit of a guessing game. Once I got the hang of it, adding tasks became straightforward.</p><h4>What I liked</h4><p>TimeHero is a bare-bones, straightforward tool with a few different views, including list and board views. </p><p>You can upload files and use timesheets, which are pretty standard features.</p><p>One feature I found useful was the ability to upload a CSV file to add multiple tasks at once. </p><p></p><div><div class='quill-upload-image' data-align='center' contenteditable='false' style='width:100%;height:auto;margin:auto;'><div style='width:100%; white-space: nowrap;border: none !important;'><div style="display:flex;justify-content:center;border: 0px;"><figure style='max-width:100%;'><img class='lazyload' loading='lazy' src='https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/66708e99e5198ffd1e0bd9ba_CleanShot20240617at14.22.06_2x_xrl8.webp' alt='' style='width:100%;height:auto;margin:auto;padding-bottom:20px;' >
+          </figure></div></div></div></div><p>‎This can save a lot of time if you have a large number of tasks to manage.</p><h4>What I disliked</h4><p>One of the major drawbacks of TimeHero is its claim of smart task management. </p><p>While it promises to automate daily tasks, it does not automatically update due dates for overdue tasks. </p><p>This was disappointing, as I had hoped for a more intelligent system. The only change was the status of the task, which showed as overdue without adjusting the due date.</p><p>Despite its simplicity, TimeHero falls short in automation and smart scheduling. </p><p>The tool is straightforward and easy to use once you get the hang of it, but it lacks the advanced features and automation capabilities that could make it a more powerful task management tool.</p><h4>Pricing</h4><p>TimeHero offers three pricing plans:</p><ul><li><strong>Basic</strong> <ul><li>$5&#x2F;user&#x2F;month</li></ul></li><li><strong>Professional</strong> <ul><li>$12&#x2F;user&#x2F;month for additional features (recurring tasks, projects and lists) and premium integrations</li></ul></li><li><strong>Premium</strong> <ul><li>$27&#x2F;user&#x2F;month for advanced features (workflow template builder, reports, Gantt, etc.)</li></ul></li></ul><h2>Why Motion still wins</h2><p>After trying the various AI task management tools, Motion still stands out as the best choice for me.</p><p>I&#x27;ve used Trello, ClickUp, Basecamp, and even Notion, but none of them (or the task managers listed above) offered the seamless experience that Motion provides.</p><p>Motion&#x27;s intelligent automation, ease of use, and reliability make it the best AI task management tool.</p><p>Motion automatically reschedules tasks, optimizing your calendar and ensuring you stay on top of your work.</p><p>If you&#x27;re looking for a task management tool that truly enhances productivity, Motion is the solution.</p><p>Ready to make the switch? <a href="https://app.usemotion.com/checkout" target="_blank" rel="noopener">Try Motion for free today</a> and experience the difference for yourself. </p><p>Your team deserves the best, and Motion delivers.</p><p></p><div class="letterdrop-custom-embed" id=htmlembed_1698207208843><a class="button" href="https://app.usemotion.com/checkout" rel="noopener">Try Motion for free for 7 days here</a></div></div></div><div class="blog-end-author"><img alt="" loading="lazy" src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666b4c648d3675b00c3b2a6f_T03QC2CHF6Y-U03PV20CASK-a05a828fd665-512.jpeg" sizes="100vw" srcset="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666b4c648d3675b00c3b2a6f_T03QC2CHF6Y-U03PV20CASK-a05a828fd665-512-p-500.jpeg 500w, https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/666b4c648d3675b00c3b2a6f_T03QC2CHF6Y-U03PV20CASK-a05a828fd665-512.jpeg 512w" class="blog-end-author-img"/><div class="blog-end-author-details"><div class="blog-author-end-title">Zac Harris</div><div class="blog-end-article-bio">Hey, I&#x27;m Zac 👋 I&#x27;m an SEO leader with a passion for helping brands build content that ranks and empowers their customers. Can often be found tinkering with AI, building sites, or attempting DIY projects.</div><div class="w-condition-invisible w-embed"><div class="blog-end-article-bio">Written by Zac Harris</div></div></div></div></div></div></div></div></div><div class="section-blog-related-posts"><div class="page-padding"><div class="container-medium"><h2>Related articles</h2><div class="w-dyn-list"><div role="list" class="related-articles-grid w-dyn-items"><div role="listitem" class="w-dyn-item"><a href="/blog/project-status-report" class="blog-card w-inline-block"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/64a3018ba6ac6b2528fdada1_kbo8i4eb7y.png" loading="lazy" alt="" class="blog-card_image"/><div class="blog-card_content"><h2 class="blog-card-title">What Is a Project Status Report, and How Do You Create One?</h2><div class="blog-card_summary">Discover how to create an effective project status report for stakeholders. Learn the different types of status reports and how to assess project progress.</div><div class="blog-card_details"><div class="blog-author"><div class="blog-card_author-img-wrapper"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding.png" loading="lazy" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding-p-500.png 500w, https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding-p-800.png 800w, https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding.png 896w" class="blog-card_author-img"/></div><div>Motion Blog</div></div><div>Jul 3, 2023</div></div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/blog/project-blockers" class="blog-card w-inline-block"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/64da4774fb334a534b389fb5_laeprsu49y.png" loading="lazy" alt="" class="blog-card_image"/><div class="blog-card_content"><h2 class="blog-card-title">Understand Project Blockers &amp; How to Transform Them Into Success</h2><div class="blog-card_summary">Discover how to use project blockers as a catalyst to transform challenges into successes. Explore tips, tools and much more.</div><div class="blog-card_details"><div class="blog-author"><div class="blog-card_author-img-wrapper"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding.png" loading="lazy" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding-p-500.png 500w, https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding-p-800.png 800w, https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding.png 896w" class="blog-card_author-img"/></div><div>Motion Blog</div></div><div>Aug 16, 2023</div></div></div></a></div><div role="listitem" class="w-dyn-item"><a href="/blog/sprint-planning" class="blog-card w-inline-block"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/6480c9a90e6f530d2b3da0ba_k7fjugo0un.png" loading="lazy" alt="" class="blog-card_image"/><div class="blog-card_content"><h2 class="blog-card-title">The Secrets to Effective Sprint Planning</h2><div class="blog-card_summary">Learn how Scrum sprints can help teams work simultaneously to achieve clear objectives, as well as the best practices for successful sprint planning.</div><div class="blog-card_details"><div class="blog-author"><div class="blog-card_author-img-wrapper"><img src="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding.png" loading="lazy" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding-p-500.png 500w, https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding-p-800.png 800w, https://cdn.prod.website-files.com/62fcfcf2e1a4c21ed18b80e6/63b63084130a275ad36ddfea_logo_1024_nopadding.png 896w" class="blog-card_author-img"/></div><div>Motion Blog</div></div><div>Jun 7, 2023</div></div></div></a></div></div></div></div></div></div></div><div class="section-footer-cta"><div class="page-padding"><div class="container-medium"><div class="footer-cta_component"><div id="w-node-c7665abd-a59d-2ec2-69f9-b80bb74e927d-31a71b77" class="cta-footer_title"><h2 class="text-white">Put Motion to the test.</h2><div class="margin-top margin-small"><div class="text-size-regular text-weight-semibold"><span class="trial-text">Start your free trial</span></div></div><div class="margin-top margin-small"><div class="text-size-regular text-color-lightgrey">See firsthand how it’s revolutionizing productivity, work, and happiness.</div></div></div><div class="cta-button_container cta-button_container-center footer_cta-button"><div class="button-gradient_wrapper background-color-gradient cta-button-v1"><div class="button-gradient_black-bg"><a href="https://app.usemotion.com/checkout" class="button button-gradient text-color-gradient w-button">Try Motion for Free</a></div></div><a id="checkout-survey-button" href="https://app.usemotion.com/checkout" class="button open-team-member-modal w-button">Try Motion for free</a><div class="margin-top margin-small"><div class="text-style-muted dark-bg"><span class="trial-text">Start your free trial</span>. Cancel in 1 click.</div></div></div><div class="cta-footer-divider"></div><div id="w-node-a50e09d7-b615-2430-c45f-1148b417cefc-31a71b77" class="container-medium"><div class="cta-footer_logos"><h6 class="text-white">Tech and media companies are talking about Motion</h6><div class="w-layout-grid cta-footer_logos-component"><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/60998199f909d2e7e0f08957_forbes.png" loading="lazy" alt="" class="feature-cta-image"/><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/60998e509636a34eb38384c0_business-insider.png" loading="lazy" alt="" class="feature-cta-image"/><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/60998e57b248965af688c84e_techcrunch.png" loading="lazy" alt="" class="feature-cta-image"/><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/60998e64c23c8bdddca62b6e_lifehacker.png" loading="lazy" alt="" class="feature-cta-image"/></div></div></div></div></div></div></div><div id="enterprise-qualify-modal" class="modal-overlay-bg enterprise-survey"><div class="modal centered enterprise-survey"><div class="enterprise-modal-heading-container"><div class="enterprise-modal-heading">How many team members do you plan to have using Motion over the next 6 months?<br/></div></div><div class="team-size-form-container w-form"><form id="team-member-form" name="wf-form-Team-Members-Form" data-name="Team Members Form" method="post" class="team-size-form" data-wf-page-id="6478c78ad77ca0a3ec7c48dd" data-wf-element-id="8aae9f50-b269-a403-5d34-675d14ad08b1"><div class="enterprise-modal-radio-button-container"><label class="radio-button-card w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio-button-card-checkbox w-radio-input"></div><input type="radio" name="team-members" id="individual" data-name="team-members" required="" style="opacity:0;position:absolute;z-index:-1" value="individual"/><div class="radio-button-card-content-wrapper single-line"><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67f3e32e142190230feb4e98_individual.png" loading="lazy" alt="" class="radio-button-card-icon"/><div class="radio-button-card-text">Just me</div></div><span class="radio-button-card-wrapper w-form-label" for="individual"> </span></label><label class="radio-button-card w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio-button-card-checkbox w-radio-input"></div><input type="radio" name="team-members" id="team" data-name="team-members" required="" style="opacity:0;position:absolute;z-index:-1" value="team"/><div class="radio-button-card-content-wrapper"><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67f3e48ce0e805a756950b06_team.png" loading="lazy" alt="" class="radio-button-card-icon"/><div class="radio-button-card-text-wrapper"><div class="radio-button-card-text">Between 2 and 14</div></div></div><span class="radio-button-card-wrapper w-form-label" for="team"></span></label><label class="radio-button-card w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio-button-card-checkbox w-radio-input"></div><input type="radio" name="team-members" id="enterprise" data-name="team-members" required="" style="opacity:0;position:absolute;z-index:-1" value="enterprise"/><div class="radio-button-card-content-wrapper"><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/67f3e497ff21b8acd32f4610_enterprise.png" loading="lazy" alt="" class="radio-button-card-icon"/><div class="radio-button-card-text-wrapper"><div class="radio-button-card-text">15 or more</div></div></div><span class="radio-button-card-wrapper w-form-label" for="enterprise"></span></label></div><div class="enterprise-modal-button-container"><div class="margin-bottom"><input type="submit" data-wait="Please wait..." id="enterprise-survey-confirm" class="button max-width-full w-button" value="Continue"/></div><a href="#" id="team-member-modal-close" data-w-id="8aae9f50-b269-a403-5d34-675d14ad08c8" class="button primary-muted w-button">Go back</a></div></form><div id="enterprise-modal-success-message" class="w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div></div></div><div id="contact-sales-email-modal" class="modal-overlay-bg contact-sales-email-modal"><div class="modal centered contact-sales-email-modal"><div class="margin-bottom margin-small"><div class="heading-small"><strong>What is your work email?</strong><br/></div></div><div class="margin-bottom margin-small w-form"><form id="contact-sales-email-form" name="wf-form-Contact-Sales-Email-Form" data-name="Contact Sales Email Form" method="post" class="form-6" data-wf-page-id="6478c78ad77ca0a3ec7c48dd" data-wf-element-id="c91d2d08-71f0-50b6-bcb5-31554fe6c136"><input class="text-field w-input" autofocus="true" maxlength="256" name="email" data-name="email" data-lowercase="true" pattern="^[^@]+@(?!.*(privaterelay\.appleid|proton\.me|protonmail\.com|googlemail\.com|gmail|yahoo|hotmail|outlook|aol\.com|live\.com|icloud\.com|sbcglobal\.net|.*\.edu|mail\.|mailinator\.com|susa\.com|qwef\.com|solarmora\.com|farmim\.com))(?&lt;!@gmail\.).*$" placeholder="Enter work email " title="Please use a work email address" type="email" id="email" required=""/><input class="text-field why_motion w-input" maxlength="256" name="why_motion" data-name="why_motion" data-lowercase="true" placeholder="Why are you interested in Motion?" title="Why are you interested in Motion?" type="text" id="why_motion"/><div class="margin-top margin-small"><input type="submit" data-wait="Submitting..." id="enterprise-survey-confirm" class="button max-width-full w-button" value="Submit"/></div></form><div class="w-form-done"><div>Thank you for submitting your information with our team!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div><a id="team-member-modal-close" href="#" data-w-id="c91d2d08-71f0-50b6-bcb5-31554fe6c140" class="button primary-muted w-button">Go back</a></div></div><div class="footer dark"><div class="lp-wrapper footer-wrapper"><div class="footer-container"><div><a href="/" class="footer-logo new w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/6710614f7593bf76f83bd14b_logo-white%3D1.svg" alt=""/></a><div class="footer-security-logos margin-small margin-top"><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/678822390efce4364ec8d00f_gdpr.png" loading="lazy" width="33" alt=""/><img src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/678823849dfd079af3d95676_21972-312_SOC_NonCPA.png" loading="lazy" width="33" alt=""/></div></div><div class="footer-links"><div class="footer-link-column dark"><div class="footer-column-title dark">Motion</div><a href="/teams" class="footer-button dark hide">Teams</a><a href="/pricing" class="footer-button dark">Pricing</a><a href="/about" class="footer-button dark">About</a><a href="/careers" class="footer-button dark">Careers</a><a href="https://help.usemotion.com/contacting-support" class="footer-button dark">Contact</a></div><div class="footer-link-column dark"><div class="footer-column-title dark">Resources</div><a href="/blog" class="footer-button dark">Blog</a><a href="https://affiliate.usemotion.com/" class="footer-button dark">Affiliate</a><a href="/security" class="footer-button dark">Security</a><a href="/privacy" class="footer-button dark">Privacy</a><a href="/terms" class="footer-button dark">Terms</a><a href="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/66fab99057a02f93ddf7c2de_MSA.pdf" class="footer-button dark">MSA</a></div><div class="footer-link-column dark"><div class="footer-column-title dark">Compare</div><div class="w-dyn-list"><div role="list" class="w-dyn-items"><div role="listitem" class="foonter-link-cmsitem w-dyn-item"><a href="/compare/wrike-vs-motion" class="footer-button dark w-inline-block"><div class="w-embed">vs Wrike</div></a></div><div role="listitem" class="foonter-link-cmsitem w-dyn-item"><a href="/compare/asana-vs-motion" class="footer-button dark w-inline-block"><div class="w-embed">vs Asana</div></a></div><div role="listitem" class="foonter-link-cmsitem w-dyn-item"><a href="/compare/clickup-vs-motion" class="footer-button dark w-inline-block"><div class="w-embed">vs ClickUp</div></a></div><div role="listitem" class="foonter-link-cmsitem w-dyn-item"><a href="/compare/monday-vs-motion" class="footer-button dark w-inline-block"><div class="w-embed">vs Monday</div></a></div></div></div></div></div></div></div></div><div id="verify-email-modal" class="modal-overlay-bg email-verification-modal"><div class="modal centered email-verification-modal"><div class="margin-bottom margin-small"><div id="email-verification-heading" class="heading-small">Please enter the code we sent to your email address</div></div><div class="margin-bottom margin-small w-form"><form id="email-verification-form" name="wf-form-Email-Verification-Form" data-name="Email Verification Form" action="http://#" method="post" class="email-verification-form" data-wf-page-id="6478c78ad77ca0a3ec7c48dd" data-wf-element-id="da569ce8-dfa6-b9fd-d35f-913b0d3e7d0b"><input class="text-field w-input" autofocus="true" maxlength="256" name="verification-code" data-name="verification code" placeholder="Code" type="number" id="email-verification-code-input" required=""/><input class="text-field hidden w-input" maxlength="256" name="verification-email" data-name="verification email" data-lowercase="true" placeholder="" type="text" id="email-verification-email-input"/><div class="margin-top margin-small"><input type="submit" data-wait="Submitting..." id="email-verification-submit" class="button max-width-full w-button" value="Submit"/></div></form><div class="w-form-done"><div>Thank you for booking a call with our Sales team!</div></div><div id="email-verification-code-error" class="w-form-fail"><div>Your code was incorrect, please try again.</div></div></div><a id="email-verification-modal-close" href="#" data-w-id="da569ce8-dfa6-b9fd-d35f-913b0d3e7d15" class="button primary-muted w-button">Go back</a></div></div><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5fcb349058268443b1f5dbdb" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/js/motion-dev.schunk.4a394eb5af8156f2.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/js/motion-dev.schunk.e041d70e0585c724.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/5fcb349058268443b1f5dbdb/js/motion-dev.434da2d9.4d6e734536b0f380.js" type="text/javascript"></script><script>
+  function logPage() {
+    if (window.location.pathname.includes("/signup-iframes")) {
+      return;
+    }
+    const queryString = window.location.search;
+    const params = new URLSearchParams(queryString);
+    const cookies = document.cookie
+      .split(";")
+      .map((cookie) => cookie.split("="))
+      .reduce(
+        (accumulator, [key, value]) => ({
+          ...accumulator,
+          [key.trim()]: decodeURIComponent(value),
+        }),
+        {}
+      );
+
+    const mot_session = cookies["mot_session"] || "";
+    let fbclid = params.get("fbclid");
+    const gclid = params.get("gclid");
+    const ttclid = params.get("ttclid");
+    const irclickid = params.get("irclickid");
+    if (fbclid) {
+      document.cookie = `mot_fbclid=${fbclid};domain=usemotion.com`;
+    } else {
+      const fbclick = cookies._fbc;
+      if (cookies._fbc) {
+        fbclid = cookies._fbc.slice(19);
+        document.cookie = `mot_fbclid=${fbclid};domain=usemotion.com`;
+      }
+    }
+    if (gclid) {
+      document.cookie = `mot_gclid=${gclid};domain=usemotion.com`;
+    }
+    if (ttclid) {
+      document.cookie = `mot_ttclid=${ttclid};domain=usemotion.com`;
+    }
+    if (irclickid) {
+      document.cookie = `irclickid=${irclickid};domain=usemotion.com`;
+    }
+
+    const paramObj = { mot_session, userAgent: window.navigator.userAgent };
+
+    if (queryString.includes("utm") || queryString.includes("clid")) {
+      params.forEach((value, key) => {
+        if (key.includes("utm") || key.includes("clid")) {
+          paramObj[key] = value;
+        }
+      });
+      if (fbclid) {
+        paramObj["fbclid"] = fbclid;
+      }
+      window.analytics.identify(paramObj);
+    }
+    window.analytics.page(paramObj);
+  }
+  logPage();
+</script>
+
+<script>
+  const getCookieValue = (name) =>
+    document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)")?.pop();
+
+  const getTrackingCookies = () => {
+    const fbclid = getCookieValue("mot_fbclid");
+    return {
+      fbc:
+        getCookieValue("_fbc") ||
+        (fbclid ? `fb.1.${Date.now()}.${fbclid}` : ""),
+      fbclid,
+      fbp: getCookieValue("_fbp"),
+      gclid: getCookieValue("mot_gclid"),
+    };
+  };
+</script>
+
+<script>
+  _linkedin_partner_id = "6905708";
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+
+<script>
+  (function (l) {
+    if (!l) {
+      window.lintrk = function (a, b) {
+        window.lintrk.q.push([a, b]);
+      };
+      window.lintrk.q = [];
+    }
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";
+    b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);
+  })(window.lintrk);
+</script>
+
+<noscript>
+  <img
+    height="1"
+    width="1"
+    style="display: none"
+    alt=""
+    src="https://px.ads.linkedin.com/collect/?pid=6905708&fmt=gif"
+  />
+</noscript>
+
+<style>
+  @media (max-width: 600px) {
+    .cal-com-embed iframe {
+      width: 90% !important;
+      height: 70vh !important;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+
+    .cal-com-embed {
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .cal-com-embed input,
+    .cal-com-embed textarea,
+    .cal-com-embed select {
+      font-size: 16px !important;
+    }
+  }
+</style>
+
+<script src="https://unpkg.com/@amplitude/experiment-js-client@1.9.0/dist/experiment.umd.js"></script>
+
+<script>
+  const formId =
+    window.location.hostname === "www.usemotion.com"
+      ? "d79d5ff5-b55e-4f7e-a47c-a25d46bb1b28"
+      : "a33a7aed-39e3-497e-8338-a2784d6c0967";
+
+  function setEmailFormListener(ref) {
+    if (ref) {
+      ref.addEventListener("submit", async function (e) {
+        const cookieData = getTrackingCookies();
+        e.preventDefault();
+
+        const email = e.target.email.value;
+        const hpValue = e.target.why_motion.value;
+
+        window.analytics.identify(email);
+        if (hpValue !== "") {
+          window.analytics.track(
+            "HP_EMAIL_ENTERED",
+            { email, hpValue },
+            {
+              traits: { email: email },
+            }
+          );
+          return;
+        }
+        $("#contact-sales-email-modal").hide();
+        window.analytics.track(
+          "ENTERPRISE_WORK_EMAIL_SUBMITTED",
+          { email, location: "webflow", ...cookieData },
+          {
+            traits: { email: email },
+          }
+        );
+
+        // Add LI tracking for EES
+        window.lintrk("track", { conversion_id: 18891612 });
+
+        // Add fbclid for lead booked
+        document.cookie = `userAgent=${navigator.userAgent}; path=/;`;
+        const fbcCookie = getCookieValue("_fbc");
+        const fbcParam = fbcCookie
+          ? `&fbc=${encodeURIComponent(fbcCookie)}`
+          : "";
+        const fbpCookie = getCookieValue("_fbp");
+        const fbpParam = fbpCookie
+          ? `&fbp=${encodeURIComponent(fbpCookie)}`
+          : "";
+        const userAgentCookie = getCookieValue("userAgent");
+        const uaParam = userAgentCookie
+          ? `&ua=${encodeURIComponent(userAgentCookie)}`
+          : "";
+        const calURL = `https://cal.com/forms/${formId}?email=${encodeURIComponent(
+          email
+        )}${fbcParam}${fbpParam}${uaParam}`;
+        window.open(calURL, "_blank");
+      });
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    ref = document.getElementById("contact-sales-email-form");
+    setEmailFormListener(ref);
+  });
+</script>
+
+<script>
+  var enterpriseButtons = document.querySelectorAll("#contact-sales-button");
+  const cookieData = getTrackingCookies();
+
+  enterpriseButtons.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      window.analytics.track(
+        "ENTERPRISE_CARD_CLICKED",
+        {
+          location: "webflowTeamsPage",
+          path: window.location.pathname,
+          ...cookieData,
+        },
+        {
+          traits: { email: window.analytics.user().id() },
+        }
+      );
+    });
+  });
+
+  var tryMotionButtons = document.querySelectorAll(".cta-button-v1");
+
+  tryMotionButtons.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      window.analytics.track("TRY_MOTION_CTA_CLICKED", {
+        path: window.location.pathname,
+        ...cookieData,
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all inputs with the 'data-lowercase' attribute set to 'true'
+    const inputs = document.querySelectorAll('input[data-lowercase="true"]');
+
+    inputs.forEach((input) => {
+      // Convert input to lowercase as the user types
+      input.addEventListener("input", function () {
+        this.value = this.value.toLowerCase();
+      });
+    });
+  });
+</script>
+
+<script>
+  if (
+    window.location.pathname !== "/self-serve" &&
+    window.location.pathname !== "/booking-confirmation" &&
+    !navigator.userAgent.includes("Mobile")
+  ) {
+    document.querySelectorAll(".cta-button-v1").forEach((link) => {
+      link.setAttribute("href", "#");
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        // Reset form
+        document.getElementById("team-member-form").style.display = "flex";
+        document.getElementById(
+          "enterprise-modal-success-message"
+        ).style.display = "none";
+        const enterpriseQualifyModal = document.getElementById(
+          "enterprise-qualify-modal"
+        );
+        enterpriseQualifyModal.style.display = "flex";
+        enterpriseQualifyModal.style.opacity = 1;
+      });
+    });
+  }
+</script>
+
+<script>
+  function runExperiment() {
+    const deploymentKey =
+      window.location.hostname === "www.usemotion.com"
+        ? "client-rca2Pg6wM1yTHV9YYIPkdj2Jv3ZQArMx"
+        : "client-T69rMXb14Cd9tZfcvK8BeSmUZp1MYIpg";
+    const setupExperimentPoll = setInterval(() => {
+      if (window.analytics?.user?.().anonymousId()) {
+        clearInterval(setupExperimentPoll);
+        window.experiment =
+          Experiment.Experiment.initializeWithAmplitudeAnalytics(
+            deploymentKey,
+            {
+              serverUrl: "https://amplitudelab.usemotion.com",
+              automaticExposureTracking: false,
+              userProvider: {
+                getUser: () => ({
+                  user_id: window.analytics.user().id(),
+                  device_id: window.analytics.user().anonymousId(),
+                }),
+              },
+              exposureTrackingProvider: {
+                track: (exposure) => {
+                  window.analytics?.track("$exposure", exposure);
+                },
+              },
+            }
+          );
+      }
+    }, 250);
+    setTimeout(() => {
+      clearInterval(setupExperimentPoll);
+    }, 3000);
+  }
+  runExperiment();
+
+  // Handles routing for the  "How many team members" form
+  document.addEventListener("DOMContentLoaded", function () {
+    var form = document.getElementById("team-member-form");
+    if (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var selectedValue = document.querySelector(
+          'input[name="team-members"]:checked'
+        ).id;
+        window.analytics.track("TEAM_SURVEY_SELECTION", {
+          selection: selectedValue,
+        });
+
+        // For no-cc-b2b-everywhere we need this cookie
+        document.cookie = `survey_selection=${selectedValue};domain=.usemotion.com;path=/`;
+        document.cookie = `survey_selection=${selectedValue};domain=.motion-dev.webflow.io;path=/`;
+
+        document.querySelectorAll(".cta-button-v1").forEach((link) => {
+          link.setAttribute("href", `${window.webappUrl}/checkout`);
+        });
+        if (selectedValue === "individual" || selectedValue === "team") {
+          var email = $(".email-span").text();
+          let code;
+          if (email?.length) {
+            code = encodeURIComponent(btoa(email));
+          }
+          window.location.href =
+            `${window.webappUrl}/checkout` + (code ? `?e=${code}` : "");
+        } else if (selectedValue === "enterprise") {
+          var qualifypopup = document.getElementById(
+            "enterprise-qualify-modal"
+          );
+          var emailpopup = document.getElementById("contact-sales-email-modal");
+          emailpopup.style.display = "flex";
+          emailpopup.style.opacity = "1";
+          qualifypopup.style.display = "none";
+        }
+      });
+    }
+  });
+</script>
+
+<script>
+  // Reset form and modals if user clicks back after submitting (bfcache restore)
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      // Modals to hide
+      const modalsToHide = [
+        "enterprise-qualify-modal",
+        "email-modal-bg",
+        "contact-sales-email-modal",
+        "enterprise-modal-success-message"
+      ];
+
+      modalsToHide.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.display = "none";
+        }
+      });
+
+      // Reset the form visibility
+      const form = document.getElementById("team-member-form");
+      if (form) {
+        form.style.display = "none";
+        form.reset?.();
+      }
+
+      // Replace each radio input with a fresh copy to fully reset state
+      document.querySelectorAll('input[name="team-members"]').forEach((input) => {
+        const clone = input.cloneNode(true);
+        input.parentNode.replaceChild(clone, input);
+      });
+      
+      // Remove visual "checked" class Webflow adds
+      document.querySelectorAll('.w-form-formradioinput').forEach((el) => {
+        el.classList.remove('w--redirected-checked');
+      });
+    }
+  });
+</script>
+
+
+<script>
+  $(function () {
+    /*** START SCRIPT CONFIG ***/
+
+    // Replace with value for your form. ie. "#your-form-id" or ".your-form-class"
+    var FORM_SELECTOR = "#email-form";
+
+    // Do you want to hide the success message after the form is submitted?
+    var HIDE_SUCCESS_MESSAGE = false;
+
+    // Do you want the success message to show above the form?
+    var SUCCESS_MESSAGE_ABOVE_FORM = true;
+
+    /*** END SCRIPT CONFIG ***/
+
+    var resetCustomElement = function (customElement) {
+      var inputElement = customElement.nextSibling;
+      if (inputElement.checked) {
+        customElement.classList.add("w--redirected-checked");
+      } else {
+        customElement.classList.remove("w--redirected-checked");
+      }
+    };
+
+    var resetForm = function (form, successDiv) {
+      // Reset the inputs in the form
+      form.reset();
+
+      // Reset custom checkboxes
+      document
+        .querySelectorAll(".w-checkbox-input--inputType-custom")
+        .forEach(resetCustomElement);
+
+      // Reset custom radio buttons
+      document
+        .querySelectorAll(".w-form-formradioinput--inputType-custom")
+        .forEach(resetCustomElement);
+
+      // Show the form
+      form.style.display = "block";
+
+      // Hide Success Message
+      //if (HIDE_SUCCESS_MESSAGE) {
+      successDiv.style.display = "none";
+      //}
+    };
+
+    var form = document.querySelector(FORM_SELECTOR);
+    if (form) {
+      var successDiv = form.nextSibling;
+      if (!HIDE_SUCCESS_MESSAGE && SUCCESS_MESSAGE_ABOVE_FORM) {
+        // Move the form last so that the success message appears before it
+        form.parentElement.appendChild(form);
+      }
+
+      // Create an observer to run our resetForm function when Webflow hides our form after submission
+      var observer = new MutationObserver(function (mutations) {
+        if (form.style.display === "none") {
+          resetForm(form, successDiv);
+        }
+      });
+
+      // Listen for when the style attribute of our form changes
+      observer.observe(form, { attributes: true, attributeFilter: ["style"] });
+    }
+  });
+</script>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const id = entry.target.getAttribute("id");
+    if (entry.isIntersecting) {
+      document.querySelectorAll(".active").forEach((z) => {
+        z.classList.remove("active")
+      });
+      document.querySelector(`a[href="#${id}"]`).classList.add("active");
+    }
+  });
+}, { rootMargin: '0px 0px -75% 0px' });
+</script>
+
+<script>
+document.getElementById("content").querySelectorAll("h2").forEach(function(heading, i) { // runs a function for all headings inside your rich text element
+  observer.observe(heading);
+  let str = heading.innerHTML; // adds section titles to slugs
+  str = str.replace(/\s+/g, '-').replace(/[°&\/\\#,+()$~%.'’":;*?<>{}]/g, "").toLowerCase(); // replaces spaces with hyphens, removes special characters and extra spaces from the headings, and applies lowercase in slugs
+  heading.setAttribute("id", str); // gives each heading a unique id
+  const item = document.createElement("a"); // creates an anchor element called "item" for each heading
+  item.innerHTML = heading.innerHTML; // gives each item the text of the corresponding heading
+  ("h2").split(",").forEach(function(x) { // runs a function for each item in your headings list
+    if (heading.tagName.toLowerCase()==x) {
+      item.classList.add("tocitem", "toc-" + x); // gives each item the correct class
+    }
+  });
+  item.setAttribute("href", "#" + str); // gives each item the correct anchor link
+  document.querySelector("#toc").appendChild(item); // places each item inside the Table of Contents div
+});
+</script>
+
+<script>
+  var enterpriseButtons = document.querySelectorAll('#contact-sales-button');
+  
+  const getCookieValue = (name) => document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop()
+  
+  const getTrackingCookies = () => {
+	  const fbclid = getCookieValue('mot_fbclid')
+    return {
+      fbc:
+        getCookieValue('_fbc') || (fbclid ? `fb.1.${Date.now()}.${fbclid}` : ''),
+      fbclid,
+      fbp: getCookieValue('_fbp'),
+      gclid: getCookieValue('mot_gclid')
+    }
+  }
+
+	enterpriseButtons.forEach(button => {
+  	button.addEventListener('click', function(event) {
+  	const cookieData = getTrackingCookies()
+    window.analytics.track('ENTERPRISE_CARD_CLICKED', {
+      // Make sure to update this with the page name
+      location: 'webflowBlogPages',
+      ...cookieData
+    });
+  });
+
+  });
+</script></body></html>

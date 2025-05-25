@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Work_Sans } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
+import Layout from "@/components/Layout";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -28,8 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} ${workSans.variable}`}>
       <body>
-        <Navbar />
-        {children}
+        <Layout>
+          {children}
+        </Layout>
       </body>
     </html>
   );

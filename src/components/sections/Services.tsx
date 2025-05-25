@@ -48,7 +48,7 @@ const item: Variants = {
   },
 };
 
-export function Services() {
+export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -70,15 +70,16 @@ export function Services() {
       {/* Main content above the background */}
       <div className="relative z-20 py-20 px-4">
         <div className="container mx-auto">
-          <motion.h2 
+          {/* Section Label and Headline */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="font-manrope font-extrabold text-4xl tracking-tighter mb-16"
+            transition={{ duration: 0.5 }}
+            className="mb-2"
           >
-            SERVICES
-          </motion.h2>
+            <h2 className="text-4xl font-bold mb-6 text-left">How I Can Help</h2>
+          </motion.div>
 
           <motion.div 
             variants={container}
@@ -91,11 +92,7 @@ export function Services() {
               <motion.div
                 key={index}
                 variants={item}
-                className={`group relative rounded-xl p-6 overflow-hidden border border-white/20 shadow-lg min-h-[252px] flex flex-col ${
-                  index % 2 === 0 
-                    ? 'bg-gradient-to-b from-[#EDE5F4]/90 to-[#EDE5F4]/70' 
-                    : 'bg-gradient-to-b from-[#F5EAFD]/90 to-[#F5EAFD]/70'
-                }`}
+                className={`group relative rounded-xl p-6 overflow-hidden border border-white/20 shadow-lg min-h-[252px] flex flex-col transition-transform duration-300 hover:scale-105 hover:shadow-md bg-white`}
               >
                 {/* Background Logo */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -123,13 +120,9 @@ export function Services() {
                   <h3 className="font-manrope font-bold text-xl">{service.title}</h3>
                 </div>
                 
-                <p className="font-work-sans text-sm text-black/60 mb-3">
-                  {service.summary}
-                </p>
-
-                <p className="font-work-sans font-light text-xs text-black/80">
-                  {service.description}
-                </p>
+                {/* Outcome-focused description */}
+                <p className="font-work-sans text-sm text-black/60 mb-3">{service.summary}</p>
+                <p className="font-work-sans font-light text-xs text-black/80">{service.description}</p>
 
                 <div className="relative mt-auto pt-6">
                   <div className="absolute bottom-0 left-0 w-full h-[2px] bg-primary/20 transition-colors duration-300 group-hover:bg-primary/40" />
